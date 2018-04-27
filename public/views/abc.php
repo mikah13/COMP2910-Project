@@ -1,5 +1,5 @@
 <?php require_once('../../private/credential/initialize.php');
-        require_once('../../private/credential/validation.php')
+        require_once('../../private/credential/validation.php');
 
         ?>
 <!DOCTYPE html>
