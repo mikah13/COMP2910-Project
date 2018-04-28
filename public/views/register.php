@@ -72,13 +72,15 @@
                     } else {
                         // Execute
                         if($stmt->execute()){
+                            echo("Success");
                             //Close
                             $stmt->close();
                             $url = 'login.php';
-                            header('Location: '.$url);
+                            // header('Location: '.$url);
                         }
                         else{
-                            header('Location: register.php');
+                            echo "ooops";
+                            // header('Location: register.php');
                         }
 
                     }
