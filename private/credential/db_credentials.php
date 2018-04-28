@@ -20,9 +20,10 @@
     // define("DB_PASS", "29071308");
     // define("DB_NAME", "food");
 
-
+    echo $connectstr_dbhost;
+    echo $connectstr_dbname;
     define("DB_SERVER", $connectstr_dbhost);
-    define("DB_USER", $connectstr_dbpassword);
+    define("DB_USER", $connectstr_dbusername);
     define("DB_PASS", $connectstr_dbpassword);
     define("DB_NAME", $connectstr_dbname);
 ?>
