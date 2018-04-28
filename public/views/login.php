@@ -115,11 +115,11 @@ body {
 
 
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="input-field col s12">
             <a href="https://www.facebook.com/v2.6/dialog/oauth?client_id=447101349023173&state=16b6ce93121b514e68588fde6f89c24a&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fimmense-brushlands-25104.herokuapp.com%2Fsocial_auth%2Ffacebook&scope=email"><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a>
           </div>
-        </div>
+        </div> -->
 
 
         <div class="row">
