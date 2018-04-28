@@ -51,7 +51,7 @@
     <div id="login-page" class="row">
         <div class="col s12 z-depth-6 card-panel">
             <form class="login-form" method="POST">
-                <!-- <?php
+             <?php
                 if (isset($_POST['signup'])) {
                     // Prepare
                     $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
@@ -71,21 +71,21 @@
                         echo "Invalid Name";
                     } else {
                         // Execute
-                        // if($stmt->execute()){
+                        if($stmt->execute()){
                             echo("Success");
                             //Close
-                            // $stmt->close();
-                            // $url = 'login.php';
-                            // header('Location: '.$url);
-                        // }
-                        // else{
-                            // echo "ooops";
-                            // header('Location: register.php');
-                        // }
+                            $stmt->close();
+                            $url = 'login.php';
+                            header('Location: '.$url);
+                        }
+                        else{
+                            echo "ooops";
+                            header('Location: register.php');
+                        }
 
                     }
                 }
-                 ?> -->
+                 ?>
                 <div class="row">
                     <div class="input-field col s12 center">
                         <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
