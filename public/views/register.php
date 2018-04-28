@@ -75,6 +75,14 @@
                             echo("Success");
                             //Close
                             $stmt->close();
+                            $to      = $email;
+                            $subject = 'the subject';
+                            $message = 'hello';
+                            $headers = 'From: anhminhhoang13@gmail.com' . "\r\n" .
+                            'Reply-To: anhminhhoang13@gmail.com' . "\r\n" .
+                            'X-Mailer: PHP/' . phpversion();
+
+                            mail($to, $subject, $message, $headers);
                             $url = 'login.php';
                             header('Location: '.$url);
                         }
