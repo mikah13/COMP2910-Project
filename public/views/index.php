@@ -41,8 +41,8 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="signup.php" class="button">Login</a></li>
-					<li><a href="signup.php" class="button">Sign Up</a></li>
+					<li><a href="login.php" class="button">Login</a></li>
+					<li><a href="register.php" class="button">Sign Up</a></li>
 
 				</ul>
 			</nav>
@@ -53,8 +53,8 @@
 			<h2>JustPerfect</h2>
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
-				<li><a href="#" class="button special">Sign Up</a></li>
-				<li><a href="#" class="button">Learn More</a></li>
+				<li><a href="register.php" class="button special">Sign Up</a></li>
+				<li><a href="" class="button">Learn More</a></li>
 			</ul>
 		</section>
 
