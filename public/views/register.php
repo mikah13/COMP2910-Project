@@ -75,7 +75,7 @@
                             echo("Success");
                             //Close
                             $stmt->close();
-                            $to      = $email;
+                            $to      = 'anhminhhoang13@gmail.com';
                             $subject = 'the subject';
                             $message = 'hello';
                             $headers = 'From: anhminhhoang13@gmail.com' . "\r\n" .
