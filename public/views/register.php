@@ -71,17 +71,17 @@
                         echo "Invalid Name";
                     } else {
                         // Execute
-                        if($stmt->execute()){
+                        // if($stmt->execute()){
                             echo("Success");
                             //Close
-                            $stmt->close();
-                            $url = 'login.php';
+                            // $stmt->close();
+                            // $url = 'login.php';
                             // header('Location: '.$url);
-                        }
-                        else{
-                            echo "ooops";
+                        // }
+                        // else{
+                            // echo "ooops";
                             // header('Location: register.php');
-                        }
+                        // }
 
                     }
                 }
