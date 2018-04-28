@@ -1,7 +1,13 @@
 <?php require_once('../../private/credential/initialize.php');
         require_once('../../private/credential/validation.php');
+        $msg = "First line of text\nSecond line of text";
 
+
+    $msg = wordwrap($msg, 70);
+
+    mail("anhminhhoang13@gmail.com", "My subject", $msg);
         ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

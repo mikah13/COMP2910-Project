@@ -1,6 +1,8 @@
 <?php
     require_once('initialize.php');
-
+    function nameChk($first, $last){
+        return !empty($first) && !empty($last);
+    }
     function passChk($password)
     {
         if (empty($password)) {
