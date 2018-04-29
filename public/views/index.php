@@ -1,3 +1,8 @@
+<?php
+	session_start();
+ 	$_SESSION['reg-error'] = '';
+	$_SESSION['log-error'] = '';
+?>
 <!DOCTYPE HTML>
 <html>
 

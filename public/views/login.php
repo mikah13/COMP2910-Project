@@ -1,7 +1,7 @@
 <?php require_once('../../private/credential/initialize.php');
         session_start();
         ob_start();
-
+        $_SESSION['reg-error'] = '';
         ?>
 
 <!DOCTYPE html>

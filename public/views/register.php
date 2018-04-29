@@ -1,6 +1,8 @@
 <?php session_start();
         require_once('../../private/credential/initialize.php');
         require_once('../../private/credential/validation.php');
+        $_SESSION['log-error'] = '';
+        $_SESSION['reg-error'] = '';
         ?>
 
 <!DOCTYPE html>
