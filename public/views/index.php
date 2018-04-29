@@ -25,7 +25,7 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="dashboard.php">Dashboard</a></li>
-					<li>
+					<!-- <li>
 						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>
 							<li><a href="generic.html">Generic</a></li>
@@ -41,7 +41,7 @@
 								</ul>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href="login.php" class="button">Login</a></li>
 					<li><a href="register.php" class="button">Sign Up</a></li>
 

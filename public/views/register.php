@@ -82,8 +82,7 @@
                         if($stmt->execute()){
                             //Close
                             $stmt->close();
-                            $url = 'login.php';
-                            header('Location: '.$url);
+                            header('Location: login.php';
                         }
                         else{
                             header('Location: register.php');

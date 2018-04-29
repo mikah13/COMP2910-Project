@@ -1,5 +1,5 @@
 <h2 align="center" font-size="30">COMP2910 Project</h2>
-<p align="center" ><a href="https://jperfect.azurewebsites.net/" target="_blank"><img style="display: block; margin: auto;" src="https://github.com/mikah13/COMP2910-Project/blob/master/public/views/images/full_logo.png" /></a></p>
+<p align="center" ><a href="https://jperfect.azurewebsites.net" target="_blank"><img style="display: block; margin: auto;" src="https://github.com/mikah13/COMP2910-Project/blob/master/public/views/images/full_logo.png" /></a></p>
 <h1 align="center"> JUST PERFECT </h1>
 <h4 align="center">One Step Closer To Being Perfect</h4>
 

@@ -1,6 +1,9 @@
 <?php require_once('../../private/credential/initialize.php');
         session_start();
         ob_start();
+        if (!isset($_POST['login'])) {
+            $_SESSION["log-error"] = '';
+        }
         ?>
 
 <!DOCTYPE html>
@@ -55,7 +58,6 @@ body {
         <?php
 
         if (isset($_POST['login'])) {
-                echo 'asdf';
  	    // Prepare
 
  	     $stmt = $conn->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
@@ -72,10 +74,11 @@ body {
  			        $user = mysqli_fetch_assoc($result);
  			        $_SESSION['id'] = $user['id'];
                     $stmt->close();
+                    $_SESSION['log-error'] = "";
                     header('Location: dashboard.php');
  		        }
  		        else {
-
+                    $_SESSION['log-error'] = "Invalid email or password";
  			        header('Location: login.php');
  		        }
  	        }
@@ -87,6 +90,9 @@ body {
             <p class="center login-form-text">One Step Closer To Being Perfect</p>
           </div>
         </div>
+        <?php
+            echo "<p class='error col s12 center'>".$_SESSION["log-error"]."</p>";
+        ?>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
