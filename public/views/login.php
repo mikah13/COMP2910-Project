@@ -1,9 +1,7 @@
 <?php require_once('../../private/credential/initialize.php');
         session_start();
         ob_start();
-        if (!isset($_POST['login'])) {
-            $_SESSION["log-error"] = '';
-        }
+
         ?>
 
 <!DOCTYPE html>
@@ -44,6 +42,9 @@ body {
 
 .margin {
   margin: 0 !important;
+}
+.error{
+    color:#F94D3C;
 }
 </style>
 <link rel="shortcut icon" href="images/logo.png" />

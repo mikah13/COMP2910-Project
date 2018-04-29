@@ -1,9 +1,6 @@
 <?php session_start();
         require_once('../../private/credential/initialize.php');
         require_once('../../private/credential/validation.php');
-        if (!isset($_POST['signup'])) {
-            $_SESSION["reg-error"] = '';
-        }
         ?>
 
 <!DOCTYPE html>
@@ -97,9 +94,9 @@
                         <p class="center login-form-text">One Step Closer To Being Perfect</p>
                     </div>
                 </div>
-                <?php if(isset($_POST['signup'])){
+                <?php
                     echo "<p class='error col s12 center'>".$_SESSION["reg-error"]."</p>";
-                } ?>
+                ?>
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
