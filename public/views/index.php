@@ -147,7 +147,7 @@
 					</div>
 				</div>
 			</form>
-			<?php if(isset$_GET['sign-up']){
+			<?php if(isset($_GET['sign-up'])){
 					header('Location: register.php');
 			} ?>
 		</section>
