@@ -23,7 +23,8 @@
 			<h1><a href="index.html">JustPerfect</a></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="dashboard.php">Dashboard</a></li>
 					<li>
 						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>

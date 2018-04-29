@@ -1,5 +1,9 @@
-<?php require_once('../../private/credential/initialize.php');
-        require_once('../../private/credential/validation.php')
+<?php session_start();
+        require_once('../../private/credential/initialize.php');
+        require_once('../../private/credential/validation.php');
+        if (!isset($_POST['signup'])) {
+            $_SESSION["reg-error"] = '';
+        }
         ?>
 
 <!DOCTYPE html>
@@ -42,6 +46,9 @@
         .margin {
             margin: 0 !important;
         }
+        .error{
+            color:#F94D3C;
+        }
     </style>
     <link rel="shortcut icon" href="images/logo.png" />
 </head>
@@ -64,30 +71,21 @@
                     $password = mysqli_real_escape_string($conn,$_POST['password']);
 
                     if (!emailChk($conn, $email)) {
-                        echo "Invalid Email";
+                        $_SESSION["reg-error"] = "Invalid Email";
                     } elseif (!passChk($password)) {
-                        echo "Password must be at a minimum of 8 character long and contain at least one Uppercase, one Lowercase and one Number";
+                        $_SESSION["reg-error"] = "Password must contain at least 8 characters, <br /> one Uppercase, one Lowercase and one Number";
                     } elseif (!nameChk($first,$last)){
-                        echo "Invalid Name";
+                        $_SESSION["reg-error"] = "Invalid First and Last name";
                     } else {
+                        $_SESSION["reg-error"] = '';
                         // Execute
                         if($stmt->execute()){
-                            echo("Success");
                             //Close
                             $stmt->close();
-                            $to      = 'anhminhhoang13@gmail.com';
-                            $subject = 'the subject';
-                            $message = 'hello';
-                            $headers = 'From: anhminhhoang13@gmail.com' . "\r\n" .
-                            'Reply-To: anhminhhoang13@gmail.com' . "\r\n" .
-                            'X-Mailer: PHP/' . phpversion();
-
-                            mail($to, $subject, $message, $headers);
                             $url = 'login.php';
                             header('Location: '.$url);
                         }
                         else{
-                            echo "ooops";
                             header('Location: register.php');
                         }
 
@@ -100,6 +98,9 @@
                         <p class="center login-form-text">One Step Closer To Being Perfect</p>
                     </div>
                 </div>
+                <?php if(isset($_POST['signup'])){
+                    echo "<p class='error col s12 center'>".$_SESSION["reg-error"]."</p>";
+                } ?>
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>

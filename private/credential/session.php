@@ -11,7 +11,6 @@
 
 
 
-
     // $login_session = $row['username'];
 
     if (!isset($_SESSION['id'])) {
