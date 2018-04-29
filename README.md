@@ -4,12 +4,8 @@
 <h4 align="center">One Step Closer To Being Perfect</h4>
 
 ### Overview
-
-This repo contains a set of short tutorials with code snippets describing the process of creating a small and simple bot for Slack.
-
-Slack is a great tool that helps us, the developers, to communicate and work things easier and more convenient. Compared to other tools we used to use such as Skype, Slack is a way better application in terms of its stability, compatibility on mobile and desktop. More importantly, Slack support tons of applications such as Trello, GitHub,...
-
-Slack Bot is another application that we can have on Slack which helps us do things faster and more efficient. The Bot that we are going to create will mostly serve our entertaining purpose, however, you can always improve it to make it meet your needs.
+Canadians throw away an average of $854 per person each year of unused food. A key factor to this
+problem is that shoppers do not know how much to buy when grocery shopping. Our web based application JustPerfect will provide the estimated measurement for each meal on a weekly basis, cutting down the excess food bought by consumers each day.
 
 
 # Table of Contents
