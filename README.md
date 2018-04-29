@@ -19,14 +19,12 @@ This document will walk you through the process of setting up and creating the a
 
 # Table of Contents
 
-* [Install Node.js](#install-node.js)
-* [BotKit](#botkit)
-* [Implement Functions](#implement-functions)
-* [Add Cleverbot](#add-cleverbot)
-* [User Guide](#user-guide)
+* [Install MySQL](#install-mysql)
+* [Connect MySQL and PHP](#connect-mysql-and-php)
+* [Deploy on Azure](#deploy-on-azure)
 * [Credit](#credit)
 
-## Install Node.js
+## Install MySQL
 You can find the latest version Node.js for your Operating System <a href="https://nodejs.org/en/">here</a>
 
 After installing Node.js, you are also recommended to install Node Version Manager (nvm) which basically helps you to have multiple versions of Node.js in your system. However, this step is optional.
@@ -44,7 +42,7 @@ $ npm -v
 ```
 After this point, your have successfully installed Node.js. Let's get into the next step.
 
-## BotKit
+## Connect MySQL and PHP
 You need to have a folder for your project. Let's make a folder called SlackBot and change directory into the folder
 
 ```console
@@ -68,7 +66,7 @@ $ npm install --save botkit
 
 Once your botkit module is ready, you can now begin the fun part
 
-## Implemented Functions
+## Deploy on Azure
 
 Let's create an index.js inside the SlackBot folder. This is the file where we will implement our bot's functions and behaviours. To initialize our bot, put the folling code inside index.js:
 
