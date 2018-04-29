@@ -82,6 +82,7 @@
                             //Close
                             $stmt->close();
                             $_SESSION['log-error'] = "<p class='success col s12 center'>Account Created Successfully!</p>";
+                            header('Location:login.php');
                         }
                         else{
                             header('Location: register.php');
