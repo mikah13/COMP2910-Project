@@ -9,6 +9,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=600" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="author" content="JMAN">
