@@ -7,6 +7,15 @@
 Canadians throw away an average of $854 per person each year of unused food. A key factor to this
 problem is that shoppers do not know how much to buy when grocery shopping. Our web based application JustPerfect will provide the estimated measurement for each meal on a weekly basis, cutting down the excess food bought by consumers each day.
 
+This document will walk you through the process of setting up and creating the application of Team 7.
+
+### Members
+* [J]eevan Bains
+* [M]ike Hoang
+* [A]ndrew Yang
+* [A]ntonio Cao Shen (C)
+* [N]irajan Manandhar
+
 
 # Table of Contents
 
