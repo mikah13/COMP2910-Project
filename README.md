@@ -1,7 +1,7 @@
 <h2 align="center" font-size="30">COMP2910 Project</h2>
-<img src="https://github.com/mikah13/COMP2910-Project/blob/master/public/views/images/full_logo.png" />
-<h1> JUST PERFECT </h1>
-<h4>One Step Closer To Being Perfect</h4>
+<img align="center" src="https://github.com/mikah13/COMP2910-Project/blob/master/public/views/images/full_logo.png" />
+<h1 align="center"> JUST PERFECT </h1>
+<h4 align="center">One Step Closer To Being Perfect</h4>
 
 ### Overview
 
