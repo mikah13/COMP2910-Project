@@ -2,6 +2,9 @@
         session_start();
         ob_start();
         $_SESSION['reg-error'] = '';
+        if (isset($_SESSION['id'])) {
+            header("Location: dashboard.php");
+        }
         ?>
 
 <!DOCTYPE html>

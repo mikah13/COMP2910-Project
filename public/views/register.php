@@ -2,7 +2,6 @@
         require_once('../../private/credential/initialize.php');
         require_once('../../private/credential/validation.php');
         $_SESSION['log-error'] = '';
-
         ?>
 
 <!DOCTYPE html>
