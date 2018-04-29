@@ -16,10 +16,10 @@
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
     }
     // define("DB_SERVER", "127.0.0.1");
-    // define("DB_USER", "YOUR NAME");
-    // define("DB_PASS", "YOUR PASSWORD");
+    // define("DB_USER", "mikah");
+    // define("DB_PASS", "29071308");
     // define("DB_NAME", "food");
-
+    //
     define("DB_SERVER", $connectstr_dbhost);
     define("DB_USER", $connectstr_dbusername);
     define("DB_PASS", $connectstr_dbpassword);

@@ -79,7 +79,7 @@
                         if($stmt->execute()){
                             //Close
                             $stmt->close();
-                            header('Location: login.php';
+                            header('Location: login.php');
                         }
                         else{
                             header('Location: register.php');
