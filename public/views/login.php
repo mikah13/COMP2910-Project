@@ -46,6 +46,9 @@ body {
 .error{
     color:#F94D3C;
 }
+.success{
+    color: #61c200 ;
+}
 </style>
 <link rel="shortcut icon" href="images/logo.png" />
 
@@ -79,7 +82,7 @@ body {
                     header('Location: dashboard.php');
  		        }
  		        else {
-                    $_SESSION['log-error'] = "Invalid email or password";
+                    $_SESSION['log-error'] = "<p class='error col s12 center'>Invalid email or password</p>";
  			        header('Location: login.php');
  		        }
  	        }
@@ -92,7 +95,7 @@ body {
           </div>
         </div>
         <?php
-            echo "<p class='error col s12 center'>".$_SESSION["log-error"]."</p>";
+            echo     $_SESSION['log-error'];
         ?>
         <div class="row margin">
           <div class="input-field col s12">

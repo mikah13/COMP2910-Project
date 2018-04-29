@@ -81,8 +81,7 @@
                         if($stmt->execute()){
                             //Close
                             $stmt->close();
-                            $_SESSION['log-error'] = '<span color="green">Account created successfully!</span>';
-                            header('Location: login.php');
+                            $_SESSION['log-error'] = "<p class='success col s12 center'>Account Created Successfully!</p>";
                         }
                         else{
                             header('Location: register.php');
