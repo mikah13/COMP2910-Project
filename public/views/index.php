@@ -29,7 +29,7 @@
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header" class="alt">
-			<h1><a href="index.html">JustPerfect</a></h1>
+			<h1><a href="index.php">JustPerfect</a></h1>
 			<nav id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
@@ -141,7 +141,7 @@
 		<!-- CTA -->
 		<section id="cta">
 			<h2>Sign up for beta access</h2>
-			<form>
+			<form action="register.php">
 				<div class="row uniform 50%">
 					<div class="8u 12u(mobilep)">
 						<input type="email" name="email" id="email" placeholder="Email Address" />
@@ -151,9 +151,7 @@
 					</div>
 				</div>
 			</form>
-			<?php if(isset($_GET['sign-up'])){
-					header('Location: register.php');
-			} ?>
+
 		</section>
 
 		<!-- Footer -->
