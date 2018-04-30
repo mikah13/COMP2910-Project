@@ -143,10 +143,10 @@
 			<form action="register.php">
 				<div class="row uniform 50%">
 					<div class="8u 12u(mobilep)">
-						<input type="email" name="email" id="email" placeholder="Email Address" />
+						<input type="email" id="email" placeholder="Email Address" />
 					</div>
 					<div class="4u 12u(mobilep)">
-						<input name="sign-up" type="submit" value="Sign Up" class="fit" />
+						<input type="submit" value="Sign Up" class="fit" />
 					</div>
 				</div>
 			</form>
