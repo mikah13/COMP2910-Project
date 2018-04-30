@@ -1,8 +1,14 @@
+<?php
+	session_start();
+ 	$_SESSION['reg-error'] = '';
+	$_SESSION['log-error'] = '';
+?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
 	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="max-age=600" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta name="author" content="JMAN">
@@ -10,6 +16,8 @@
 	<meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
+
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<link rel="shortcut icon" href="images/logo.png" />
@@ -20,12 +28,12 @@
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header" class="alt">
-			<h1><a href="index.html">JustPerfect</a></h1>
+			<h1><a href="index.php">JustPerfect</a></h1>
 			<nav id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="dashboard.php">Dashboard</a></li>
-					<li>
+					<!-- <li>
 						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>
 							<li><a href="generic.html">Generic</a></li>
@@ -41,7 +49,7 @@
 								</ul>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href="login.php" class="button">Login</a></li>
 					<li><a href="register.php" class="button">Sign Up</a></li>
 
@@ -131,14 +139,11 @@
 
 		<!-- CTA -->
 		<section id="cta">
-
 			<h2>Sign up for beta access</h2>
-			<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
-
-			<form>
+			<form action="register.php">
 				<div class="row uniform 50%">
 					<div class="8u 12u(mobilep)">
-						<input type="email" name="email" id="email" placeholder="Email Address" />
+						<input type="email" id="email" placeholder="Email Address" />
 					</div>
 					<div class="4u 12u(mobilep)">
 						<input type="submit" value="Sign Up" class="fit" />
@@ -166,6 +171,7 @@
 	</div>
 
 	<!-- Scripts -->
+	<script src="https://use.fontawesome.com/187432b169.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>

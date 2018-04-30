@@ -1,9 +1,7 @@
 <?php session_start();
         require_once('../../private/credential/initialize.php');
         require_once('../../private/credential/validation.php');
-        if (!isset($_POST['signup'])) {
-            $_SESSION["reg-error"] = '';
-        }
+        $_SESSION['log-error'] = '';
         ?>
 
 <!DOCTYPE html>
@@ -11,6 +9,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=600" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="author" content="JMAN">
@@ -82,8 +81,8 @@
                         if($stmt->execute()){
                             //Close
                             $stmt->close();
-                            $url = 'login.php';
-                            header('Location: '.$url);
+                            $_SESSION['log-error'] = "<p class='success col s12 center'>Account Created Successfully!</p>";
+                            header('Location: login.php');
                         }
                         else{
                             header('Location: register.php');
@@ -98,9 +97,9 @@
                         <p class="center login-form-text">One Step Closer To Being Perfect</p>
                     </div>
                 </div>
-                <?php if(isset($_POST['signup'])){
+                <?php
                     echo "<p class='error col s12 center'>".$_SESSION["reg-error"]."</p>";
-                } ?>
+                ?>
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
