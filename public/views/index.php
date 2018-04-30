@@ -16,7 +16,6 @@
 	<meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<script src="https://use.fontawesome.com/187432b169.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
 
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -172,6 +171,7 @@
 	</div>
 
 	<!-- Scripts -->
+	<script src="https://use.fontawesome.com/187432b169.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
