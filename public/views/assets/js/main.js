@@ -8,7 +8,7 @@
         mobilep: '(max-width: 480px)'
     });
     $(function () {
-        //Andrew was here
+        //Andrew was here again
         var $window = $(window),
             $body = $('body'),
             $header = $('#header'),
