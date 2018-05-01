@@ -2,6 +2,7 @@
 <p align="center" ><a href="https://jperfect.azurewebsites.net" target="_blank"><img style="display: block; margin: auto;" src="https://github.com/mikah13/COMP2910-Project/blob/master/public/views/images/full_logo.png" /></a></p>
 <h1 align="center"> JUST PERFECT </h1>
 <h4 align="center">One Step Closer To Being Perfect</h4>
+<h4 align="center">Andrew was here</h4>
 
 ### Overview
 Canadians throw away an average of $854 per person each year of unused food. A key factor to this
