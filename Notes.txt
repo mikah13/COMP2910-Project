@@ -1,0 +1,2 @@
+Rebase "Branch Name" onto master
+-copies master branch to your branch
