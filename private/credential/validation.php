@@ -22,7 +22,7 @@
     function emailChk($conn, $email)
     {
         $result=mysqli_query($conn, "SELECT * from user WHERE email = '{$email}'");
-        if (mysqli_fetch_row($result)[0]!=0) {
+        if (mysqli_num_rows($result) != 0) {
             return false;
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
