@@ -1,7 +1,8 @@
 <?php
     require_once('db_credentials.php');
     function db_connect() {
-        $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+        $conn = new mysqli('localhost', 'nirajan', 'Dontfearm3', 'food')
+        or die($conn->connect_error);
         return $conn;
     }
 
