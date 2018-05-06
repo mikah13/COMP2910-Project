@@ -1,9 +1,8 @@
-<?php require_once('../../private/credential/initialize.php');
+<?php
         session_start();
         ob_start();
-        $_SESSION['reg-error'] = '';
         if (isset($_SESSION['id'])) {
-            header("Location: dashboard.php");
+            header("Location: menu.php");
         }
         ?>
 
@@ -63,76 +62,47 @@ body {
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
       <form class="login-form" method="POST">
-        <?php
 
-        if (isset($_POST['login'])) {
- 	    // Prepare
-
- 	     $stmt = $conn->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
- 	     $stmt->bind_param("ss", $email, $password);
-
- 	     // Set variables
-
- 	     $email = mysqli_real_escape_string($conn, $_POST['email']);
- 	     $password = mysqli_real_escape_string($conn, $_POST['password']);
- 	        if ($stmt->execute() == true) {
- 		        $result = $stmt->get_result();
- 		        $num_rows = $result->num_rows;
- 		        if ($num_rows == 1) {
- 			        $user = mysqli_fetch_assoc($result);
- 			        $_SESSION['id'] = $user['id'];
-                    $stmt->close();
-                    $_SESSION['log-error'] = "";
-                    header('Location: dashboard.php');
- 		        }
- 		        else {
-                    $_SESSION['log-error'] = "<p class='error col s12 center'>Invalid email or password</p>";
- 			        header('Location: login.php');
- 		        }
- 	        }
-        }
-        ?>
         <div class="row">
           <div class="input-field col s12 center">
               <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
             <p class="center login-form-text">One Step Closer To Being Perfect</p>
           </div>
         </div>
-        <?php
-            echo     $_SESSION['log-error'];
-        ?>
+            <div class="msg">
+            <p class="success col s12 center"><?php echo $_POST['msg']; ?></p>
+
+            </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" id="email" type="email" name="email">
+            <input class="validate" id="email" type="email" name="email"  autocomplete="username email">
             <label for="email" data-error="wrong" class="center-align">Email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password" name="password">
+            <input id="password" type="password" name="password" autocomplete="current-password">
             <label for="password">Password</label>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <button type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
+            <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
+          </div>
+          <div class="input-field col s12 ">
+            <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
           </div>
     </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="input-field col s12">
-            <a href=""><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a>
+            <a href=""><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a> -->
           <!-- <div class="fb-login-button" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>          </div> -->
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12 ">
-            <p class="center"><a href="register.php">Register Now!</a></p>
-          </div>
+          <!-- </div>
+        </div> -->
 
-        </div>
 
       </form>
     </div>
@@ -144,10 +114,10 @@ body {
     ================================================ -->
 
   <!-- jQuery Library -->
- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
   <!--materialize js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-
+  <script src="assets/js/materialize.min.js"></script>
+  <script src="assets/js/login.js"></script>
 
    <footer class="page-footer">
           <div class="footer-copyright center">
@@ -160,5 +130,3 @@ body {
 </body>
 
 </html>
-<?php db_disconnect($conn);
-?>

@@ -16,8 +16,8 @@
     // $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
     // }
     define("DB_SERVER", "127.0.0.1");
-    define("DB_USER", "mikah");
-    define("DB_PASS", "29071308");
+    define("DB_USER", "root");
+    define("DB_PASS", "123123");
     define("DB_NAME", "food");
     //
     // define("DB_SERVER", $connectstr_dbhost);
