@@ -1,8 +1,6 @@
 <?php
-    require_once('../../private/credential/initialize.php');
+require_once('../private/credential/initialize.php');
     session_start();
-    $_SESSION['reg-error'] = '';
-    $_SESSION['log-error'] = '';
     $stmt = $conn->prepare("SELECT id FROM user WHERE id = ?");
     $stmt->bind_param("s", $_SESSION['id']);
     if ($stmt->execute() == true) {
