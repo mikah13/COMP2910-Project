@@ -11,4 +11,15 @@ CREATE TABLE user (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY(id)
-);
+) ENGINE=INNODB;;
+
+CREATE TABLE user_recipe (
+    id INT(11) NOT NULL,
+    recipe_id INT(10) NOT NULL,
+    recipe_title VARCHAR(255) NOT NULL,
+    day VARCHAR(10) NOT NULL,
+    week VARCHAR(10) NOT NULL,
+    quantity INT(10) NOT NULL,
+    PRIMARY KEY(recipe_id, day, week),
+    FOREIGN KEY (id) REFERENCES user(id)  ON DELETE CASCADE
+) ENGINE=INNODB;

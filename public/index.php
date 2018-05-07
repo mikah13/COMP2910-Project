@@ -1,8 +1,3 @@
-<?php
-	session_start();
- 	$_SESSION['reg-error'] = '';
-	$_SESSION['log-error'] = '';
-?>
 <!DOCTYPE HTML>
 <html>
 
@@ -15,11 +10,9 @@
 	<meta name="description" content="Food Tracking Application">
 	<meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
 
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<link rel="shortcut icon" href="images/logo.png" />
 	<title>JustPerfect</title>
 </head>
@@ -167,11 +160,23 @@
 				<li>&copy; JMAN - 2018. All rights reserved.</li>
 			</ul>
 		</footer>
+<!--
+
+███████╗ █████╗ ██╗   ██╗███████╗    ███████╗ ██████╗  ██████╗ ██████╗
+██╔════╝██╔══██╗██║   ██║██╔════╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
+███████╗███████║██║   ██║█████╗      █████╗  ██║   ██║██║   ██║██║  ██║
+╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
+███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
+╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
+
+
+
+-->
 
 	</div>
 
 	<!-- Scripts -->
-	<script src="https://use.fontawesome.com/187432b169.js"></script>
+	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
