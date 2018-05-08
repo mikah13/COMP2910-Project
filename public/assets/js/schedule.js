@@ -484,6 +484,7 @@ jQuery(document).ready(function($) {
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
                 $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
+                    console.log(d);
                     d = JSON.parse(d);
                     days.forEach(day => {
                         $(`#${day}`).html(d[day]);
@@ -502,6 +503,7 @@ jQuery(document).ready(function($) {
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
                 $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
+                    console.log(d);
                     d = JSON.parse(d);
                     days.forEach(day => {
                         $(`#${day}`).html(d[day]);
