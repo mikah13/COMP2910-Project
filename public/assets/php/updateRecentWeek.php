@@ -1,4 +1,5 @@
 <?php
+require_once('../../../private/credential/initialize.php');
 session_start();
 $stmt = $conn->prepare("SELECT id FROM user WHERE id = ?");
 $stmt->bind_param("s", $_SESSION['id']);
@@ -14,3 +15,13 @@ if ($stmt->execute() == true) {
 if (!isset($_SESSION['id'])) {
     header("Location:../../login.php");
 }
+
+$stmt = $conn->prepare("UPDATE user_activity SET lastWeekNo = ? WHERE id = ?");
+
+$stmt->bind_param("ss", intval($_POST['week']), $_SESSION['id']);
+if ($stmt->execute() == true) {
+    $stmt->close();
+}
+
+
+ ?>

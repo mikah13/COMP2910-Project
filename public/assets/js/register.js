@@ -21,7 +21,6 @@ $(document).ready(function() {
 
             } else {
                 $('.error').html(a);
-                $('#email').val('');
                 $('#password').val('')
             }
         })

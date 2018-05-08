@@ -21,12 +21,13 @@
  	<link rel="shortcut icon" href="images/logo.png" />
  	<title>JustPerfect</title>
 	 <style>
-		@media screen and (max-width: 480px){
 
-h4{
-	font-size:13pt;
-}
-}
+		@media screen and (max-width: 480px){
+            h4{
+	           font-size:13pt;
+               font-weight: bold;
+            }
+        }
 	 </style>
  </head>
 
@@ -40,8 +41,8 @@ h4{
  				<ul>
  					<li><a href="menu.php">Menu</a></li>
  					<li><a href="schedule.php">Schedule</a></li>
-					 <li><a href="logout.php" class="button">Sign Out</a></li>
-
+                    <li><a href="summary.php">Summary</a></li>
+					<li><a href="logout.php" class="button">Sign Out</a></li>
  				</ul>
  			</nav>
  		</header>
@@ -49,7 +50,7 @@ h4{
  		<!-- Main -->
  		<section id="main" class="container">
  			<header>
- 				<h2>Menu</h2>
+ 				<h2 style="font-weight:400">Menu</h2>
  			</header>
 
  			<div class="row">
@@ -67,7 +68,7 @@ h4{
  									<input id="search" type="submit" value="Search" class="fit" />
  								</div>
  							</div>
-						<form>
+						</form>
  					</section>
 
  				</div>
