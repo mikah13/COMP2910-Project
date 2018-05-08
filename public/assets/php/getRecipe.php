@@ -19,7 +19,7 @@ if (!isset($_SESSION['id'])) {
 function getDay($conn, $id, $day, $week)
 {
     $sql = "SELECT recipe_id, recipe_title, quantity FROM user_recipe WHERE id = {$id} AND day = '{$day}' AND week = '${week}'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);    
     $start = "09:00";
     $end = "10:00";
     $str = '';

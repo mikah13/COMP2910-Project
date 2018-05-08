@@ -26,7 +26,7 @@ CREATE TABLE user_recipe (
 
 CREATE TABLE user_activity (
     id INT(11) NOT NULL,
-    lastWeekNo INT(2),
+    lastWeekNo INT(2) DEFAULT 1,
     recentSearch TEXT,
     FOREIGN KEY (id) REFERENCES user(id)  ON DELETE CASCADE,
     CHECK (lastWeekNo IN (1,2,3,4))
