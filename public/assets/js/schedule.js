@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
         let weekNo = `Week ${e}`;
         $('#weekNo').text(weekNo);
 
-        $.post('/assets/php/getRecipe.php',function(d){
+        $.post('/assets/php/getRecipe.php', function(d) {
             d = JSON.parse(d);
             console.log(d);
             days.forEach(day => {
@@ -484,8 +484,8 @@ jQuery(document).ready(function($) {
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
                 $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
-                    console.log(d);
                     d = JSON.parse(d);
+                    console.log(d);
                     days.forEach(day => {
                         $(`#${day}`).html(d[day]);
                     })
@@ -502,19 +502,16 @@ jQuery(document).ready(function($) {
                 $('#weekNo').html(`Week ${week}`);
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
-                $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
-                    console.log(d);
-                    d = JSON.parse(d);
-                    days.forEach(day => {
-                        $(`#${day}`).html(d[day]);
-                    })
-                    //
-                    objSchedulesPlan[0].reset();
-                });
+                $.ajax({url: '/assets/php/getRecipe.php'}).done(d => d = JSON.parse(d);
+                console.log(d);
+                days.forEach(day => {
+                    $(`#${day}`).html(d[day]);
+                })
+                //
+                objSchedulesPlan[0].reset();
+            });
 
-            })
         })
-
-    });
+    })});
 
 });
