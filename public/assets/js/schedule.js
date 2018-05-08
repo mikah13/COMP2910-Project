@@ -483,7 +483,7 @@ jQuery(document).ready(function($) {
                 $('#weekNo').html(`Week ${week}`);
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
-                $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
+                $.post('/assets/php/getRecipe.php',function(d) {
                     d = JSON.parse(d);
                     console.log(d);
                     days.forEach(day => {
@@ -502,7 +502,7 @@ jQuery(document).ready(function($) {
                 $('#weekNo').html(`Week ${week}`);
                 $.post('/assets/php/updateRecentWeek.php', {week: week});
 
-                $.ajax({url: '/assets/php/getRecipe.php'}).done(d => {
+            $.post('/assets/php/getRecipe.php',function(d) {
                     d = JSON.parse(d);
                     console.log(d);
                     days.forEach(day => {
