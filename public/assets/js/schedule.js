@@ -481,16 +481,18 @@ jQuery(document).ready(function($) {
                     ? 1
                     : week + 1;
                 $('#weekNo').html(`Week ${week}`);
-                $.post('/assets/php/updateRecentWeek.php', {week: week});
-
-                $.post('/assets/php/getRecipe.php',function(d) {
-                    d = JSON.parse(d);
-                    console.log(d);
-                    days.forEach(day => {
-                        $(`#${day}`).html(d[day]);
-                    })
-                    //
-                    objSchedulesPlan[0].reset();
+                $.post('/assets/php/updateRecentWeek.php', {
+                    week: week
+                }, function() {
+                    $.post('/assets/php/getRecipe.php', function(d) {
+                        d = JSON.parse(d);
+                        console.log(d);
+                        days.forEach(day => {
+                            $(`#${day}`).html(d[day]);
+                        })
+                        //
+                        objSchedulesPlan[0].reset();
+                    });
                 });
 
             })
@@ -500,16 +502,18 @@ jQuery(document).ready(function($) {
                     ? 4
                     : week - 1;
                 $('#weekNo').html(`Week ${week}`);
-                $.post('/assets/php/updateRecentWeek.php', {week: week});
-
-            $.post('/assets/php/getRecipe.php',function(d) {
-                    d = JSON.parse(d);
-                    console.log(d);
-                    days.forEach(day => {
-                        $(`#${day}`).html(d[day]);
-                    })
-                    //
-                    objSchedulesPlan[0].reset();
+                $.post('/assets/php/updateRecentWeek.php', {
+                    week: week
+                }, function() {
+                    $.post('/assets/php/getRecipe.php', function(d) {
+                        d = JSON.parse(d);
+                        console.log(d);
+                        days.forEach(day => {
+                            $(`#${day}`).html(d[day]);
+                        })
+                        //
+                        objSchedulesPlan[0].reset();
+                    });
                 });
 
             })
