@@ -50,14 +50,10 @@ $(document).ready(function() {
                                 </select>
                             </div>
                             <div class="12u">
- 								<label for="week">Select Week</label>
-                                <select name="week" class="form-control" id="week_${b}">
-                                    <option>Week 1</option>
-                                    <option>Week 2</option>
                                 <label for="week">Select Week</label>
                                 <select name="week" class="form-control" id="week_${b}">
                                     <option>Week 1</option>
-                                    <option>Week 2</option> 
+                                    <option>Week 2</option>
                                     <option>Week 3</option>
                                     <option>Week 4</option>
                                 </select>
@@ -76,7 +72,7 @@ $(document).ready(function() {
                 $('.result').append(`<h3>No results for ${$('#query').val()}</h3>`);
             }
 
-            $('.add-recipe').click(function(a) { 
+            $('.add-recipe').click(function(a) {
                 a.preventDefault();
                 let id = $(this).attr('id').split('add_recipe_')[1];
                 let params = {
