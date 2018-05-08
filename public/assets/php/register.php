@@ -17,6 +17,7 @@ if (!emailChk($conn, $email)) {
 } elseif (!nameChk($first, $last)) {
     echo "Invalid First and Last name";
 } else {
+
     // Execute
     if ($stmt->execute()) {
         $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");

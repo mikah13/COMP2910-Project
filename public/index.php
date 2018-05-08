@@ -26,6 +26,7 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="schedule.php">Schedule</a></li>
+
 					<!-- <li>
 						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>
@@ -169,6 +170,7 @@
 ███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
 ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
 
+
 Hi, we are JMAN. We hope that you have had a great experience using our application.
 You have discovered a secret message from us, please follow the instructions to reveal the message.
 
@@ -184,6 +186,8 @@ $.post('secret-message.php',{secret_message:msg},function(d){
     }
 
 });
+
+
 
 
 -->

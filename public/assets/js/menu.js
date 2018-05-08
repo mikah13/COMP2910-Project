@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#search").on('click', function(e) {
+    $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();
         $('#result').append('<section class="box"> <h2>Result</h2><div class="row alt result"></div></section>');
@@ -54,6 +54,10 @@ $(document).ready(function() {
                                 <select name="week" class="form-control" id="week_${b}">
                                     <option>Week 1</option>
                                     <option>Week 2</option>
+                                <label for="week">Select Week</label>
+                                <select name="week" class="form-control" id="week_${b}">
+                                    <option>Week 1</option>
+                                    <option>Week 2</option> 
                                     <option>Week 3</option>
                                     <option>Week 4</option>
                                 </select>
@@ -63,6 +67,7 @@ $(document).ready(function() {
                             </div>
  						</div>
                     </form>
+                    <form>
                 </div>
              </div>`;
                     $('.result').append(div);
@@ -70,7 +75,8 @@ $(document).ready(function() {
             } else {
                 $('.result').append(`<h3>No results for ${$('#query').val()}</h3>`);
             }
-            $('.add-recipe').click(function(a) {
+
+            $('.add-recipe').click(function(a) { 
                 a.preventDefault();
                 let id = $(this).attr('id').split('add_recipe_')[1];
                 let params = {
