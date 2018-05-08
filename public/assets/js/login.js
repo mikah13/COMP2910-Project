@@ -10,7 +10,6 @@ $(document).ready(function() {
                 location.href = 'menu.php';
             } else {
                 $('.msg').html(a);
-                $('#email').val('');
                 $('#password').val('');
             }
         })

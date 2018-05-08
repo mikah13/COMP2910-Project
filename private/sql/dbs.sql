@@ -20,6 +20,14 @@ CREATE TABLE user_recipe (
     day VARCHAR(10) NOT NULL,
     week VARCHAR(10) NOT NULL,
     quantity INT(10) NOT NULL,
-    PRIMARY KEY(recipe_id, day, week),
+    PRIMARY KEY(id, recipe_id, day, week),
     FOREIGN KEY (id) REFERENCES user(id)  ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE user_activity (
+    id INT(11) NOT NULL,
+    lastWeekNo INT(2) DEFAULT 1,
+    recentSearch TEXT,
+    FOREIGN KEY (id) REFERENCES user(id)  ON DELETE CASCADE,
+    CHECK (lastWeekNo IN (1,2,3,4))
 ) ENGINE=INNODB;

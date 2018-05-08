@@ -11,13 +11,12 @@ $(document).ready(function() {
                 'Accept': 'application/json'
             }
         }).done(d => {
-            console.log(d);
             let imgUri = d.baseUri;
             if (d.results.length !== 0) {
                 d.results.forEach((a, b) => {
                     let div = `
             <div class="4u 12u(mobilep) recipe">
-                    <img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid"/>
+                    <header style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="max-width:80%; min-width:80%"/></header>
                <h4 class="center"  style="margin-top:10px; text-align:center">${a.title}</h4>
                <div class="row">
                 <p class="6u" style="text-align:center"><a class=" icon fa-cutlery"> ${a.servings} ${a.servings > 1
@@ -51,6 +50,10 @@ $(document).ready(function() {
                                 </select>
                             </div>
                             <div class="12u">
+ 								<label for="week">Select Week</label>
+                                <select name="week" class="form-control" id="week_${b}">
+                                    <option>Week 1</option>
+                                    <option>Week 2</option>
                                 <label for="week">Select Week</label>
                                 <select name="week" class="form-control" id="week_${b}">
                                     <option>Week 1</option>
@@ -63,6 +66,7 @@ $(document).ready(function() {
                                 <button name="add" id="add_recipe_${b}" class="button alt  add-recipe" style="text-align:center" value="Add">Submit</button>
                             </div>
  						</div>
+                    </form>
                     <form>
                 </div>
              </div>`;
@@ -71,6 +75,7 @@ $(document).ready(function() {
             } else {
                 $('.result').append(`<h3>No results for ${$('#query').val()}</h3>`);
             }
+
             $('.add-recipe').click(function(a) { 
                 a.preventDefault();
                 let id = $(this).attr('id').split('add_recipe_')[1];
@@ -81,14 +86,15 @@ $(document).ready(function() {
                     day: $(`#day_${id}`).val(),
                     week: $(`#week_${id}`).val()
                 };
-                $.post('/assets/php/addRecipe.php', params, function(d) {
-                });
-                $(`#collapseExample-${id}`).collapse('hide');
-                $('#myModal').modal('show');
-                setTimeout(function() {
-                    $('#myModal').modal('hide');
-                }, 2000);
-
+                if ($(`#quantity_${id}`).val() > 0) {
+                    $.post('/assets/php/addRecipe.php', params, function(d) {
+                        $(`#collapseExample-${id}`).collapse('hide');
+                        $('#myModal').modal('show');
+                        setTimeout(function() {
+                            $('#myModal').modal('hide');
+                        }, 1000);
+                    });
+                }
             });
         })
 

@@ -25,7 +25,8 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="dashboard.php">Dashboard</a></li>
+					<li><a href="schedule.php">Schedule</a></li>
+
 					<!-- <li>
 						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>
@@ -168,6 +169,24 @@
 ╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
 ███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
 ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
+
+
+Hi, we are JMAN. We hope that you have had a great experience using our application.
+You have discovered a secret message from us, please follow the instructions to reveal the message.
+
+From the index page, open your browser's developer tool
+
+Copy and paste the following code into your console
+
+let msg = 'savefood';
+$.post('secret-message.php',{secret_message:msg},function(d){
+	if(d!=='invalid'){
+		$('body').empty();
+		$('body').append(d);
+    }
+
+});
+
 
 
 
