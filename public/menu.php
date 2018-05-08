@@ -22,12 +22,14 @@
  	<title>JustPerfect</title>
 	 <style>
 
+
 		@media screen and (max-width: 480px){
             h4{
 	           font-size:13pt;
                font-weight: bold;
             }
         }
+
 	 </style>
  </head>
 
@@ -68,6 +70,7 @@
  									<input id="search" type="submit" value="Search" class="fit" />
  								</div>
  							</div>
+
 						</form>
  					</section>
 

@@ -1,4 +1,5 @@
 <?php
+
     require_once('../private/credential/initialize.php');
     require_once('assets/php/schedule.php');
 
@@ -301,6 +302,7 @@
 </body>
 
 </html>
+
 
  <?php
     db_disconnect($conn);
