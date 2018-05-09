@@ -42,7 +42,6 @@
         .error {
             color: #F94D3C;
         }
-
     </style>
     <link rel="shortcut icon" href="images/logo.png" />
 </head>
@@ -93,17 +92,17 @@
                         <button type="submit" class="btn waves-effect waves-light col s12" id="register" name="signup">Register Now</button>
                     </div>
 
-                    <div class="input-field col s12">
+
+
+                    <div class="input-field col s12" style="margin-bottom:10px;">
                         <!-- Facebook login button -->
-                    <div style="text-align: center;">
-                        <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
+
+                        <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
+                    </div>
+                    <div style="text-align:center">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
                         </div>
                     </div>
-                        <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
-                        
-                
-                    </div>
-
                 </div>
             </form>
         </div>
@@ -116,10 +115,11 @@
 
     <!-- jQuery Library -->
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/facebook.js"></script>
     <!--materialize js-->
     <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/register.js"></script>
-    <script src="assets/js/facebook.js"></script>
+
 
     <footer class="page-footer">
         <div class="footer-copyright">
