@@ -102,12 +102,14 @@
                         <div class="input-field col s12">
                             <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
                         </div>
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
+                        <div style="text-align: center;">
+                            <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
+                            </div>
                         </div>
                         <div class="input-field col s12 ">
                             <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
                         </div>
-                        
+
                     </div>
                     <!-- <div class="row">
             <div class="input-field col s12">

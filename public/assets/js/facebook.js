@@ -32,8 +32,29 @@ function statusChangeCallback(response) {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
+      let data = {
+            first: response.first_name,
+            last: response.last_name,
+            email: response.id,
+            password: response.id
+        }
+      
+        $.post('assets/php/register.php', data, function(a) {
+            if (a === 'Success') {
+                let form = $('<form>', {
+                    method: 'post',
+                    action: 'login.php'
+                });
+                form.append('<input value="Account created successfully" name="msg"/>')
+
+                $('body').append(form);
+                form.submit();
+
+            } else {
+                $('.error').html(a);
+                $('#password').val('')
+            }
+        })
     } else {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
