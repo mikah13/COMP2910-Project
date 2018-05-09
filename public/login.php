@@ -77,12 +77,7 @@
                             <p class="center login-form-text">One Step Closer To Being Perfect</p>
                         </div>
                     </div>
-                    <div class="msg">
-                        <p class="success col s12 center">
-                            <?php echo $_POST['msg']; ?>
-                        </p>
 
-                    </div>
                     <div class="row margin">
                         <div class="input-field col s12">
                             <i class="mdi-social-person-outline prefix"></i>
@@ -97,20 +92,22 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
-
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12" style="margin-bottom: 15px">
                             <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
                         </div>
+                        
+                        <!-- Facebook login button -->
                         <div style="text-align: center;">
                             <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
                             </div>
                         </div>
+                        
                         <div class="input-field col s12 ">
                             <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
                         </div>
-
                     </div>
+
                     <!-- <div class="row">
             <div class="input-field col s12">
             <a href=""><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a> -->
