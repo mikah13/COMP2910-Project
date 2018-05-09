@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../../../private/credential/initialize.php');
 require_once('validation.php');
 $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
@@ -35,6 +36,7 @@ if (!emailChk($conn, $email)) {
         $stmt2->close();
         //Close
         $stmt->close();
+        $_SESSION['id'] = $id;
         echo "Success";
         // header('Location: ../../../login.php');
     }

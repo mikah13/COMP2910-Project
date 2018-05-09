@@ -1,11 +1,11 @@
-<?php 
+<?php
 session_start();
 require_once('../../../private/credential/initialize.php');
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("ss", $email);
 if ($stmt->execute() == true) {
         $result = $stmt->get_result();
-        $num_rows = $result->num_rows;  
+        $num_rows = $result->num_rows;
         if ($num_rows == 1) {
             $user = mysqli_fetch_assoc($result);
             $_SESSION['id'] = $user['id'];
@@ -31,9 +31,9 @@ if ($stmt->execute() == true) {
         $stmt2->close();
         //Close
         $stmt->close();
-        $_SESSION['id'] = $user['id'];
+        $_SESSION['id'] = $id;
         // header('Location: ../../../login.php');
-    }  
+    }
         }
 }
         echo "Success";

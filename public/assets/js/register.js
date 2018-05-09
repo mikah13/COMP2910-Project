@@ -10,14 +10,7 @@ $(document).ready(function() {
 
         $.post('assets/php/register.php', data, function(a) {
             if (a === 'Success') {
-                let form = $('<form>', {
-                    method: 'post',
-                    action: 'login.php'
-                });
-                form.append('<input value="Account created successfully" name="msg"/>')
-
-                $('body').append(form);
-                form.submit();
+                location.href="menu.php";
 
             } else {
                 $('.error').html(a);

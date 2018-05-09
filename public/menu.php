@@ -22,7 +22,9 @@
  	<title>JustPerfect</title>
 	 <style>
 
-
+     #jperfect:hover{
+         text-decoration: none;
+     }
 		@media screen and (max-width: 480px){
             h4{
 	           font-size:13pt;
@@ -38,7 +40,7 @@
 
  		<!-- Header -->
  		<header id="header">
- 			<h1><a href="index.php">JustPerfect</a></h1>
+ 			<h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
  			<nav id="nav">
  				<ul>
  					<li><a href="menu.php">Menu</a></li>

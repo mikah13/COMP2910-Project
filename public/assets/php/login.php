@@ -18,7 +18,6 @@ session_start();
             $_SESSION['id'] = $user['id'];
             $stmt->close();
             echo 'Success';
-
         } else {
             echo '<p class="error col s12 center">Invalid email or password</p>';
         }
