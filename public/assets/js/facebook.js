@@ -33,6 +33,7 @@
         // Full docs on the response object can be found in the documentation
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
+            console.log(data);
             let data = {
                 first: response.first_name,
                 last: response.last_name,
