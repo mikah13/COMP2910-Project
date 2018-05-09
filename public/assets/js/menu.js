@@ -16,6 +16,7 @@ $(document).ready(function() {
                 d.results.forEach((a, b) => {
                     let div = `
             <div class="4u 12u(mobilep) recipe">
+                <!-- <div class="12u" style="background:url('${imgUri}${a.imageUrls[a.imageUrls.length - 1]}');  background-position: center;  background-size:cover;   background-repeat: no-repeat;height:400px;"></div> -->
                     <header style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="max-width:80%; min-width:80%"/></header>
                <h4 class="center"  style="margin-top:10px; text-align:center">${a.title}</h4>
                <div class="row">

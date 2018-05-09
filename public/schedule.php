@@ -103,7 +103,10 @@
  				</ul>
  			</nav>
  		</header>
-
+        <div style="width:225px; margin: auto;z-index:5">
+            <a class="button special small" id="previous"  style="float:left; margin-top:20px;margin-right:10px; width:100px; z-index:5">❮ Previous</a>
+            <a class="button special small next" id="next"  style="margin-top:20px;margin-left:10px; width:100px;z-index:5">Next ❯</a>
+        </div>
         <div class="cd-schedule loading">
             <header>
 
@@ -271,10 +274,7 @@
             <div class="cover-layer"></div>
 
         </div>
-        <div style="width:225px; margin: auto;z-index:5">
-            <a class="button special small" id="previous"  style="float:left; margin-top:10px;margin-right:10px; width:100px; z-index:5">❮ Previous</a>
-            <a class="button special small next" id="next"  style="margin-top:10px;margin-left:10px; width:100px;z-index:5">Next ❯</a>
-        </div>
+
 
 
 

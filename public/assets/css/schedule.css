@@ -186,8 +186,6 @@ Main Components
         width: 100%;
     }
     .cd-schedule .events .events-group {
-        min-height: 550px;
-        height: 70vh;
         width: calc(100%/7);
         float: left;
         border: 1px solid #EAEAEA;
