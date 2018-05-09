@@ -21,7 +21,6 @@ session_start();
 
         } else {
             echo '<p class="error col s12 center">Invalid email or password</p>';
-
         }
     }
  db_disconnect($conn);

@@ -38,9 +38,11 @@
         .margin {
             margin: 0 !important;
         }
-        .error{
-            color:#F94D3C;
+
+        .error {
+            color: #F94D3C;
         }
+
     </style>
     <link rel="shortcut icon" href="images/logo.png" />
 </head>
@@ -56,11 +58,11 @@
                         <p class="center login-form-text">One Step Closer To Being Perfect</p>
                     </div>
                 </div>
-            <p class='error col s12 center'></p>
+                <p class='error col s12 center'></p>
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input id="first" type="text" class="validate" name="first"  autocomplete="given-name">
+                        <input id="first" type="text" class="validate" name="first" autocomplete="given-name">
                         <label for="first" class="center-align">First Name</label>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="mdi-communication-email prefix"></i>
-                        <input id="email" type="email" class="validate" name="email"  autocomplete="email">
+                        <input id="email" type="email" class="validate" name="email" autocomplete="email">
                         <label for="email" class="center-align">Email</label>
                     </div>
                 </div>
@@ -90,9 +92,18 @@
                     <div class="input-field col s12">
                         <button type="submit" class="btn waves-effect waves-light col s12" id="register" name="signup">Register Now</button>
                     </div>
+
                     <div class="input-field col s12">
-                        <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
+                        <!-- Facebook login button -->
+                    <div style="text-align: center;">
+                        <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
+                        </div>
                     </div>
+                        <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
+                        
+                
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -106,8 +117,9 @@
     <!-- jQuery Library -->
     <script src="assets/js/jquery.min.js"></script>
     <!--materialize js-->
-      <script src="assets/js/materialize.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/register.js"></script>
+    <script src="assets/js/facebook.js"></script>
 
     <footer class="page-footer">
         <div class="footer-copyright">
