@@ -6,127 +6,140 @@
         }
         ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Cache-Control" content="max-age=600" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <meta name="author" content="JMAN">
-    <meta name="description" content="Food Tracking Application">
-    <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JustPerfect</title>
+    <!DOCTYPE html>
+    <html lang="en">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Cache-Control" content="max-age=600" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="author" content="JMAN">
+        <meta name="description" content="Food Tracking Application">
+        <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>JustPerfect</title>
 
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<style type="text/css">
-.red{
-    background-color: #61c200 !important;;
-}
-html,
-body {
-    height: 100%;
-}
-html {
-    display: table;
-    margin: auto;
-}
-body {
-    display: table-cell;
-    vertical-align: middle;
-}
+        <style type="text/css">
+            .red {
+                background-color: #61c200 !important;
+                ;
+            }
 
-.margin {
-  margin: 0 !important;
-}
-.error{
-    color:#F94D3C;
-}
-.success{
-    color: #61c200 ;
-}
-</style>
-<link rel="shortcut icon" href="images/logo.png" />
+            html,
+            body {
+                height: 100%;
+            }
 
-</head>
+            html {
+                display: table;
+                margin: auto;
+            }
 
-<body class="green">
+            body {
+                display: table-cell;
+                vertical-align: middle;
+            }
 
-  <div id="login-page" class="row">
-    <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form" method="POST">
+            .margin {
+                margin: 0 !important;
+            }
 
-        <div class="row">
-          <div class="input-field col s12 center">
-              <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
-            <p class="center login-form-text">One Step Closer To Being Perfect</p>
-          </div>
-        </div>
-            <div class="msg">
-            <p class="success col s12 center"><?php echo $_POST['msg']; ?></p>
+            .error {
+                color: #F94D3C;
+            }
 
-            </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" id="email" type="email" name="email"  autocomplete="username email">
-            <label for="email" data-error="wrong" class="center-align">Email</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password" name="password" autocomplete="current-password">
-            <label for="password">Password</label>
-          </div>
-        </div>
+            .success {
+                color: #61c200;
+            }
 
-        <div class="row">
-          <div class="input-field col s12">
-            <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
-          </div>
-          <div class="input-field col s12 ">
-            <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
-          </div>
-    </div>
-        <!-- <div class="row">
+        </style>
+        <link rel="shortcut icon" href="images/logo.png" />
+
+    </head>
+
+    <body class="green">
+
+        <div id="login-page" class="row">
+            <div class="col s12 z-depth-6 card-panel">
+                <form class="login-form" method="POST">
+
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
+                            <p class="center login-form-text">One Step Closer To Being Perfect</p>
+                        </div>
+                    </div>
+
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <input class="validate" id="email" type="email" name="email" autocomplete="username email">
+                            <label for="email" data-error="wrong" class="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-lock-outline prefix"></i>
+                            <input id="password" type="password" name="password" autocomplete="current-password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12" style="margin-bottom: 15px">
+                            <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
+                        </div>
+                        
+                        <!-- Facebook login button -->
+                        <div style="text-align: center;">
+                            <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
+                            </div>
+                        </div>
+                        
+                        <div class="input-field col s12 ">
+                            <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row">
             <div class="input-field col s12">
             <a href=""><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a> -->
-          <!-- <div class="fb-login-button" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>          </div> -->
-          <!-- </div>
+                    <!-- <div class="fb-login-button" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>          </div> -->
+                    <!-- </div>
         </div> -->
 
 
-      </form>
-    </div>
-  </div>
+                </form>
+            </div>
+        </div>
 
 
-  <!-- ================================================
+        <!-- ================================================
     Scripts
     ================================================ -->
 
-  <!-- jQuery Library -->
-  <script src="assets/js/jquery.min.js"></script>
-  <!--materialize js-->
-  <script src="assets/js/materialize.min.js"></script>
-  <script src="assets/js/login.js"></script>
+        <!-- jQuery Library -->
+        <script src="assets/js/jquery.min.js"></script>
+        <!--materialize js-->
+        <script src="assets/js/materialize.min.js"></script>
+        <script src="assets/js/login.js"></script>
+        <script src="assets/js/facebook.js"></script>
 
-   <footer class="page-footer">
-          <div class="footer-copyright center">
-            <div class="container">
-            © 2018 JMAN
+        <footer class="page-footer">
+            <div class="footer-copyright center">
+                <div class="container">
+                    © 2018 JMAN
 
+                </div>
             </div>
-          </div>
-  </footer>
-</body>
+        </footer>
+    </body>
 
-</html>
+    </html>

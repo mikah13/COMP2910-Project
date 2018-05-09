@@ -14,6 +14,4 @@ $(document).ready(function() {
             }
         })
     })
-
-
 })
