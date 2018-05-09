@@ -33,14 +33,14 @@
         // Full docs on the response object can be found in the documentation
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
-            console.log(data);
+
             let data = {
                 first: response.first_name,
                 last: response.last_name,
                 email: response.id,
                 password: response.id
             }
-
+            console.log(data);
             $.post('assets/php/facebookRegister.php', data, function (a) {
                 if (a === 'Success') {
                     location.href='menu.php';
