@@ -16,8 +16,8 @@ function onSignIn(googleUser) {
 
     $.post('assets/php/facebookRegister.php', data, function(a) {
         if (a === 'Success') {
-            gapi.auth2.getAuthInstance().signOut();
-            // location.href = 'menu.php';
+            gapi.auth2.getAuthInstance().disconnect();
+            location.href = 'menu.php';
         } else {
             $('.error').html('Please login to Google');
         }
