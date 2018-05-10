@@ -7,8 +7,7 @@ $last = $_POST['last'];
 $email = $_POST['email'];
 $password =  $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
-$stmt->bind_param("s", $email);
-echo $stmt;
+$stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
@@ -20,7 +19,6 @@ if ($stmt->execute() == true) {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
-        echo $stmt;
         if ($stmt->execute()) {
             $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");
             $stmt3->bind_param("s", $email);
