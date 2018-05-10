@@ -14,7 +14,7 @@ function onSignIn(googleUser) {
         password: profile.getId().toString()
     }
 
-    $.post('assets/php/facebookRegister.php', data, function(a) {
+    $.post('assets/php/googleRegister.php', data, function(a) {
         if (a === 'Success') {
             gapi.auth2.getAuthInstance().disconnect();
             location.href = 'menu.php';

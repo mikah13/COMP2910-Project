@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log(gapi);
     $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();
