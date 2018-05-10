@@ -8,6 +8,7 @@ $email = $_POST['email'];
 $password =  $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("ss", $email);
+echo $stmt;
 if ($stmt->execute() == true) {
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
