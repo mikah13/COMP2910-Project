@@ -1,10 +1,7 @@
 $(document).ready(function() {
     $('#signout').click(function(e) {
         console.log(1);
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function() {
-            console.log('User signed out.');
-        });
+        
     })
     $("#search").click(function(e) {
         e.preventDefault();
