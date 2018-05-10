@@ -32,15 +32,15 @@ function statusChangeCallback(response) {
             if (res && !res.error) {
                 console.log(res);
                 let data = {
-                    first: res.name.split('')[0],
-                    last: res.name.split('')[1],
+                    first: res.name.split(' ')[0],
+                    last: res.name.split(' ')[1],
                     email: res.id,
                     password: res.id
                 }
                 console.log(data);
                 $.post('assets/php/facebookRegister.php', data, function(a) {
                     if (a === 'Success') {
-                        // location.href='menu.php';
+                        location.href='menu.php';
                     } else {
                         $('.error').html('Please login to Facebook');
                     }
