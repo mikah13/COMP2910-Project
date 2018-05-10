@@ -7,9 +7,13 @@ function onSignIn(googleUser) {
         email: profile.getId().toString(),
         password: profile.getId().toString()
     }
+    console.log(profile.getName());
+    console.log(profile.getEmail());
+    console.log(profile.getFamilyName());
+    console.log(profile.getGivenName());
     console.log(data);
 
-    $.post('assets/php/facebookRegister.php', data, function (a) {
+    $.post('assets/php/facebookRegister.php', data, function(a) {
         console.log(a);
         if (a === 'Success') {
             // location.href = 'menu.php';
@@ -20,11 +24,11 @@ function onSignIn(googleUser) {
 };
 
 function renderButton() {
-      gapi.signin2.render('my-signin2', {
+    gapi.signin2.render('my-signin2', {
         'scope': 'profile email',
         'width': 220,
         'longtitle': true,
         'theme': 'dark',
-        'onsuccess': onSignIn,
-      });
-    }
+        'onsuccess': onSignIn
+    });
+}
