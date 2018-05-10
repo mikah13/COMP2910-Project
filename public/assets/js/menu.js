@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log(gapi.auth2.getAuthInstance());
     $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();

@@ -13,6 +13,9 @@
  	<meta name="description" content="Food Tracking Application">
  	<meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
  	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="774938428856-cbtk2lkmktvvgqj7kcnimdl44d15armi.apps.googleusercontent.com">
+
  	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
@@ -134,6 +137,8 @@
  	<script src="assets/js/skel.min.js"></script>
  	<script src="assets/js/util.js"></script>
  	<script src="assets/js/main.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src="assets/js/menu.js"></script>
 
  </body>
