@@ -137,9 +137,10 @@
  	<script src="assets/js/skel.min.js"></script>
  	<script src="assets/js/util.js"></script>
  	<script src="assets/js/main.js"></script>
+
+    <script src="assets/js/menu.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-    <script src="assets/js/menu.js"></script>
 
  </body>
 

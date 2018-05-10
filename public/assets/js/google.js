@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
     } else {
         last = profile.getFamilyName();
     }
-    
+    console.log(gapi.auth2.getAuthInstance());
     let data = {
         first: profile.getGivenName(),
         last: last,
