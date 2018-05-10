@@ -1,16 +1,14 @@
-"use strict";
 jQuery(document).ready(function($) {
-    let date = new Date();
     function getStringID(arr) {
         let str = '';
         arr.forEach((a, b) => {
-            str += a.recipe_id;
-            if (b !== arr.length - 1) {
-                str += '%2C';
-            }
+            str += b !== arr.length - 1
+                ? a.recipe_id + '%2C'
+                : a.recipe_id;
         })
         return str;
     }
+
     function fetchData(id) {
         return $.ajax({
             url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
@@ -23,6 +21,38 @@ jQuery(document).ready(function($) {
     function round(price) {
         return Math.round(price * 100) / 100;
     }
+    function displayCost(params, days, d) {
+        let weekCost = 0;
+        let weekCal = 0;
+        params.forEach((a, b) => {
+            if (a) {
+                let data = [];
+                let daysArr = JSON.parse(d[days[b]]);
+                let recipeArr = a[0];
+                let dayCost = 0;
+                let dayCal = 0;
+                recipeArr.forEach((x, y) => {
+
+                    dayCost += x.pricePerServing * daysArr[y].quantity / 100;
+                    dayCal += x.nutrition.nutrients[0].amount * daysArr[y].quantity ;
+                    data.push({title:x.title,price:dayCost,calorie:dayCal})
+                })
+                dayCost = round(dayCost);
+                weekCost += dayCost;
+                weekCal += dayCal;
+                $(`#${days[b]}`).html(`
+                <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
+                    <a href="#0">
+                        <em class="event-name" style="font-size:2rem">Summary</em>
+                        <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
+                        <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
+                    </a>
+                </li>`)
+            }
+        })
+        return [weekCost,weekCal];
+    }
+
     $.post('/assets/php/recentWeek.php', e => {
         let days = [
             'Monday',
@@ -35,7 +65,6 @@ jQuery(document).ready(function($) {
         ];
         let ajaxCall = [];
         let weekNo = `Week ${e}`;
-
         $.post('/assets/php/getRecipeID.php', function(d) {
             d = JSON.parse(d);
             days.forEach((day, i) => {
@@ -46,25 +75,24 @@ jQuery(document).ready(function($) {
             })
 
             $.when.apply($, ajaxCall).then(function(...params) {
-                console.log(params);
-                let weekCost;
-                params.forEach((a, b) => {
-                    if (a) {
-                        let quantityArr = JSON.parse(d[days[b]]);
-                        let recipeArr = a[0];
-                        let dayCost = 0;
-                        recipeArr.forEach((x, y) => {
-                            dayCost += x.pricePerServing * quantityArr[y].quantity / 100;
-                        })
-                        dayCost = round(dayCost);
-                        weekCost += dayCost;
-                        $(`#${days[b]}`).html(`<li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-4">
-                        <a href="#0"><em class="event-name" style="font-size:2rem">Total Cost: $ ${dayCost} </em></a></li>`)
-                    }
-                })
+
+                if (ajaxCall.length === 1) { // MOnday only case
+                    // let quantityArr = JSON.parse(d[days[0]]);
+                    // let recipeArr = a[0];
+                    //
+                    let temp = new Array();
+                    temp[0] = params;
+                    params = temp;
+
+                }
+                let data = displayCost(params, days, d);
+
                 $('#weekNo').text(weekNo);
-                weekCost = round(weekCost);
-                console.log(new Date() - date);
+                let weekCost = data[0];
+                let weekCal = data[1];
+
+                $('#summary').append(`<h1>Total Cost: $ ${weekCost} Total Calories: ${weekCal} cal</h1>`)
+
                 var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
                 var transitionsSupported = ($('.csstransitions').length > 0);
                 //if browser does not support transitions - use a different event to trigger them
@@ -466,7 +494,6 @@ jQuery(document).ready(function($) {
                 if (schedules.length > 0) {
                     schedules.each(function() {
                         //create SchedulePlan objects
-
                         objSchedulesPlan.push(new SchedulePlan($(this)));
 
                     });
@@ -510,7 +537,25 @@ jQuery(document).ready(function($) {
                 function transformElement(element, value) {
                     element.css({'-moz-transform': value, '-webkit-transform': value, '-ms-transform': value, '-o-transform': value, 'transform': value});
                 }
+                function displayOtherWeekCost(params, days, d, weekCost) {
+                    params.forEach((a, b) => {
+                        if (a !== '') {
+                            let quantityArr = JSON.parse(d[days[b]]);
+                            let recipeArr = a[0];
+                            let dayCost = 0;
+                            recipeArr.forEach((x, y) => {
+                                dayCost += x.pricePerServing * quantityArr[y].quantity / 100;
+                            })
+                            dayCost = round(dayCost);
+                            weekCost += dayCost;
+                            $(`#${days[b]}`).html(`<li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-4">
+                            <a href="#0"><em class="event-name" style="font-size:2rem">Total Cost: $ ${dayCost} </em></a></li>`)
+                        } else {
+                            $(`#${days[b]}`).html('');
+                        }
 
+                    })
+                }
                 // ADD NEXT AND PREVIOUS EVENT HERE !!!!!!!!!!!!!
                 $('#next').click(function() {
                     let week = parseInt($('#weekNo').html().split('Week ')[1]);
@@ -534,23 +579,13 @@ jQuery(document).ready(function($) {
                             })
                             $.when.apply($, ajaxCall).then(function(...params) {
                                 let weekCost;
-                                params.forEach((a, b) => {
-                                    if (a !== '') {
-                                        let quantityArr = JSON.parse(d[days[b]]);
-                                        let recipeArr = a[0];
-                                        let dayCost = 0;
-                                        recipeArr.forEach((x, y) => {
-                                            dayCost += x.pricePerServing * quantityArr[y].quantity / 100;
-                                        })
-                                        dayCost = round(dayCost);
-                                        weekCost += dayCost;
-                                        $(`#${days[b]}`).html(`<li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-4">
-                                        <a href="#0"><em class="event-name" style="font-size:2rem">Total Cost: $ ${dayCost} </em></a></li>`)
-                                    } else {
-                                        $(`#${days[b]}`).html('');
-                                    }
+                                if (ajaxCall.length === 1) {
+                                    let temp = new Array();
+                                    temp[0] = params;
+                                    params = temp;
 
-                                })
+                                }
+                                displayOtherWeekCost(params, days, d, weekCost);
                                 weekCost = round(weekCost);
                                 objSchedulesPlan[0].reset();
                                 $('#weekNo').html(`Week ${week}`);
@@ -580,23 +615,13 @@ jQuery(document).ready(function($) {
                             })
                             $.when.apply($, ajaxCall).then(function(...params) {
                                 let weekCost;
-                                params.forEach((a, b) => {
-                                    if (a !== '') {
-                                        let quantityArr = JSON.parse(d[days[b]]);
-                                        let recipeArr = a[0];
-                                        let dayCost = 0;
-                                        recipeArr.forEach((x, y) => {
-                                            dayCost += x.pricePerServing * quantityArr[y].quantity / 100;
-                                        })
-                                        dayCost = round(dayCost);
-                                        weekCost += dayCost;
-                                        $(`#${days[b]}`).html(`<li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-4">
-                                        <a href="#0"><em class="event-name" style="font-size:2rem">Total Cost: $ ${dayCost} </em></a></li>`)
-                                    } else {
-                                        $(`#${days[b]}`).html('');
-                                    }
+                                if (ajaxCall.length === 1) {
+                                    let temp = new Array();
+                                    temp[0] = params;
+                                    params = temp;
 
-                                })
+                                }
+                                displayOtherWeekCost(params, days, d, weekCost);
                                 weekCost = round(weekCost);
                                 objSchedulesPlan[0].reset();
                                 $('#weekNo').html(`Week ${week}`);
