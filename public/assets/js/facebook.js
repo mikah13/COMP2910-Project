@@ -39,10 +39,8 @@ function statusChangeCallback(response) {
                 }
 
                 $.post('assets/php/facebookRegister.php', data, function(a) {
-                        console.log(a);
                     if (a === 'Success') {
-                        console.log(a);
-                        // location.href='menu.php';
+                        location.href='menu.php';
                     } else {
                         $('.error').html('Please login to Facebook');
                     }
