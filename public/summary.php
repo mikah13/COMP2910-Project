@@ -107,10 +107,14 @@
             <a class="button special small" id="previous"  style="float:left; margin-top:20px;margin-right:10px; width:100px; z-index:5">❮ Previous</a>
             <a class="button special small next" id="next"  style="margin-top:20px;margin-left:10px; width:100px;z-index:5">Next ❯</a>
         </div>
+
         <div class="cd-schedule loading">
             <header>
 
  				<h1 class="display-4 mb-4 text-center" style="font-size: 5rem; font-weight: 400;" id="weekNo"></h1>
+                <div id="summary">
+
+                </div>
  			</header>
 
             <!-- <div class="left-arrow"></div>
@@ -252,7 +256,9 @@
                         <ul id="Sunday">
 
                         </ul>
+
             </div>
+
             <div class="event-modal">
                 <header class="header">
                     <div class="content">
