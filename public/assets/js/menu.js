@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    $('#signout').click(function(e) {
-        console.log(1);
-        
-    })
     $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();
