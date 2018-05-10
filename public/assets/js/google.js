@@ -1,22 +1,23 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log(profile);
+    let last;
+    if(!profile.getFamilyName()){
+        last = ''
+    }
+    else{
+        last = profile.getFamilyName();
+    }
     let data = {
-        first: profile.getName().split(' ')[0],
-        last: profile.getName().split(' ')[1],
-        email: profile.getId().toString(),
+        first: profile.getGivenName(),
+        last: last,
+        email: profile.getEmail(),
         password: profile.getId().toString()
     }
-    console.log(profile.getName());
-    console.log(profile.getEmail());
-    console.log(profile.getFamilyName());
-    console.log(profile.getGivenName());
-    console.log(data);
 
     $.post('assets/php/facebookRegister.php', data, function(a) {
-        console.log(a);
         if (a === 'Success') {
-            // location.href = 'menu.php';
+            location.href = 'menu.php';
         } else {
             $('.error').html('Please login to Google');
         }
