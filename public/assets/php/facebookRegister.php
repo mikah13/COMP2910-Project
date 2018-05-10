@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once('../../../private/credential/initialize.php');
+
+$first = mysqli_real_escape_string($conn, $_POST['first']);
+$last = mysqli_real_escape_string($conn, $_POST['last']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("ss", $email);
 if ($stmt->execute() == true) {
@@ -13,7 +18,6 @@ if ($stmt->execute() == true) {
     } else {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
-        echo $stmt;
         // Execute
         if ($stmt->execute()) {
             $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");
