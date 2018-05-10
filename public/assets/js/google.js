@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
     } else {
         last = profile.getFamilyName();
     }
-    console.log(profile);
+    
     let data = {
         first: profile.getGivenName(),
         last: last,
