@@ -18,6 +18,8 @@
         <meta name="description" content="Food Tracking Application">
         <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="774938428856-cbtk2lkmktvvgqj7kcnimdl44d15armi.apps.googleusercontent.com">
         <title>JustPerfect</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
@@ -59,7 +61,9 @@
             .success {
                 color: #61c200;
             }
-
+            .abcRioButton.abcRioButtonLightBlue {
+            margin: 0 auto;
+        }
         </style>
         <link rel="shortcut icon" href="images/logo.png" />
 
@@ -97,12 +101,14 @@
                             <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
                         </div>
 
-                        <!-- Facebook login button -->
-
+                        
 
                         <div class="input-field col s12 " style="margin-bottom:10px;">
                             <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
                         </div>
+                        <!-- Google login button -->
+                    <div class="g-signin2" style="margin-bottom:10px;" data-onsuccess="onSignIn"></div>
+                        <!-- Facebook login button -->
                         <div style="text-align: center;">
                             <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,public_profile" onlogin="checkLoginState();">
                             </div>
@@ -132,6 +138,8 @@
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/login.js"></script>
         <script src="assets/js/facebook.js"></script>
+        <script src="assets/js/google.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
 
         <footer class="page-footer">
             <div class="footer-copyright center">
