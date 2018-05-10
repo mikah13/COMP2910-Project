@@ -1,10 +1,9 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     let last;
-    if(!profile.getFamilyName()){
+    if (!profile.getFamilyName()) {
         last = ''
-    }
-    else{
+    } else {
         last = profile.getFamilyName();
     }
     let data = {
@@ -17,7 +16,7 @@ function onSignIn(googleUser) {
     $.post('assets/php/facebookRegister.php', data, function(a) {
         console.log(a);
         if (a === 'Success') {
-            // location.href = 'menu.php';
+            location.href = 'menu.php';
         } else {
             $('.error').html('Please login to Google');
         }

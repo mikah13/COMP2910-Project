@@ -13,7 +13,6 @@ if ($stmt->execute() == true) {
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
     if ($num_rows == 1) {
-        echo 'account existed';
         $user = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $user['id'];
         $stmt->close();
@@ -37,8 +36,6 @@ if ($stmt->execute() == true) {
             $stmt2->close();
             //Close
             $stmt->close();
-            echo $id;
-            echo 'insert new acount';
             $_SESSION['id'] = $id;
             // header('Location: ../../../login.php');
         }
