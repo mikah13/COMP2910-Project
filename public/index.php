@@ -158,6 +158,9 @@
 			<ul class="copyright">
 				<li>&copy; JMAN - 2018. All rights reserved.</li>
 			</ul>
+
+				<img id="rope" src="images/rope.png" style="height:50px;width:auto;float:right;"/>
+
 		</footer>
 <!--
 
@@ -201,6 +204,7 @@ $.post('secret-message.php',{secret_message:msg},function(d){
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/easter_egg.js"></script>
 
 </body>
 

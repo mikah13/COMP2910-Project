@@ -10,6 +10,8 @@
     <meta name="description" content="Food Tracking Application">
     <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="774938428856-cbtk2lkmktvvgqj7kcnimdl44d15armi.apps.googleusercontent.com">
     <title>JustPerfect</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
@@ -41,6 +43,10 @@
 
         .error {
             color: #F94D3C;
+        }
+        
+        .abcRioButton.abcRioButtonBlue {
+            margin: 0 auto;
         }
     </style>
     <link rel="shortcut icon" href="images/logo.png" />
@@ -91,18 +97,19 @@
                     <div class="input-field col s12">
                         <button type="submit" class="btn waves-effect waves-light col s12" id="register" name="signup">Register Now</button>
                     </div>
-
-
-
                     <div class="input-field col s12" style="margin-bottom:10px;">
-                        <!-- Facebook login button -->
-
                         <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
                     </div>
+                    <!-- Google login button -->
+                    <div id="my-signin2" style="margin-bottom:10px;"></div>
+                    
+                     <!-- Facebook login button -->
                     <div style="text-align:center">
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
                         </div>
                     </div>
+                    
+                    
                 </div>
             </form>
         </div>
@@ -115,11 +122,13 @@
 
     <!-- jQuery Library -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/facebook.js"></script>
     <!--materialize js-->
     <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/register.js"></script>
-
+    <script src="assets/js/google.js"></script>
+    <script src="assets/js/facebook.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <footer class="page-footer">
         <div class="footer-copyright">
