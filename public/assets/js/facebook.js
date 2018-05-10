@@ -34,8 +34,8 @@ function statusChangeCallback(response) {
                 let data = {
                     first: res.name.split(' ')[0],
                     last: res.name.split(' ')[1],
-                    email: res.id,
-                    password: res.id
+                    email: res.id.toString(),
+                    password: res.id.toString()
                 }
 
                 $.post('assets/php/facebookRegister.php', data, function(a) {
