@@ -32,10 +32,10 @@ function statusChangeCallback(response) {
             if (res && !res.error) {
                 console.log(res);
                 let data = {
-                    first: response.name.split('')[0],
-                    last: response.name.split('')[1],
-                    email: response.id,
-                    password: response.id
+                    first: res.name.split('')[0],
+                    last: res.name.split('')[1],
+                    email: res.id,
+                    password: res.id
                 }
                 console.log(data);
                 $.post('assets/php/facebookRegister.php', data, function(a) {
