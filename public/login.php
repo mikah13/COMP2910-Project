@@ -81,7 +81,9 @@
                             <p class="center login-form-text">One Step Closer To Being Perfect</p>
                         </div>
                     </div>
+                    <p class="msg">
 
+                    </p>
                     <div class="row margin">
                         <div class="input-field col s12">
                             <i class="mdi-social-person-outline prefix"></i>
