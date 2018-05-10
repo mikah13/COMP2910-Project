@@ -24,9 +24,10 @@ jQuery(document).ready(function($) {
     function displayCost(params, days, d) {
         let weekCost = 0;
         let weekCal = 0;
+        let dataObj={};
         params.forEach((a, b) => {
             if (a) {
-                let data = [];
+                let dataArr = [];
                 let daysArr = JSON.parse(d[days[b]]);
                 let recipeArr = a[0];
                 let dayCost = 0;
@@ -34,10 +35,18 @@ jQuery(document).ready(function($) {
                 recipeArr.forEach((x, y) => {
 
                     dayCost += x.pricePerServing * daysArr[y].quantity / 100;
-                    dayCal += x.nutrition.nutrients[0].amount * daysArr[y].quantity ;
-                    data.push({title:x.title,price:dayCost,calorie:dayCal})
+                    dayCal += x.nutrition.nutrients[0].amount * daysArr[y].quantity;
+                    dataArr.push({title: x.title, price: round(dayCost), calorie: dayCal});
                 })
+
                 dayCost = round(dayCost);
+                dataObj[days[b]] = {
+                    day: days[b],
+                    totalCost: dayCost,
+                    totalCal: dayCal,
+                    data: dataArr
+                };
+
                 weekCost += dayCost;
                 weekCal += dayCal;
                 $(`#${days[b]}`).html(`
@@ -50,7 +59,7 @@ jQuery(document).ready(function($) {
                 </li>`)
             }
         })
-        return [weekCost,weekCal];
+        return [weekCost, weekCal, dataObj];
     }
 
     $.post('/assets/php/recentWeek.php', e => {
@@ -65,6 +74,7 @@ jQuery(document).ready(function($) {
         ];
         let ajaxCall = [];
         let weekNo = `Week ${e}`;
+        let dataObj;
         $.post('/assets/php/getRecipeID.php', function(d) {
             d = JSON.parse(d);
             days.forEach((day, i) => {
@@ -90,7 +100,7 @@ jQuery(document).ready(function($) {
                 $('#weekNo').text(weekNo);
                 let weekCost = data[0];
                 let weekCal = data[1];
-
+                let dataObj = data[2];
                 $('#summary').append(`<h1>Total Cost: $ ${weekCost} Total Calories: ${weekCal} cal</h1>`)
 
                 var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
@@ -101,7 +111,7 @@ jQuery(document).ready(function($) {
 
                 //should add a loding while the events are organized
 
-                function SchedulePlan(element) {
+                function SchedulePlan(element,data) {
                     this.element = element;
                     this.timeline = this.element.find('.timeline');
                     this.timelineItems = this.timeline.find('li');
@@ -125,6 +135,7 @@ jQuery(document).ready(function($) {
 
                     this.animating = false;
 
+                    this.data = data;
                     this.initSchedule();
                 }
 
@@ -219,15 +230,11 @@ jQuery(document).ready(function($) {
 
                     //update event content
 
-                    let data = {
-                        recipe_id: parseInt(event.find('.recipe_id').text()),
-                        recipe_title: event.find('.event-name').text(),
-                        quantity: parseInt(event.find('.qty').text().split('Quantity: ')[1]),
-                        day: event.parent().parent().attr('id'),
-                        week: $(document).find('#weekNo').text()
-                    }
 
-                    this.modalBody.find('.event-info').load('detail.php', data, function(d) {
+                    console.log(this.data);
+                    let id = event.parent().parent().attr('id');
+
+                    this.modalBody.find('.event-info').load('detail.php', {data: this.data[id]}, function(d) {
                         //once the event content has been loaded
                         self.element.addClass('content-loaded');
                         // self.element.append('<h1>Hello</h1>')
@@ -494,7 +501,7 @@ jQuery(document).ready(function($) {
                 if (schedules.length > 0) {
                     schedules.each(function() {
                         //create SchedulePlan objects
-                        objSchedulesPlan.push(new SchedulePlan($(this)));
+                        objSchedulesPlan.push(new SchedulePlan($(this),dataObj));
 
                     });
                 }

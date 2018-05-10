@@ -101,13 +101,15 @@
                             <button id="login" type="submit" name="login" class="btn waves-effect waves-light col s12">Log In</button>
                         </div>
 
-                        
+
 
                         <div class="input-field col s12 " style="margin-bottom:10px;">
                             <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
                         </div>
                         <!-- Google login button -->
+
                     <div id="my-signin2" style="margin-bottom:10px;"></div>
+
                         <!-- Facebook login button -->
                         <div style="text-align: center;">
                             <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,public_profile" onlogin="checkLoginState();">
