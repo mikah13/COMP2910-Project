@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
     } else {
         last = profile.getFamilyName();
     }
-    console.log(gapi.auth2.getAuthInstance());
+
     let data = {
         first: profile.getGivenName(),
         last: last,
@@ -16,6 +16,7 @@ function onSignIn(googleUser) {
 
     $.post('assets/php/facebookRegister.php', data, function(a) {
         if (a === 'Success') {
+            gapi.auth2.getAuthInstance().signOut();
             // location.href = 'menu.php';
         } else {
             $('.error').html('Please login to Google');
