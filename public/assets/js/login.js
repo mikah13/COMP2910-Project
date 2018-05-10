@@ -6,6 +6,7 @@ $(document).ready(function() {
             password: $('#password').val()
         }
         $.post('assets/php/login.php', data, function(a) {
+            console.log(a);
             if (a === 'Success') {
                 location.href = 'menu.php';
             } else {
