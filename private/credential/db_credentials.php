@@ -17,7 +17,7 @@
     // }
 
 
-    define("DB_SERVER", "localhost");
+    define("DB_SERVER", "127.0.0.1");
     define("DB_USER", "root");
     define("DB_PASS", "123123");
     define("DB_NAME", "food");
