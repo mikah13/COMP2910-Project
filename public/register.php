@@ -45,7 +45,7 @@
             color: #F94D3C;
         }
         
-        .abcRioButton.abcRioButtonLightBlue {
+        .abcRioButton.abcRioButtonBlue {
             margin: 0 auto;
         }
     </style>
@@ -101,8 +101,7 @@
                         <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
                     </div>
                     <!-- Google login button -->
-                   
-                    <div class="g-signin2" style="margin-bottom:10px;" data-onsuccess="onSignIn"></div>
+                    <div id="my-signin2" style="margin-bottom:10px;"></div>
                     
                      <!-- Facebook login button -->
                     <div style="text-align:center">
@@ -129,6 +128,7 @@
     <script src="assets/js/google.js"></script>
     <script src="assets/js/facebook.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <footer class="page-footer">
         <div class="footer-copyright">
