@@ -23,5 +23,6 @@ if ($stmt->execute() == true) {
     $stmt->close();
 }
 
+db_disconnect($conn);
 
  ?>
