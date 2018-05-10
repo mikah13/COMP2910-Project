@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
     } else {
         last = profile.getFamilyName();
     }
-    console.log(profile.getAuthResponse().id_token);
+    console.log(profile);
     let data = {
         first: profile.getGivenName(),
         last: last,
@@ -16,7 +16,7 @@ function onSignIn(googleUser) {
 
     $.post('assets/php/facebookRegister.php', data, function(a) {
         if (a === 'Success') {
-            location.href = 'menu.php';
+            // location.href = 'menu.php';
         } else {
             $('.error').html('Please login to Google');
         }
