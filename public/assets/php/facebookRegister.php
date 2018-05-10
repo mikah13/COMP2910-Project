@@ -7,7 +7,7 @@ $last = $_POST['last'];
 $email = $_POST['email'];
 $password =  $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
-$stmt->bind_param("ss", $email);
+$stmt->bind_param("s", $email);
 echo $stmt;
 if ($stmt->execute() == true) {
     $result = $stmt->get_result();
