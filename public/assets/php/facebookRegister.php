@@ -13,7 +13,7 @@ if ($stmt->execute() == true) {
     } else {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
-
+        echo $stmt;
         // Execute
         if ($stmt->execute()) {
             $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");

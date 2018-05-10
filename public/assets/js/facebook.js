@@ -30,17 +30,19 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         FB.api('/me?fields=name,email,birthday,location', function(res) {
             if (res && !res.error) {
-                console.log(res);
+
                 let data = {
                     first: res.name.split(' ')[0],
                     last: res.name.split(' ')[1],
                     email: res.id,
                     password: res.id
                 }
-                console.log(data);
+
                 $.post('assets/php/facebookRegister.php', data, function(a) {
+                        console.log(a);
                     if (a === 'Success') {
-                        location.href='menu.php';
+                        console.log(a);
+                        // location.href='menu.php';
                     } else {
                         $('.error').html('Please login to Facebook');
                     }
