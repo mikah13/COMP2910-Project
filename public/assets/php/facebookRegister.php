@@ -2,16 +2,17 @@
 session_start();
 require_once('../../../private/credential/initialize.php');
 
-$first = mysqli_real_escape_string($conn, $_POST['first']);
-$last = mysqli_real_escape_string($conn, $_POST['last']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
+$first =  $_POST['first'];
+$last = $_POST['last'];
+$email = $_POST['email'];
+$password =  $_POST['password'];
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("ss", $email);
 if ($stmt->execute() == true) {
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
     if ($num_rows == 1) {
+        echo 'already there';
         $user = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $user['id'];
         $stmt->close();
@@ -19,6 +20,8 @@ if ($stmt->execute() == true) {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
+        echo 'inserting';
+        echo $stmt;
         if ($stmt->execute()) {
             $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");
             $stmt3->bind_param("s", $email);
