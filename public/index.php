@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="shortcut icon" href="images/logo.png" />
 	<title>JustPerfect</title>
+
+
 </head>
 
 <body class="landing">
@@ -26,24 +28,7 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="schedule.php">Schedule</a></li>
-
-					<!-- <li>
-						<a href="#" class="icon fa-angle-down">Layouts</a>
-						<ul>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li>
-								<a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option One</a></li>
-									<li><a href="#">Option Two</a></li>
-									<li><a href="#">Option Three</a></li>
-									<li><a href="#">Option Four</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li> -->
+					<li><a href="resources.html">Articles</a></li>
 					<li><a href="login.php" class="button">Login</a></li>
 					<li><a href="register.php" class="button">Sign Up</a></li>
 
@@ -158,40 +143,9 @@
 			<ul class="copyright">
 				<li>&copy; JMAN - 2018. All rights reserved.</li>
 			</ul>
-
-				<img id="rope" src="images/rope.png" style="height:50px;width:auto;float:right;"/>
-
+			<i style="position:relative;color:#EE4914;width:40px" id="up" class="fa fa-arrow-up " aria-hidden="true"></i>
 		</footer>
-<!--
 
-███████╗ █████╗ ██╗   ██╗███████╗    ███████╗ ██████╗  ██████╗ ██████╗
-██╔════╝██╔══██╗██║   ██║██╔════╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
-███████╗███████║██║   ██║█████╗      █████╗  ██║   ██║██║   ██║██║  ██║
-╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
-███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
-╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
-
-
-Hi, we are JMAN. We hope that you have had a great experience using our application.
-You have discovered a secret message from us, please follow the instructions to reveal the message.
-
-From the index page, open your browser's developer tool
-
-Copy and paste the following code into your console
-
-let msg = 'savefood';
-$.post('secret-message.php',{secret_message:msg},function(d){
-	if(d!=='invalid'){
-		$('body').empty();
-		$('body').append(d);
-    }
-
-});
-
-
-
-
--->
 
 	</div>
 
@@ -209,3 +163,30 @@ $.post('secret-message.php',{secret_message:msg},function(d){
 </body>
 
 </html>
+<!--
+
+
+     ██╗███╗   ███╗ █████╗ ███╗   ██╗
+     ██║████╗ ████║██╔══██╗████╗  ██║
+     ██║██╔████╔██║███████║██╔██╗ ██║
+██   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+╚█████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
+ ╚════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+
+
+
+███████╗ █████╗ ██╗   ██╗███████╗    ███████╗ ██████╗  ██████╗ ██████╗
+██╔════╝██╔══██╗██║   ██║██╔════╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
+███████╗███████║██║   ██║█████╗      █████╗  ██║   ██║██║   ██║██║  ██║
+╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
+███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
+╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
+
+
+
+Hi, we are JMAN. We hope that you have had a great experience using our application.
+You have discovered a secret message from us, please click on the red button at the bottom
+of index.php to reveal the secret.
+
+
+-->

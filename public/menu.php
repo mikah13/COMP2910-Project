@@ -44,6 +44,7 @@
  			<h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
  			<nav id="nav">
  				<ul>
+                    <li><a href="index.php">Home</a></li>
  					<li><a href="menu.php">Menu</a></li>
  					<li><a href="schedule.php">Schedule</a></li>
                     <li><a href="summary.php">Summary</a></li>

@@ -54,34 +54,14 @@
     .modal-backdrop {
         opacity:0 !important;
     }
-    .left-arrow {
-    top: 50%;
-    background: url('/images/right-arrow.png') no-repeat;
-    margin-top: -40px;
-    width: 21px;
-    position: fixed;
-    height: 44px;
-    left: 18px;
-    z-index: 99;
-    -webkit-transform: rotate(180deg);     /* Chrome and other webkit browsers */
-  -moz-transform: rotate(180deg);        /* FF */
-  -o-transform: rotate(180deg);          /* Opera */
-  -ms-transform: rotate(180deg);         /* IE9 */
-  transform: rotate(180deg);             /* W3C compliant browsers */
+    #summary h1{
+        font-size: 2rem;
+        margin-top: 10px;
 
-}
-.right-arrow {
-    top: 50%;
-    background: url('/images/right-arrow.png') no-repeat;
-    margin-top: -40px;
-    width: 21px;
-    position: fixed;
-    right: 0;
-    height: 44px;
-    float: right;
-    margin-right: 18px;
-    z-index: 9;
-}
+    }
+    #summary {
+        margin-bottom: 25px;
+    }
 .qty{
     font-size: 1.3rem;
 }
@@ -95,11 +75,11 @@
  			<h1><a href="index.php">JustPerfect</a></h1>
  			<nav id="nav">
  				<ul>
- 					<li><a href="menu.php">Menu</a></li>
- 					<li><a href="schedule.php">Schedule</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="menu.php">Menu</a></li>
+                    <li><a href="schedule.php">Schedule</a></li>
                     <li><a href="summary.php">Summary</a></li>
-					<li><a href="logout.php" class="button">Sign Out</a></li>
-
+                    <li><a href="logout.php" class="button">Sign Out</a></li>
  				</ul>
  			</nav>
  		</header>

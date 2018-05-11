@@ -1,21 +1,10 @@
-$(document).ready(function(){
-    let isMouseDown = false;
-    $('#rope').mousedown(function(e){
-        isMouseDown = true;
+$(document).ready(function() {
 
-    })
-    $('#rope').mouseup(function(e){
-        isMouseDown = false;
-    })
-    $('body').mousemove(function(e){
-        if(isMouseDown){
-
-            console.log(e.pageX);
-
-        $('#rope').css({ left: e.pageX, position:'absolute'});
-            console.log($('#rope').position());
-        }
-
-
+    $('#up').click(function(){
+        $('html').animate({ scrollTop: -100 ,opacity:'0.03'}, 2500);
+        $('html').fadeOut(800);
+        setTimeout(function(){
+        location.href='eastereggyouwillnotfind.html'
+    },3300)
     })
 })
