@@ -33,12 +33,14 @@ jQuery(document).ready(function($) {
                 let dayCost = 0;
                 let dayCal = 0;
                 recipeArr.forEach((x, y) => {
+                    let recipeCost = x.pricePerServing * daysArr[y].quantity / 100;
+                    let recipeCal = x.nutrition.nutrients[0].amount * daysArr[y].quantity;
+                    dayCost += recipeCost;
+                    dayCal += recipeCal;
+                    dataArr.push({title: x.title, price: round(recipeCost), calorie: recipeCal});
 
-                    dayCost += x.pricePerServing * daysArr[y].quantity / 100;
-                    dayCal += x.nutrition.nutrients[0].amount * daysArr[y].quantity;
-                    dataArr.push({title: x.title, price: round(dayCost), calorie: dayCal});
                 })
-
+                console.log(dataArr);
                 dayCost = round(dayCost);
                 dataObj[days[b]] = {
                     day: days[b],
@@ -231,7 +233,7 @@ jQuery(document).ready(function($) {
                     //update event content
 
 
-                    console.log(this.data);
+
                     let id = event.parent().parent().attr('id');
 
                     this.modalBody.find('.event-info').load('detail.php', {data: this.data[id]}, function(d) {

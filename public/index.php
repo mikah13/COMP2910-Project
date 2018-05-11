@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="shortcut icon" href="images/logo.png" />
 	<title>JustPerfect</title>
+
+
 </head>
 
 <body class="landing">
@@ -158,9 +160,7 @@
 			<ul class="copyright">
 				<li>&copy; JMAN - 2018. All rights reserved.</li>
 			</ul>
-
-				<img id="rope" src="images/rope.png" style="height:50px;width:auto;float:right;"/>
-
+<i style="position:relative" id="up" class="fa fa-arrow-up" aria-hidden="true"></i>
 		</footer>
 <!--
 
@@ -200,6 +200,7 @@ $.post('secret-message.php',{secret_message:msg},function(d){
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
+	<script src="assets/js/jquery-ui.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
