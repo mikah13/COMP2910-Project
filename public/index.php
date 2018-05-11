@@ -42,7 +42,7 @@
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
 				<li><a href="register.php" class="button special">Sign Up</a></li>
-				<li><a href="contact.html" class="button">About Us</a></li>
+				<li><a href="contact.php" class="button">About Us</a></li>
 			</ul>
 		</section>
 
