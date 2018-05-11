@@ -25,13 +25,10 @@
 		<header id="header" class="alt">
 			<h1><a href="index.php">JustPerfect</a></h1>
 			<nav id="nav">
-				<ul>
+				<ul id="nav-list">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="schedule.php">Schedule</a></li>
 					<li><a href="resources.html">Articles</a></li>
-					<li><a href="login.php" class="button">Login</a></li>
-					<li><a href="register.php" class="button">Sign Up</a></li>
-
 				</ul>
 			</nav>
 		</header>
@@ -41,6 +38,7 @@
 			<h2>JustPerfect</h2>
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
+                
 				<li><a href="register.php" class="button special">Sign Up</a></li>
 				<li><a href="contact.php" class="button">About Us</a></li>
 			</ul>
@@ -159,7 +157,8 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/easter_egg.js"></script>
-
+<script src="assets/js/index.js"></script>
+    
 </body>
 
 </html>
