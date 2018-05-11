@@ -13,9 +13,59 @@
 	<!-- Resource style -->
 
 	<title>Easter Egg</title>
+	<style>
+		.fadein {
+			animation: fadein 6s;
+			-moz-animation: fadein 6s;
+			/* Firefox */
+			-webkit-animation: fadein 6s;
+			/* Safari and Chrome */
+			-o-animation: fadein 6s;
+			/* Opera */
+		}
+
+		@keyframes fadein {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		@-moz-keyframes fadein {
+			/* Firefox */
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes fadein {
+			/* Safari and Chrome */
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		@-o-keyframes fadein {
+			/* Opera */
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+	</style>
 </head>
 
-<body class="glitch-transition">
+<body class="glitch-transition fadein">
 	<main class="cd-main-content">
 		<div class="center">
 			<h1>Welcome to the Future</h1>
