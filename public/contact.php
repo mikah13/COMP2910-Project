@@ -18,7 +18,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<h1><a href="eastereggyouwillnotfind.html">JustPerfect</a></h1>
+			<h1><a href="index.php">JustPerfect</a></h1>
 			<nav id="nav">
 				<ul>
 					<li><a href="index.php">Home</a></li>
@@ -87,7 +87,7 @@
 						Email: jman_original@hotmail.com <br />
 						Phone: (Just use the email above) <br />
 						Fax: It's 2018...
-	   
+
 					    </p>
 					</div>
 				</section>
