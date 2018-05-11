@@ -160,38 +160,9 @@
 			<ul class="copyright">
 				<li>&copy; JMAN - 2018. All rights reserved.</li>
 			</ul>
-<i style="position:relative" id="up" class="fa fa-arrow-up" aria-hidden="true"></i>
+			<i style="position:relative;color:#EE4914;width:40px" id="up" class="fa fa-arrow-up " aria-hidden="true"></i>
 		</footer>
-<!--
 
-███████╗ █████╗ ██╗   ██╗███████╗    ███████╗ ██████╗  ██████╗ ██████╗
-██╔════╝██╔══██╗██║   ██║██╔════╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
-███████╗███████║██║   ██║█████╗      █████╗  ██║   ██║██║   ██║██║  ██║
-╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
-███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
-╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
-
-
-Hi, we are JMAN. We hope that you have had a great experience using our application.
-You have discovered a secret message from us, please follow the instructions to reveal the message.
-
-From the index page, open your browser's developer tool
-
-Copy and paste the following code into your console
-
-let msg = 'savefood';
-$.post('secret-message.php',{secret_message:msg},function(d){
-	if(d!=='invalid'){
-		$('body').empty();
-		$('body').append(d);
-    }
-
-});
-
-
-
-
--->
 
 	</div>
 
@@ -200,7 +171,6 @@ $.post('secret-message.php',{secret_message:msg},function(d){
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
-	<script src="assets/js/jquery-ui.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
@@ -210,3 +180,30 @@ $.post('secret-message.php',{secret_message:msg},function(d){
 </body>
 
 </html>
+<!--
+
+
+     ██╗███╗   ███╗ █████╗ ███╗   ██╗
+     ██║████╗ ████║██╔══██╗████╗  ██║
+     ██║██╔████╔██║███████║██╔██╗ ██║
+██   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+╚█████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
+ ╚════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+
+
+
+███████╗ █████╗ ██╗   ██╗███████╗    ███████╗ ██████╗  ██████╗ ██████╗
+██╔════╝██╔══██╗██║   ██║██╔════╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
+███████╗███████║██║   ██║█████╗      █████╗  ██║   ██║██║   ██║██║  ██║
+╚════██║██╔══██║╚██╗ ██╔╝██╔══╝      ██╔══╝  ██║   ██║██║   ██║██║  ██║
+███████║██║  ██║ ╚████╔╝ ███████╗    ██║     ╚██████╔╝╚██████╔╝██████╔╝
+╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝    ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
+
+
+
+Hi, we are JMAN. We hope that you have had a great experience using our application.
+You have discovered a secret message from us, please click on the red button at the bottom
+of index.php to reveal the secret.
+
+
+-->

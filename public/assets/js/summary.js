@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
     function displayCost(params, days, d) {
         let weekCost = 0;
         let weekCal = 0;
-        let dataObj={};
+        let dataObj = {};
         params.forEach((a, b) => {
             if (a) {
                 let dataArr = [];
@@ -40,7 +40,6 @@ jQuery(document).ready(function($) {
                     dataArr.push({title: x.title, price: round(recipeCost), calorie: recipeCal});
 
                 })
-                console.log(dataArr);
                 dayCost = round(dayCost);
                 dataObj[days[b]] = {
                     day: days[b],
@@ -103,7 +102,7 @@ jQuery(document).ready(function($) {
                 let weekCost = data[0];
                 let weekCal = data[1];
                 let dataObj = data[2];
-                $('#summary').append(`<h1>Total Cost: $ ${weekCost} Total Calories: ${weekCal} cal</h1>`)
+                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
 
                 var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
                 var transitionsSupported = ($('.csstransitions').length > 0);
@@ -113,7 +112,7 @@ jQuery(document).ready(function($) {
 
                 //should add a loding while the events are organized
 
-                function SchedulePlan(element,data) {
+                function SchedulePlan(element, data) {
                     this.element = element;
                     this.timeline = this.element.find('.timeline');
                     this.timelineItems = this.timeline.find('li');
@@ -232,11 +231,11 @@ jQuery(document).ready(function($) {
 
                     //update event content
 
-
-
                     let id = event.parent().parent().attr('id');
 
-                    this.modalBody.find('.event-info').load('detail.php', {data: this.data[id]}, function(d) {
+                    this.modalBody.find('.event-info').load('detail.php', {
+                        data: this.data[id]
+                    }, function(d) {
                         //once the event content has been loaded
                         self.element.addClass('content-loaded');
                         // self.element.append('<h1>Hello</h1>')
@@ -503,7 +502,7 @@ jQuery(document).ready(function($) {
                 if (schedules.length > 0) {
                     schedules.each(function() {
                         //create SchedulePlan objects
-                        objSchedulesPlan.push(new SchedulePlan($(this),dataObj));
+                        objSchedulesPlan.push(new SchedulePlan($(this), dataObj));
 
                     });
                 }
@@ -546,24 +545,49 @@ jQuery(document).ready(function($) {
                 function transformElement(element, value) {
                     element.css({'-moz-transform': value, '-webkit-transform': value, '-ms-transform': value, '-o-transform': value, 'transform': value});
                 }
-                function displayOtherWeekCost(params, days, d, weekCost) {
+                function displayOtherWeekCost(params, days, d) {
+                    let weekCost = 0;
+                    let weekCal = 0;
+                    let dataObj = {};
                     params.forEach((a, b) => {
-                        if (a !== '') {
-                            let quantityArr = JSON.parse(d[days[b]]);
+                        if (a) {
+                            let dataArr = [];
+                            let daysArr = JSON.parse(d[days[b]]);
                             let recipeArr = a[0];
                             let dayCost = 0;
+                            let dayCal = 0;
                             recipeArr.forEach((x, y) => {
-                                dayCost += x.pricePerServing * quantityArr[y].quantity / 100;
+                                let recipeCost = x.pricePerServing * daysArr[y].quantity / 100;
+                                let recipeCal = x.nutrition.nutrients[0].amount * daysArr[y].quantity;
+                                dayCost += recipeCost;
+                                dayCal += recipeCal;
+                                dataArr.push({title: x.title, price: round(recipeCost), calorie: recipeCal});
+
                             })
                             dayCost = round(dayCost);
+                            dataObj[days[b]] = {
+                                day: days[b],
+                                totalCost: dayCost,
+                                totalCal: dayCal,
+                                data: dataArr
+                            };
+
                             weekCost += dayCost;
-                            $(`#${days[b]}`).html(`<li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-4">
-                            <a href="#0"><em class="event-name" style="font-size:2rem">Total Cost: $ ${dayCost} </em></a></li>`)
+                            weekCal += dayCal;
+                            $(`#${days[b]}`).html(`
+                                <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
+                                    <a href="#0">
+                                        <em class="event-name" style="font-size:2rem">Summary</em>
+                                        <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
+                                        <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
+                                    </a>
+                                </li>`);
                         } else {
                             $(`#${days[b]}`).html('');
                         }
 
                     })
+                    return [weekCost, weekCal, dataObj];
                 }
                 // ADD NEXT AND PREVIOUS EVENT HERE !!!!!!!!!!!!!
                 $('#next').click(function() {
@@ -587,16 +611,19 @@ jQuery(document).ready(function($) {
                                 }
                             })
                             $.when.apply($, ajaxCall).then(function(...params) {
-                                let weekCost;
                                 if (ajaxCall.length === 1) {
                                     let temp = new Array();
                                     temp[0] = params;
                                     params = temp;
 
                                 }
-                                displayOtherWeekCost(params, days, d, weekCost);
-                                weekCost = round(weekCost);
+                                let data = displayOtherWeekCost(params, days, d);
+                                let weekCost = data[0];
+                                let weekCal = data[1];
+                                let dataObj = data[2];
+                                objSchedulesPlan.data = dataObj;
                                 objSchedulesPlan[0].reset();
+                                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
                                 $('#weekNo').html(`Week ${week}`);
 
                             });
@@ -623,16 +650,19 @@ jQuery(document).ready(function($) {
                                 }
                             })
                             $.when.apply($, ajaxCall).then(function(...params) {
-                                let weekCost;
                                 if (ajaxCall.length === 1) {
                                     let temp = new Array();
                                     temp[0] = params;
                                     params = temp;
 
                                 }
-                                displayOtherWeekCost(params, days, d, weekCost);
-                                weekCost = round(weekCost);
+                                let data = displayOtherWeekCost(params, days, d);
+                                let weekCost = data[0];
+                                let weekCal = data[1];
+                                let dataObj = data[2];
+                                objSchedulesPlan.data = dataObj;
                                 objSchedulesPlan[0].reset();
+                                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
                                 $('#weekNo').html(`Week ${week}`);
 
                             });
