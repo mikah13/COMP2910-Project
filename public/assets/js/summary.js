@@ -1,68 +1,98 @@
 jQuery(document).ready(function($) {
-    function getStringID(arr) {
-        let str = '';
-        arr.forEach((a, b) => {
-            str += b !== arr.length - 1
-                ? a.recipe_id + '%2C'
-                : a.recipe_id;
+    function clearEvent(days) {
+        days.forEach(day => {
+            $(`#${day}`).html('')
         })
-        return str;
     }
+    function fetchData(dbs, id) {
+        return dbs.filter(a => a.id === id);
+    }
+    function getOtherWeek(days, week, objSchedulesPlan) {
+        let weekCost = 0;
+        let weekCal = 0;
+        let dataNextObj = {};
+        $.post('/assets/php/updateRecentWeek.php', {
+            week: week
+        }, function() {
+            $.post('/assets/php/getRecipeID.php', function(weekList) {
+                weekList = JSON.parse(weekList);
+                let list = JSON.stringify(recipe_idList(weekList));
+                $.post('/assets/php/getRecipeData.php', {
+                    data: list
+                }, function(e) {
+                    let idList = JSON.parse(e);
+                    days.forEach(day => {
+                        let dayData = [];
+                        let dayCost = 0;
+                        let dayCal = 0;
+                        let items = JSON.parse(weekList[day]);
+                        if (items.length !== 0) {
+                            items.forEach(recipe => {
+                                let recipe_id = recipe.recipe_id;
+                                let quantity = recipe.quantity;
+                                let data = fetchData(idList, recipe_id)[0];
+                                let recipeCost = round(data.pricePerServing * quantity / 100);
+                                let recipeCal = data.nutrition.nutrients[0].amount * quantity;
+                                dayCost += recipeCost;
+                                dayCal += recipeCal;
+                                dayData.push({title: data.title, price: recipeCost, calorie: recipeCal})
+                            })
+                            dataNextObj[day] = {
+                                day: day,
+                                totalCost: round(dayCost),
+                                totalCal: round(dayCal),
+                                data: dayData
+                            }
+                            weekCost += dayCost;
+                            weekCal += dayCal;
+                        }
+                    })
+                    clearEvent(days);
+                    displayData(dataNextObj);
 
-    function fetchData(id) {
-        return $.ajax({
-            url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
-            headers: {
-                'X-Mashape-Key': 'yVNtwOy4YwmshW4SiqM6RgMT9S7ep1oWIcbjsnIe4j5rd3ZqiX',
-                'Accept': 'application/json'
-            }
+                    objSchedulesPlan[0].data = dataNextObj;
+                    objSchedulesPlan[0].reset();
+                    displaySummary(weekCost, weekCal);
+                    $('#weekNo').html(`Week ${week}`);
+                });
+
+            });
         });
+    }
+    function recipe_idList(data) {
+        let arr = [];
+        for (let val in data) {
+            let list = JSON.parse(data[val]);
+
+            list.forEach(a => {
+                if (arr.indexOf(a.recipe_id) === -1) {
+                    arr.push(a.recipe_id);
+                }
+            });
+
+        }
+        return arr;
     }
     function round(price) {
         return Math.round(price * 100) / 100;
     }
-    function displayCost(params, days, d) {
-        let weekCost = 0;
-        let weekCal = 0;
-        let dataObj = {};
-        params.forEach((a, b) => {
-            if (a) {
-                let dataArr = [];
-                let daysArr = JSON.parse(d[days[b]]);
-                let recipeArr = a[0];
-                let dayCost = 0;
-                let dayCal = 0;
-                recipeArr.forEach((x, y) => {
-                    let recipeCost = x.pricePerServing * daysArr[y].quantity / 100;
-                    let recipeCal = x.nutrition.nutrients[0].amount * daysArr[y].quantity;
-                    dayCost += recipeCost;
-                    dayCal += recipeCal;
-                    dataArr.push({title: x.title, price: round(recipeCost), calorie: recipeCal});
-
-                })
-                dayCost = round(dayCost);
-                dataObj[days[b]] = {
-                    day: days[b],
-                    totalCost: dayCost,
-                    totalCal: dayCal,
-                    data: dataArr
-                };
-
-                weekCost += dayCost;
-                weekCal += dayCal;
-                $(`#${days[b]}`).html(`
+    function displayData(dataObj) {
+        for (let day in dataObj) {
+            $(`#${day}`).html(`
                 <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
-                    <a href="#0">
-                        <em class="event-name" style="font-size:2rem">Summary</em>
-                        <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
-                        <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
-                    </a>
-                </li>`)
-            }
-        })
-        return [weekCost, weekCal, dataObj];
-    }
+                            <a href="#0">
+                                <em class="event-name" style="font-size:2rem">Summary</em>
+                                <em style="font-size:1.5rem;color:aqua">Cost: $ ${dataObj[day].totalCost}</em><br/>
+                                <em style="font-size:1.5rem;color:aqua">Calories: ${dataObj[day].totalCal} cal</em>
+                            </a>
+                        </li>
 
+            `)
+        }
+    }
+    function displaySummary(weekCost, weekCal) {
+        $('#summary').html(`<h1 class="button alt">Total Cost: $ ${round(weekCost)} </h1><h1 class="button alt"> Total Calories: ${round(weekCal)} cal</h1>`)
+    }
     $.post('/assets/php/recentWeek.php', e => {
         let days = [
             'Monday',
@@ -73,44 +103,56 @@ jQuery(document).ready(function($) {
             'Saturday',
             'Sunday'
         ];
-        let ajaxCall = [];
+
         let weekNo = `Week ${e}`;
-        let dataObj;
-        $.post('/assets/php/getRecipeID.php', function(d) {
-            d = JSON.parse(d);
-            days.forEach((day, i) => {
-                let query = getStringID(JSON.parse(d[day]));
-                if (query !== '') {
-                    ajaxCall[i] = fetchData(query);
-                }
-            })
+        let weekCost = 0;
+        let weekCal = 0;
+        let dataObj = {};
+        $.post('/assets/php/getRecipeID.php', function(weekList) {
+            weekList = JSON.parse(weekList);
+            let list = JSON.stringify(recipe_idList(weekList));
+            $.post('/assets/php/getRecipeData.php', {
+                data: list
+            }, function(e) {
+                let idList = JSON.parse(e);
+                days.forEach(day => {
+                    let dayData = [];
+                    let dayCost = 0;
+                    let dayCal = 0;
+                    let items = JSON.parse(weekList[day]);
+                    if (items.length !== 0) {
+                        items.forEach(recipe => {
+                            let recipe_id = recipe.recipe_id;
+                            let quantity = recipe.quantity;
+                            let data = fetchData(idList, recipe_id)[0];
+                            let recipeCost = round(data.pricePerServing * quantity / 100);
+                            let recipeCal = round(data.nutrition.nutrients[0].amount * quantity);
+                            dayCost += recipeCost;
+                            dayCal += recipeCal;
 
-            $.when.apply($, ajaxCall).then(function(...params) {
-
-                if (ajaxCall.length === 1) { // MOnday only case
-                    // let quantityArr = JSON.parse(d[days[0]]);
-                    // let recipeArr = a[0];
-                    //
-                    let temp = new Array();
-                    temp[0] = params;
-                    params = temp;
-
-                }
-                let data = displayCost(params, days, d);
-
-                $('#weekNo').text(weekNo);
-                let weekCost = data[0];
-                let weekCal = data[1];
-                let dataObj = data[2];
-                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
+                            dayData.push({title: data.title, price: recipeCost, calorie: recipeCal})
+                        })
+                        dataObj[day] = {
+                            day: day,
+                            totalCost: round(dayCost),
+                            totalCal: round(dayCal),
+                            data: dayData
+                        }
+                        weekCost += dayCost;
+                        weekCal += dayCal;
+                    }
+                })
+                displayData(dataObj);
+                displaySummary(weekCost, weekCal);
+                $('#weekNo').html(weekNo);
 
                 var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
                 var transitionsSupported = ($('.csstransitions').length > 0);
-                //if browser does not support transitions - use a different event to trigger them
+                // if browser does not support transitions - use a different event to trigger them
                 if (!transitionsSupported)
                     transitionEnd = 'noTransition';
 
-                //should add a loding while the events are organized
+                // should add a loding while the events are organized
 
                 function SchedulePlan(element, data) {
                     this.element = element;
@@ -118,7 +160,7 @@ jQuery(document).ready(function($) {
                     this.timelineItems = this.timeline.find('li');
                     this.timelineItemsNumber = this.timelineItems.length;
                     this.timelineStart = getScheduleTimestamp(this.timelineItems.eq(0).text());
-                    //need to store delta (in our case half hour) timestamp
+                    // need to store delta (in our case half hour) timestamp
                     this.timelineUnitDuration = getScheduleTimestamp(this.timelineItems.eq(1).text()) - getScheduleTimestamp(this.timelineItems.eq(0).text());
 
                     this.eventsWrapper = this.element.find('.events');
@@ -148,19 +190,19 @@ jQuery(document).ready(function($) {
                 SchedulePlan.prototype.scheduleReset = function() {
                     var mq = this.mq();
                     if (mq == 'desktop' && !this.element.hasClass('js-full')) {
-                        //in this case you are on a desktop version (first load or resize from mobile)
+                        // in this case you are on a desktop version (first load or resize from mobile)
                         this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
                         this.element.addClass('js-full');
                         this.placeEvents();
                         this.element.hasClass('modal-is-open') && this.checkEventModal();
                     } else if (mq == 'mobile' && this.element.hasClass('js-full')) {
-                        //in this case you are on a mobile version (first load or resize from desktop)
+                        // in this case you are on a mobile version (first load or resize from desktop)
                         this.element.removeClass('js-full loading');
                         this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
                         this.eventsWrapper.children('.grid-line').remove();
                         this.element.hasClass('modal-is-open') && this.checkEventModal();
                     } else if (mq == 'desktop' && this.element.hasClass('modal-is-open')) {
-                        //on a mobile version with modal open - need to resize/move modal window
+                        // on a mobile version with modal open - need to resize/move modal window
                         this.checkEventModal('desktop');
                         this.element.removeClass('loading');
                     } else {
@@ -172,11 +214,7 @@ jQuery(document).ready(function($) {
                     var self = this;
 
                     this.singleEvents.each(function() {
-                        //create the .event-date element for each event
-                        // var durationLabel = '<span class="event-date">'+$(this).data('start')+' - '+$(this).data('end')+'</span>';
-                        // $(this).children('a').append($(durationLabel));
-
-                        //detect click on the event and open the modal
+                        // detect click on the event and open the modal
                         $(this).on('click', 'a', function(event) {
                             event.preventDefault();
                             if (!self.animating)
@@ -185,7 +223,7 @@ jQuery(document).ready(function($) {
                         );
                     });
 
-                    //close modal window
+                    // close modal window
                     this.modal.on('click', '.close', function(event) {
                         event.preventDefault();
                         if (!self.animating)
@@ -202,7 +240,7 @@ jQuery(document).ready(function($) {
                 SchedulePlan.prototype.placeEvents = function() {
                     var self = this;
                     this.singleEvents.each(function() {
-                        //place each event in the grid -> need to set top position and height
+                        // place each event in the grid -> need to set top position and height
                         var start = getScheduleTimestamp($(this).attr('data-start')),
                             duration = getScheduleTimestamp($(this).attr('data-end')) - start;
 
@@ -225,18 +263,18 @@ jQuery(document).ready(function($) {
                     var mq = self.mq();
                     this.animating = true;
 
-                    //update event name and time
+                    // update event name and time
                     this.modalHeader.find('.event-name').text(event.find('.event-name').text());
                     this.modal.attr('data-event', event.parent().attr('data-event'));
 
-                    //update event content
+                    // update event content
 
                     let id = event.parent().parent().attr('id');
 
                     this.modalBody.find('.event-info').load('detail.php', {
                         data: this.data[id]
                     }, function(d) {
-                        //once the event content has been loaded
+                        // once the event content has been loaded
                         self.element.addClass('content-loaded');
                         // self.element.append('<h1>Hello</h1>')
                     });
@@ -244,7 +282,7 @@ jQuery(document).ready(function($) {
                     this.element.addClass('modal-is-open');
 
                     setTimeout(function() {
-                        //fixes a flash when an event is selected - desktop version only
+                        // fixes a flash when an event is selected - desktop version only
                         event.parent('li').addClass('selected-event');
                     }, 10);
 
@@ -275,7 +313,7 @@ jQuery(document).ready(function($) {
                         var HeaderBgScaleY = modalHeight / eventHeight,
                             BodyBgScaleX = (modalWidth - eventWidth);
 
-                        //change modal height/width and translate it
+                        // change modal height/width and translate it
                         self.modal.css({
                             top: eventTop + 'px',
                             left: eventLeft + 'px',
@@ -284,23 +322,23 @@ jQuery(document).ready(function($) {
                         });
                         transformElement(self.modal, 'translateY(' + modalTranslateY + 'px) translateX(' + modalTranslateX + 'px)');
 
-                        //set modalHeader width
+                        // set modalHeader width
                         self.modalHeader.css({
                             width: eventWidth + 'px'
                         });
-                        //set modalBody left margin
+                        // set modalBody left margin
                         self.modalBody.css({
                             marginLeft: eventWidth + 'px'
                         });
 
-                        //change modalBodyBg height/width ans scale it
+                        // change modalBodyBg height/width ans scale it
                         self.modalBodyBg.css({
                             height: eventHeight + 'px',
                             width: '1px'
                         });
                         transformElement(self.modalBodyBg, 'scaleY(' + HeaderBgScaleY + ') scaleX(' + BodyBgScaleX + ')');
 
-                        //change modal modalHeaderBg height/width and scale it
+                        // change modal modalHeaderBg height/width and scale it
                         self.modalHeaderBg.css({
                             height: eventHeight + 'px',
                             width: eventWidth + 'px'
@@ -308,14 +346,14 @@ jQuery(document).ready(function($) {
                         transformElement(self.modalHeaderBg, 'scaleY(' + HeaderBgScaleY + ')');
 
                         self.modalHeaderBg.one(transitionEnd, function() {
-                            //wait for the  end of the modalHeaderBg transformation and show the modal content
+                            // wait for the  end of the modalHeaderBg transformation and show the modal content
                             self.modalHeaderBg.off(transitionEnd);
                             self.animating = false;
                             self.element.addClass('animation-completed');
                         });
                     }
 
-                    //if browser do not support transitions -> no need to wait for the end of it
+                    // if browser do not support transitions -> no need to wait for the end of it
                     if (!transitionsSupported)
                         self.modal.add(self.modalHeaderBg).trigger(transitionEnd);
                     };
@@ -348,20 +386,20 @@ jQuery(document).ready(function($) {
 
                         self.element.removeClass('animation-completed modal-is-open');
 
-                        //change modal width/height and translate it
+                        // change modal width/height and translate it
                         this.modal.css({
                             width: eventWidth + 'px',
                             height: eventHeight + 'px'
                         });
                         transformElement(self.modal, 'translateX(' + modalTranslateX + 'px) translateY(' + modalTranslateY + 'px)');
 
-                        //scale down modalBodyBg element
+                        // scale down modalBodyBg element
                         transformElement(self.modalBodyBg, 'scaleX(0) scaleY(1)');
-                        //scale down modalHeaderBg element
+                        // scale down modalHeaderBg element
                         transformElement(self.modalHeaderBg, 'scaleY(1)');
 
                         this.modalHeaderBg.one(transitionEnd, function() {
-                            //wait for the  end of the modalHeaderBg transformation and reset modal style
+                            // wait for the  end of the modalHeaderBg transformation and reset modal style
                             self.modalHeaderBg.off(transitionEnd);
                             self.modal.addClass('no-transition');
                             setTimeout(function() {
@@ -376,42 +414,10 @@ jQuery(document).ready(function($) {
                             event.removeClass('selected-event');
                         });
                     }
-
-                    //browser do not support transitions -> no need to wait for the end of it
+                    // browser do not support transitions -> no need to wait for the end of it
                     if (!transitionsSupported) {
                         self.modal.add(self.modalHeaderBg).trigger(transitionEnd);
                     }
-
-                    //
-                    // $.ajax({url: '/assets/php/getRecipe.php'}).done(monday => {
-                    //
-                    //     $('#Monday').empty(e);
-                    //     $('#Monday').append(e);
-                    //
-                    //     this.singleEvents = this.eventsGroup.find('.single-event');
-                    //
-                    //     this.initSchedule();
-                    //     this.placeEvents();
-                    //
-                    // });
-                    // $.ajax({url:'reset.php'}).done(e=>{
-                    // 	$('.cd-schedule').empty();
-                    // 	$('.cd-schedule').append(e);
-                    // 	var schedules = $('.cd-schedule');
-                    // 	var objSchedulesPlan = [],
-                    // 		windowResize = false;
-                    //
-                    // 	if (schedules.length > 0) {
-                    // 		schedules.each(function() {
-                    // 		 create SchedulePlan objects
-                    //
-                    // 			objSchedulesPlan.push((plan = new SchedulePlan($(this))));
-                    //
-                    // 		});
-                    // 	}
-                    //
-                    // })
-
                 }
                 SchedulePlan.prototype.reset = function() {
                     this.singleEvents = this.eventsGroup.find('.single-event');
@@ -420,7 +426,7 @@ jQuery(document).ready(function($) {
                     this.placeEvents();
                 }
                 SchedulePlan.prototype.mq = function() {
-                    //get MQ value ('desktop' or 'mobile')
+                    // get MQ value ('desktop' or 'mobile')
                     var self = this;
                     return window.getComputedStyle(this.element.get(0), '::before').getPropertyValue('content').replace(/["']/g, '');
                 };
@@ -431,7 +437,7 @@ jQuery(document).ready(function($) {
                     var mq = this.mq();
 
                     if (mq == 'mobile') {
-                        //reset modal style on mobile
+                        // reset modal style on mobile
                         self.modal.add(self.modalHeader).add(self.modalHeaderBg).add(self.modalBody).add(self.modalBodyBg).attr('style', '');
                         self.modal.removeClass('no-transition');
                         self.animating = false;
@@ -466,21 +472,21 @@ jQuery(document).ready(function($) {
                                 left: (windowWidth / 2 - modalWidth / 2) + 'px'
                             });
                             transformElement(self.modal, 'translateY(0) translateX(0)');
-                            //change modal modalBodyBg height/width
+                            // change modal modalBodyBg height/width
                             self.modalBodyBg.css({
                                 height: modalHeight + 'px',
                                 width: '1px'
                             });
                             transformElement(self.modalBodyBg, 'scaleX(' + BodyBgScaleX + ')');
-                            //set modalHeader width
+                            // set modalHeader width
                             self.modalHeader.css({
                                 width: eventWidth + 'px'
                             });
-                            //set modalBody left margin
+                            // set modalBody left margin
                             self.modalBody.css({
                                 marginLeft: eventWidth + 'px'
                             });
-                            //change modal modalHeaderBg height/width and scale it
+                            // change modal modalHeaderBg height/width and scale it
                             self.modalHeaderBg.css({
                                 height: eventHeight + 'px',
                                 width: eventWidth + 'px'
@@ -501,7 +507,7 @@ jQuery(document).ready(function($) {
 
                 if (schedules.length > 0) {
                     schedules.each(function() {
-                        //create SchedulePlan objects
+                        // create SchedulePlan objects
                         objSchedulesPlan.push(new SchedulePlan($(this), dataObj));
 
                     });
@@ -535,7 +541,7 @@ jQuery(document).ready(function($) {
                 }
 
                 function getScheduleTimestamp(time) {
-                    //accepts hh:mm format - convert hh:mm to timestamp
+                    // accepts hh:mm format - convert hh:mm to timestamp
                     time = time.replace(/ /g, '');
                     var timeArray = time.split(':');
                     var timeStamp = parseInt(timeArray[0]) * 60 + parseInt(timeArray[1]);
@@ -575,13 +581,13 @@ jQuery(document).ready(function($) {
                             weekCost += dayCost;
                             weekCal += dayCal;
                             $(`#${days[b]}`).html(`
-                                <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
-                                    <a href="#0">
-                                        <em class="event-name" style="font-size:2rem">Summary</em>
-                                        <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
-                                        <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
-                                    </a>
-                                </li>`);
+                                    <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
+                                        <a href="#0">
+                                            <em class="event-name" style="font-size:2rem">Summary</em>
+                                            <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
+                                            <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
+                                        </a>
+                                    </li>`);
                         } else {
                             $(`#${days[b]}`).html('');
                         }
@@ -595,84 +601,20 @@ jQuery(document).ready(function($) {
                     week = week === 4
                         ? 1
                         : week + 1;
-
-                    $.post('/assets/php/updateRecentWeek.php', {
-                        week: week
-                    }, function() {
-                        $.post('/assets/php/getRecipeID.php', function(d) {
-                            d = JSON.parse(d);
-                            let ajaxCall = [];
-                            days.forEach((day, i) => {
-                                let query = getStringID(JSON.parse(d[day]));
-                                if (query !== '') {
-                                    ajaxCall[i] = fetchData(query);
-                                } else {
-                                    ajaxCall[i] = '';
-                                }
-                            })
-                            $.when.apply($, ajaxCall).then(function(...params) {
-                                if (ajaxCall.length === 1) {
-                                    let temp = new Array();
-                                    temp[0] = params;
-                                    params = temp;
-
-                                }
-                                let data = displayOtherWeekCost(params, days, d);
-                                let weekCost = data[0];
-                                let weekCal = data[1];
-                                let dataObj = data[2];
-                                objSchedulesPlan.data = dataObj;
-                                objSchedulesPlan[0].reset();
-                                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
-                                $('#weekNo').html(`Week ${week}`);
-
-                            });
-                        });
-                    });
+                    getOtherWeek(days, week, objSchedulesPlan);
                 })
                 $('#previous').click(function() {
                     let week = parseInt($('#weekNo').html().split('Week ')[1]);
                     week = week === 1
                         ? 4
                         : week - 1;
-                    $.post('/assets/php/updateRecentWeek.php', {
-                        week: week
-                    }, function() {
-                        $.post('/assets/php/getRecipeID.php', function(d) {
-                            d = JSON.parse(d);
-                            let ajaxCall = [];
-                            days.forEach((day, i) => {
-                                let query = getStringID(JSON.parse(d[day]));
-                                if (query !== '') {
-                                    ajaxCall[i] = fetchData(query);
-                                } else {
-                                    ajaxCall[i] = '';
-                                }
-                            })
-                            $.when.apply($, ajaxCall).then(function(...params) {
-                                if (ajaxCall.length === 1) {
-                                    let temp = new Array();
-                                    temp[0] = params;
-                                    params = temp;
 
-                                }
-                                let data = displayOtherWeekCost(params, days, d);
-                                let weekCost = data[0];
-                                let weekCal = data[1];
-                                let dataObj = data[2];
-                                objSchedulesPlan.data = dataObj;
-                                objSchedulesPlan[0].reset();
-                                $('#summary').html(`<h1 class="button alt">Total Cost: $ ${weekCost} </h1><h1 class="button alt"> Total Calories: ${weekCal} cal</h1>`)
-                                $('#weekNo').html(`Week ${week}`);
-
-                            });
-                        });
-                    });
-
+                    getOtherWeek(days, week, objSchedulesPlan);
                 })
             })
 
         })
-    });
+
+    })
 
 });

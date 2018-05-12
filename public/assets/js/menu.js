@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    function fetchData(id) {
+        return $.ajax({
+            url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
+            headers: {
+                'X-Mashape-Key': 'yVNtwOy4YwmshW4SiqM6RgMT9S7ep1oWIcbjsnIe4j5rd3ZqiX',
+                'Accept': 'application/json'
+            }
+        });
+    }
     $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();
@@ -76,6 +85,7 @@ $(document).ready(function() {
             $('.add-recipe').click(function(a) {
                 a.preventDefault();
                 let id = $(this).attr('id').split('add_recipe_')[1];
+
                 let params = {
                     recipe_id: $(`#recipe_id_${id}`).val(),
                     recipe_title: $(`#recipe_title_${id}`).val(),
@@ -85,14 +95,38 @@ $(document).ready(function() {
                 };
                 if ($(`#quantity_${id}`).val() > 0) {
                     $.post('/assets/php/addRecipe.php', params, function(d) {
-                        $(`#collapseExample-${id}`).collapse('hide');
-                        $('#myModal').modal('show');
-                        setTimeout(function() {
-                            $('#myModal').modal('hide');
-                        }, 1000);
+                        if (d === 'insert') {
+                            fetchData($(`#recipe_id_${id}`).val()).done(function(e) {
+                                let strData = JSON.stringify(e[0]).replace(/'/g,"''");
+                                params = {
+                                    recipe_id: $(`#recipe_id_${id}`).val(),
+                                    recipe_title: $(`#recipe_title_${id}`).val(),
+                                    data: strData
+                                };
+
+
+                                $.post('/assets/php/addRecipeData.php', params, function(a) {
+                                    $(`#collapseExample-${id}`).collapse('hide');
+                                    $('#myModal').modal('show');
+                                    setTimeout(function() {
+                                        $('#myModal').modal('hide');
+                                    }, 1000);
+
+                                });
+                            });
+                        } else {
+                            $(`#collapseExample-${id}`).collapse('hide');
+                            $('#myModal').modal('show');
+                            setTimeout(function() {
+                                $('#myModal').modal('hide');
+                            }, 1000);
+
+                        }
+
                     });
                 }
-            });
+            })
+
         })
 
     })

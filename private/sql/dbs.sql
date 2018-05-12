@@ -31,3 +31,10 @@ CREATE TABLE user_activity (
     FOREIGN KEY (id) REFERENCES user(id)  ON DELETE CASCADE,
     CHECK (lastWeekNo IN (1,2,3,4))
 ) ENGINE=INNODB;
+
+CREATE TABLE recipe (
+    recipe_id INT(10) NOT NULL,
+    recipe_title VARCHAR(255) NOT NULL,
+    data MEDIUMTEXT NOT NULL,
+    PRIMARY KEY(recipe_id)
+) ENGINE=INNODB;
