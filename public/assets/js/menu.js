@@ -8,6 +8,7 @@ $(document).ready(function() {
             }
         });
     }
+
     $("#search").click(function(e) {
         e.preventDefault();
         $('#result').empty();
@@ -25,8 +26,7 @@ $(document).ready(function() {
                 d.results.forEach((a, b) => {
                     let div = `
             <div class="4u 12u(mobilep) recipe">
-                <!-- <div class="12u" style="background:url('${imgUri}${a.imageUrls[a.imageUrls.length - 1]}');  background-position: center;  background-size:cover;   background-repeat: no-repeat;height:400px;"></div> -->
-                    <header style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="max-width:80%; min-width:80%"/></header>
+                    <header class="recipe-img" style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="max-width:80%; min-width:80%"/></header>
                <h4 class="center"  style="margin-top:10px; text-align:center">${a.title}</h4>
                <div class="row">
                 <p class="6u" style="text-align:center"><a class=" icon fa-cutlery"> ${a.servings} ${a.servings > 1
@@ -97,13 +97,12 @@ $(document).ready(function() {
                     $.post('/assets/php/addRecipe.php', params, function(d) {
                         if (d === 'insert') {
                             fetchData($(`#recipe_id_${id}`).val()).done(function(e) {
-                                let strData = JSON.stringify(e[0]).replace(/'/g,"''");
+                                let strData = JSON.stringify(e[0]).replace(/'/g, "''");
                                 params = {
                                     recipe_id: $(`#recipe_id_${id}`).val(),
                                     recipe_title: $(`#recipe_title_${id}`).val(),
                                     data: strData
                                 };
-
 
                                 $.post('/assets/php/addRecipeData.php', params, function(a) {
                                     $(`#collapseExample-${id}`).collapse('hide');
@@ -125,6 +124,31 @@ $(document).ready(function() {
 
                     });
                 }
+            })
+
+            $('.recipe-img').click(function() {
+
+                let id = $(this).parent().find('input')[0].value;
+                let strID = JSON.stringify([id]);
+                $.post('/assets/php/getRecipeData.php', {
+                    data: strID
+                }, function(d) {
+                    d = JSON.parse(d);
+                    if (d.length === 0) {
+                        fetchData(id).done(data => {
+                            data = data[0];
+                            let params = {
+                                recipe_id: id,
+                                recipe_title: data.title,
+                                data: JSON.stringify(data).replace(/'/g, "''")
+                            }
+                            $.post('/assets/php/addRecipeData.php', params, function(d) {
+                                location.href=`recipe.php?id=${id}`;
+                            })
+
+                        })
+                    } else {}
+                })
             })
 
         })

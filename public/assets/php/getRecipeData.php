@@ -1,5 +1,5 @@
 <?php
-    require_once('../../../private/credential/initialize.php');
+require_once('../../../private/credential/initialize.php');
 session_start();
 $stmt = $conn->prepare("SELECT id FROM user WHERE id = ?");
 $stmt->bind_param("s", $_SESSION['id']);
@@ -18,6 +18,7 @@ if (!isset($_SESSION['id'])) {
 
 $str = '[';
 $data = json_decode($_POST['data']);
+
 foreach ($data as $item ) {
     $str.=getRecipeData($conn, $item).',';
 }
