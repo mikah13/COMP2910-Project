@@ -1,18 +1,24 @@
 <!DOCTYPE HTML>
-<!--
-	Alpha by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>Contact</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="max-age=600" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="author" content="JMAN">
+	<meta name="description" content="Food Tracking Application">
+	<meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
+
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="shortcut icon" href="images/logo.png" />
+	<title>JustPerfect</title>
+
+
+</head>
+
 	<body>
 		<div id="page-wrapper">
 
@@ -20,29 +26,10 @@
 		<header id="header">
 			<h1><a href="index.php">JustPerfect</a></h1>
 			<nav id="nav">
-				<ul>
+				<ul id="nav-list">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="dashboard.php">Dashboard</a></li>
-					<!-- <li>
-						<a href="#" class="icon fa-angle-down">Layouts</a>
-						<ul>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li>
-								<a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option One</a></li>
-									<li><a href="#">Option Two</a></li>
-									<li><a href="#">Option Three</a></li>
-									<li><a href="#">Option Four</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li> -->
-					<li><a href="login.php" class="button">Login</a></li>
-					<li><a href="register.php" class="button">Sign Up</a></li>
-
+					<li><a href="schedule.php">Schedule</a></li>
+					<li><a href="resources.html">Articles</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -108,14 +95,14 @@
 		</div>
 
 	<!-- Scripts -->
-	<script src="https://use.fontawesome.com/187432b169.js"></script>
+	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/index.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/easter_egg.js"></script>
 
 	</body>
 </html>

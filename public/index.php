@@ -38,7 +38,6 @@
 			<h2>JustPerfect</h2>
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
-                
 				<li><a href="register.php" class="button special">Sign Up</a></li>
 				<li><a href="contact.php" class="button">About Us</a></li>
 			</ul>
@@ -93,7 +92,7 @@
 						<h3>How you can save more food</h3>
 						<!-- <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p> -->
 						<ul class="actions">
-							<li><a href="#" class="button alt">Learn More</a></li>
+							<li><a href="resources.html" class="button alt">Learn More</a></li>
 						</ul>
 					</section>
 
@@ -105,7 +104,7 @@
 						<h3>Food Donation</h3>
 						<!-- <p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p> -->
 						<ul class="actions">
-							<li><a href="#" class="button alt">Learn More</a></li>
+							<li><a href="https://foodbankscanada.ca/" class="button alt" target="_blank">Learn More</a></li>
 						</ul>
 					</section>
 
@@ -150,15 +149,13 @@
 	<!-- Scripts -->
 	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/index.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
 	<script src="assets/js/easter_egg.js"></script>
-<script src="assets/js/index.js"></script>
-    
+
 </body>
 
 </html>
