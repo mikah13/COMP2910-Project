@@ -127,7 +127,6 @@ $(document).ready(function() {
             })
 
             $('.recipe-img').click(function() {
-
                 let id = $(this).parent().find('input')[0].value;
                 let strID = JSON.stringify([id]);
                 $.post('/assets/php/getRecipeData.php', {
@@ -143,11 +142,13 @@ $(document).ready(function() {
                                 data: JSON.stringify(data).replace(/'/g, "''")
                             }
                             $.post('/assets/php/addRecipeData.php', params, function(d) {
-                                location.href=`recipe.php?id=${id}`;
+                                location.href = `recipe.php?id=${id}`;
                             })
 
                         })
-                    } else {}
+                    } else {
+                        location.href = `recipe.php?id=${id}`;
+                    }
                 })
             })
 
