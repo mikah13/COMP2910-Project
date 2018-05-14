@@ -17,6 +17,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 $stmt = "SELECT * FROM user_recipe WHERE recipe_id = {$_POST['recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
+echo $stmt;
 $result = mysqli_query($conn, $stmt);
 if (mysqli_num_rows($result) === 0) {
     $stmt = "INSERT INTO user_recipe(id, recipe_id, recipe_title ,day, week, quantity) VALUES({$_SESSION['id']}, {$_POST['recipe_id']},'{$_POST['recipe_title']}','{$_POST['day']}', '{$_POST['week']}', {$_POST['quantity']})";
