@@ -16,6 +16,6 @@ if (!isset($_SESSION['id'])) {
     header("Location:../../login.php");
 }
 $id = $_SESSION['id'];
-$stmt = "SELECT first, last FROM user WHERE id + {$id}";
+$stmt = "SELECT first, last FROM user WHERE id = {$id}";
 $result = mysqli_query($conn, $stmt);
 echo mysqli_fetch_assoc($result)['first'].' '.mysqli_fetch_assoc($result)['last'];
