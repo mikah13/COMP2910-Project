@@ -15,25 +15,10 @@ if ($stmt->execute() == true) {
 if (!isset($_SESSION['id'])) {
     header("Location:../../login.php");
 }
-
-$str = '[';
-$data = json_decode($_POST['data']);
-
-foreach ($data as $item ) {
-    $str.=getRecipeData($conn, $item).',';
-}
-$str = rtrim($str,',');
-$str.=']';
-echo $str;
-function getRecipeData($conn, $id)
-{
-    $stmt = "SELECT  data FROM recipe WHERE recipe_id = {$id}";
+if(isset($_POST['id'])){
+    $id = $_POST['id'];
+    $stmt = "SELECT summary FROM recipe  WHERE recipe_id = {$id}";
     $result = mysqli_query($conn, $stmt);
-    return mysqli_fetch_assoc($result)['data'];
+    echo mysqli_fetch_assoc($result)['summary'];
 }
-//
-//
-//
-// echo json_encode( getRecipeData($conn, $_POST['recipe_id']));
-
 db_disconnect($conn);
