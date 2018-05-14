@@ -93,6 +93,7 @@ $(document).ready(function() {
                     day: $(`#day_${id}`).val(),
                     week: $(`#week_${id}`).val()
                 };
+                console.log(params);
                 if ($(`#quantity_${id}`).val() > 0) {
                     $.post('/assets/php/addRecipe.php', params, function(d) {
                         if (d === 'insert') {
