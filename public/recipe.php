@@ -19,6 +19,9 @@ require_once('assets/php/recipe.php');
         <title>JustPerfect</title>
 
         <style>
+            nav{
+                font-weight: 400;
+            }
             .toggle {
                 margin-left: 0px !important;
             }

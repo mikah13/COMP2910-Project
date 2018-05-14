@@ -15,7 +15,11 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="shortcut icon" href="images/logo.png" />
 	<title>JustPerfect</title>
-
+	<style>
+	nav{
+		font-weight: 400;
+	}
+	</style>
 
 </head>
 
