@@ -38,3 +38,6 @@ CREATE TABLE recipe (
     data MEDIUMTEXT NOT NULL,
     PRIMARY KEY(recipe_id)
 ) ENGINE=INNODB;
+
+ALTER TABLE recipe
+ADD summary TEXT;

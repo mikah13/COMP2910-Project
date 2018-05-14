@@ -79,7 +79,7 @@ jQuery(document).ready(function($) {
     function displayData(dataObj) {
         for (let day in dataObj) {
             $(`#${day}`).html(`
-                <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
+                <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-1">
                             <a href="#0">
                                 <em class="event-name" style="font-size:2rem">Summary</em>
                                 <em style="font-size:1.5rem;color:aqua">Cost: $ ${dataObj[day].totalCost}</em><br/>
@@ -581,7 +581,7 @@ jQuery(document).ready(function($) {
                             weekCost += dayCost;
                             weekCal += dayCal;
                             $(`#${days[b]}`).html(`
-                                    <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-2">
+                                    <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-1">
                                         <a href="#0">
                                             <em class="event-name" style="font-size:2rem">Summary</em>
                                             <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
