@@ -1,4 +1,15 @@
-<div class=" 12u recipe edit" style="max-width:80%;margin: 0 auto">
+<head>
+    <style>
+        
+    @media only screen and (min-width:820px) {
+        .edit{
+            max-width:80%;
+        }
+    }
+
+    </style>
+</head>
+<div class=" 12u recipe edit">
      <div class=" card card-body 12u 12u(mobilep) " style="color:black">
         <form  method="POST">
             <div class="row uniform 50%">
