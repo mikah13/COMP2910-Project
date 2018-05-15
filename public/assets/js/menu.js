@@ -104,7 +104,6 @@ $(document).ready(function() {
                                     recipe_title: $(`#recipe_title_${id}`).val(),
                                     data: strData
                                 };
-
                                 $.post('/assets/php/addRecipeData.php', params, function(a) {
                                     $(`#collapseExample-${id}`).collapse('hide');
                                     $('#myModal').modal('show');

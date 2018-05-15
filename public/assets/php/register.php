@@ -10,6 +10,10 @@ $first = mysqli_real_escape_string($conn, $_POST['first']);
 $last = mysqli_real_escape_string($conn, $_POST['last']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
+$options = [
+    'cost' => 12,
+];
+$password = password_hash($password, PASSWORD_BCRYPT, $options);
 
 if (!emailChk($conn, $email)) {
     echo "Invalid Email";
