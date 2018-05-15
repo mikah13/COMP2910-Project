@@ -15,8 +15,11 @@ if ($stmt->execute() == true) {
 if (!isset($_SESSION['id'])) {
     header("Location:../../login.php");
 }
-$id = $_SESSION['id'];
-$stmt = "SELECT first, last FROM user WHERE id = {$id}";
-$result = mysqli_query($conn, $stmt);
-$result = mysqli_fetch_assoc($result);
-echo $result['first'].' '.$result['last'];
+function getName($conn)
+{
+    $id = $_SESSION['id'];
+    $stmt = "SELECT first, last FROM user WHERE id = {$id}";
+    $result = mysqli_query($conn, $stmt);
+    $result = mysqli_fetch_assoc($result);
+    echo $result['first'].' '.$result['last'];
+}
