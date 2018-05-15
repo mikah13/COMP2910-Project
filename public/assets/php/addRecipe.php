@@ -16,7 +16,7 @@ if (!isset($_SESSION['id'])) {
     header("Location:../../login.php");
 }
 
-$stmt = "SELECT * FROM user_recipe WHERE recipe_id = {$_POST['recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
+$stmt = "SELECT * FROM user_recipe WHERE id = {$_SESSION['id']} AND recipe_id = {$_POST['recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
 $result = mysqli_query($conn, $stmt);
 if (mysqli_num_rows($result) === 0) {
     $stmt = "INSERT INTO user_recipe(id, recipe_id, recipe_title ,day, week, quantity) VALUES({$_SESSION['id']}, {$_POST['recipe_id']},'{$_POST['recipe_title']}','{$_POST['day']}', '{$_POST['week']}', {$_POST['quantity']})";
@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) === 0) {
     echo 'insert';
 } else {
     $quantity = mysqli_fetch_assoc($result) ['quantity'] + $_POST['quantity'];
-    $stmt = "UPDATE user_recipe SET quantity = {$quantity} WHERE recipe_id = {$_POST['recipe_id']} AND day = '{$_POST['day']}' AND day = '{$_POST['day']}'";
+    $stmt = "UPDATE user_recipe SET quantity = {$quantity} WHERE id = {$_SESSION['id']} AND recipe_id = {$_POST['recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
     mysqli_query($conn, $stmt);
     echo 'update';
 }
