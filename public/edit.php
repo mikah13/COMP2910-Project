@@ -1,9 +1,23 @@
 <head>
     <style>
+    @media only screen and (min-width:820px) {
+        .edit{
+            width:80%;
+        }
+    }
+    @media only screen and (max-width:820px) {
+        .edit{
+            width:100%;
+        }
+    }
+
+
+
 
 
     </style>
 </head>
+<body>
 <div class=" 12u recipe edit">
      <div class=" card card-body 12u 12u(mobilep) " style="color:black">
         <form  method="POST">
@@ -66,4 +80,6 @@
 </div>
 </div>
 </div>
+
  <script>$.getScript('/assets/js/edit.js')</script>
+</body>
