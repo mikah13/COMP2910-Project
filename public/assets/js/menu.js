@@ -96,33 +96,32 @@ $(document).ready(function() {
 
                 if ($(`#quantity_${id}`).val() > 0) {
                     $.post('/assets/php/addRecipe.php', params, function(d) {
-                        console.log(d);
-                        // if (d === 'insert') {
-                        //     fetchData($(`#recipe_id_${id}`).val()).done(function(e) {
-                        //         let strData = JSON.stringify(e[0]).replace(/'/g, "''");
-                        //         params = {
-                        //             recipe_id: $(`#recipe_id_${id}`).val(),
-                        //             recipe_title: $(`#recipe_title_${id}`).val(),
-                        //             data: strData
-                        //         };
-                        //
-                        //         $.post('/assets/php/addRecipeData.php', params, function(a) {
-                        //             $(`#collapseExample-${id}`).collapse('hide');
-                        //             $('#myModal').modal('show');
-                        //             setTimeout(function() {
-                        //                 $('#myModal').modal('hide');
-                        //             }, 1000);
-                        //
-                        //         });
-                        //     });
-                        // } else {
-                        //     $(`#collapseExample-${id}`).collapse('hide');
-                        //     $('#myModal').modal('show');
-                        //     setTimeout(function() {
-                        //         $('#myModal').modal('hide');
-                        //     }, 1000);
-                        //
-                        // }
+                        if (d === 'insert') {
+                            fetchData($(`#recipe_id_${id}`).val()).done(function(e) {
+                                let strData = JSON.stringify(e[0]).replace(/'/g, "''");
+                                params = {
+                                    recipe_id: $(`#recipe_id_${id}`).val(),
+                                    recipe_title: $(`#recipe_title_${id}`).val(),
+                                    data: strData
+                                };
+
+                                $.post('/assets/php/addRecipeData.php', params, function(a) {
+                                    $(`#collapseExample-${id}`).collapse('hide');
+                                    $('#myModal').modal('show');
+                                    setTimeout(function() {
+                                        $('#myModal').modal('hide');
+                                    }, 1000);
+
+                                });
+                            });
+                        } else {
+                            $(`#collapseExample-${id}`).collapse('hide');
+                            $('#myModal').modal('show');
+                            setTimeout(function() {
+                                $('#myModal').modal('hide');
+                            }, 1000);
+
+                        }
 
                     });
                 }

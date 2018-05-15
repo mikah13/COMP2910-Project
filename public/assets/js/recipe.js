@@ -90,7 +90,7 @@ $(document).ready(function() {
         ingredientArr = data.nutrition.ingredients;
         $('#recipe_title').html(title);
         $('#recipe_img').attr('src', img);
-        $('#summary').html(summary);
+        $('#summary').html(summary.replace(/spoonacular/gi,''));
         $('#cost').html(`$${price}/serving`);
         $('#calorie').html(`${calorie} cal/serving`);
         $('#duration').html(`${duration} minutes`);
