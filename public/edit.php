@@ -1,4 +1,4 @@
-<div class=" 12u recipe edit">
+<div class=" 12u recipe edit" style="max-width:80%;margin: 0 auto">
      <div class=" card card-body 12u 12u(mobilep) " style="color:black">
         <form  method="POST">
             <div class="row uniform 50%">
