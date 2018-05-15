@@ -154,6 +154,6 @@
     </body>
 
     </html>
-    <?php
+<?php
     db_disconnect($conn);
  ?>
