@@ -1,11 +1,6 @@
 <head>
     <style>
-        
-    @media only screen and (min-width:820px) {
-        .edit{
-            max-width:80%;
-        }
-    }
+
 
     </style>
 </head>
