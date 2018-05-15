@@ -56,19 +56,7 @@
 						</h3>
 				<div class="row">
 					<div class="column">
-						<img src="images/Jeevan.png" alt="Jeevan" height="10%" width="15%">
-					</div>
-					<div class="column">
-						<img src="images/Mike.jpg" alt="Mike" height="20%" width="20%">
-					</div>
-					<div class="column">
-						<img src="images/Andrew.jpg" alt="Andrew" height="30%" width="15%">
-					</div>
-					<div class="column">
-						<img src="images/Antonio.jpg" alt="Antonio" height="25%" width="18%">
-					</div>
-					<div class="column">
-						<img src="images/Nirajan.jpg" alt="Nirajan" height="25%" width="25%">
+						<img src="images/Group.png" alt="Team" height="100%" width="100%">
 					</div>
 				</div>
 				<h3>
