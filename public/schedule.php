@@ -78,7 +78,6 @@
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
                         <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
-                        <li><a href="logout.php" class="button">Sign Out</a></li>                    </ul>
                 </nav>
             </header>
             <div style="width:225px; margin: auto;z-index:5">

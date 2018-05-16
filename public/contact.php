@@ -32,7 +32,6 @@
 			<nav id="nav">
 				<ul id="nav-list">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="schedule.php">Schedule</a></li>
 					<li><a href="resources.html">Articles</a></li>
 				</ul>
 			</nav>
@@ -50,8 +49,8 @@
 				<p>
 					At JMAN we strive to deliver a fast and reliable product, that is both mobile friendly and easy to use.
 					With JustPerfect, we will help reduce the overbuying of groceries and save users their hard earned money.
-					With simple recipies, exact portions and nutritional facts, JustPerfect is an all in one grocery must-have app. 
-				
+					With simple recipies, exact portions and nutritional facts, JustPerfect is an all in one grocery must-have app.
+
 				</p>
 				<h3>
 						The Team
