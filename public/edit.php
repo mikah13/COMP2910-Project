@@ -22,7 +22,7 @@
 <div class=" 12u recipe edit">
      <div class=" card card-body 12u 12u(mobilep) " style="color:black">
         <form  method="POST">
-            <p style="margin-bottom:15px;text-align:center;cursor:pointer" class="  detail"><?php echo $_POST['recipe_title']; ?></p>
+            <p style="margin-bottom:15px;text-align:center;cursor:pointer;font-size:1.8rem" class="  detail"><?php echo $_POST['recipe_title']; ?></p>
             <div class="row uniform 50%">
                 <input id="recipe_id" name="recipe_id" <?php echo 'value = "'.$_POST['recipe_id'].'"'?> type="hidden"/>
                 <input id="recipe_title" name="recipe_title" <?php echo 'value = "'.$_POST['recipe_title'].'"'?> type="hidden"/>

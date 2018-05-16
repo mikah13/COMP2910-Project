@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     })
     $('.detail').click(function(){
-        location.href = 'recipe.php?id='+$('#recipe_id').val();
+        window.open('recipe.php?id='+$('#recipe_id').val(),'_blank');
     })
     $('.detail').mouseover(function(){
         $(this).css('color','#55CD48')

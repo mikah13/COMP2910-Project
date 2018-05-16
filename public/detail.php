@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['data'])) {
-    echo '<div id="data" style="display:none">'.json_encode($_POST['data']).'</div>';
+    echo '<div id="data" style="display:none;">'.json_encode($_POST['data']).'</div>';
 
 } else {
     header('Location: summary.php');
