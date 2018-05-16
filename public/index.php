@@ -145,8 +145,6 @@
 			</ul>
 			<i style="position:relative;color:#EE4914;width:40px" id="up" class="fa fa-arrow-up " aria-hidden="true"></i>
 		</footer>
-
-
 	</div>
 
 	<!-- Scripts -->
