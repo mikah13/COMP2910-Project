@@ -1,16 +1,28 @@
 <?php
 if (isset($_POST['data'])) {
-    echo '<div id="data" style="display:none">'.json_encode($_POST['data']).'</div>';
+    echo '<div id="data" style="display:none;">'.json_encode($_POST['data']).'</div>';
 
 } else {
     header('Location: summary.php');
 }?>
 <style>
+@media only screen and (min-width:820px) {
+    .detail{
+        width:80%;
+    }
+
+}
+@media only screen and (max-width:820px) {
+    .detail{
+        width:100%;
+    }
+}
+
 td{
     padding:.5rem;
 }
 </style>
-<div class="table-wrapper" id="detail-table">
+<div class="table-wrappe detail" id="detail-table">
 							<table>
 								<thead>
 									<tr>

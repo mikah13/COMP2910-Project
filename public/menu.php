@@ -21,6 +21,9 @@
         <link rel="shortcut icon" href="images/logo.png" />
         <title>Menu</title>
         <style>
+            #navPanel{
+                font-size: 1rem;
+            }
             nav{
                 font-weight: 400;
             }

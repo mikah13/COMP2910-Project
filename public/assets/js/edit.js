@@ -18,6 +18,15 @@ $(document).ready(function() {
         })
 
     })
+    $('.detail').click(function(){
+        window.open('recipe.php?id='+$('#recipe_id').val(),'_blank');
+    })
+    $('.detail').mouseover(function(){
+        $(this).css('color','#55CD48')
+    })
+    $('.detail').mouseout(function(){
+        $(this).css('color','black')
+    })
     $(".add-recipe").click(function(e) {
         e.preventDefault();
         let recipe_id = $('#recipe_id').val();

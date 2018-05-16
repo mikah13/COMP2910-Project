@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
                                 let recipeCal = data.nutrition.nutrients[0].amount * quantity;
                                 dayCost += recipeCost;
                                 dayCal += recipeCal;
-                                dayData.push({title: data.title, price: recipeCost, calorie: recipeCal})
+                                dayData.push({title: data.title, price: recipeCost, calorie: recipeCal, recipe_id: recipe_id})
                             })
                             dataNextObj[day] = {
                                 day: day,
@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
                             dayCost += recipeCost;
                             dayCal += recipeCal;
 
-                            dayData.push({title: data.title, price: recipeCost, calorie: recipeCal})
+                            dayData.push({title: data.title, price: recipeCost, calorie: recipeCal, recipe_id: recipe_id})
                         })
                         dataObj[day] = {
                             day: day,
@@ -550,50 +550,6 @@ jQuery(document).ready(function($) {
 
                 function transformElement(element, value) {
                     element.css({'-moz-transform': value, '-webkit-transform': value, '-ms-transform': value, '-o-transform': value, 'transform': value});
-                }
-                function displayOtherWeekCost(params, days, d) {
-                    let weekCost = 0;
-                    let weekCal = 0;
-                    let dataObj = {};
-                    params.forEach((a, b) => {
-                        if (a) {
-                            let dataArr = [];
-                            let daysArr = JSON.parse(d[days[b]]);
-                            let recipeArr = a[0];
-                            let dayCost = 0;
-                            let dayCal = 0;
-                            recipeArr.forEach((x, y) => {
-                                let recipeCost = x.pricePerServing * daysArr[y].quantity / 100;
-                                let recipeCal = x.nutrition.nutrients[0].amount * daysArr[y].quantity;
-                                dayCost += recipeCost;
-                                dayCal += recipeCal;
-                                dataArr.push({title: x.title, price: round(recipeCost), calorie: recipeCal});
-
-                            })
-                            dayCost = round(dayCost);
-                            dataObj[days[b]] = {
-                                day: days[b],
-                                totalCost: dayCost,
-                                totalCal: dayCal,
-                                data: dataArr
-                            };
-
-                            weekCost += dayCost;
-                            weekCal += dayCal;
-                            $(`#${days[b]}`).html(`
-                                    <li class="single-event" data-start="09:00" data-end="11:00" data-content="event-rowing-as" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name" style="font-size:2rem">Summary</em>
-                                            <em style="font-size:1.5rem;color:aqua">Cost: $ ${dayCost}</em><br/>
-                                            <em style="font-size:1.5rem;color:aqua">Calories: ${dayCal} cal</em>
-                                        </a>
-                                    </li>`);
-                        } else {
-                            $(`#${days[b]}`).html('');
-                        }
-
-                    })
-                    return [weekCost, weekCal, dataObj];
                 }
                 // ADD NEXT AND PREVIOUS EVENT HERE !!!!!!!!!!!!!
                 $('#next').click(function() {
