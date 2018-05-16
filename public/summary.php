@@ -20,6 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/schedule.css">
@@ -27,6 +28,13 @@
         <title>Summary</title>
         <!-- Resource style -->
         <style>
+        .dropotron li a{
+                color: #fff
+        }
+        .dropotron li a:hover {
+            background-color: #61c200;
+
+        }
             nav{
                 font-weight: 400;
             }
