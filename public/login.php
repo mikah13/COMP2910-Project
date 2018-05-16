@@ -115,6 +115,9 @@
                             <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,public_profile" onlogin="checkLoginState();">
                             </div>
                         </div>
+                        <div>
+                            <p class="center">Twitter <a href="assets/php/twitterRegister.php">Log in</a></p>
+                        </div>
                     </div>
 
                     <!-- <div class="row">
