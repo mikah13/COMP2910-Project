@@ -6,11 +6,23 @@ if (isset($_POST['data'])) {
     header('Location: summary.php');
 }?>
 <style>
+@media only screen and (min-width:820px) {
+    .detail{
+        width:80%;
+    }
+
+}
+@media only screen and (max-width:820px) {
+    .detail{
+        width:100%;
+    }
+}
+
 td{
     padding:.5rem;
 }
 </style>
-<div class="table-wrapper" id="detail-table">
+<div class="table-wrappe detail" id="detail-table">
 							<table>
 								<thead>
 									<tr>
