@@ -15,6 +15,7 @@ if ($stmt->execute() == true) {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $user['id'];
         $stmt->close();
+        echo "Success";
     } else {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
@@ -38,7 +39,8 @@ if ($stmt->execute() == true) {
             $_SESSION['id'] = $id;
             // header('Location: ../../../login.php');
         }
+        echo 'New';
     }
 }
-echo "Success";
+
 db_disconnect($conn);

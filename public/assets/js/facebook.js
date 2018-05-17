@@ -1,10 +1,5 @@
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '154511015392915',
-            cookie: true,
-            xfbml: true,
-            version: 'v3.0'
-        });
+window.fbAsyncInit = function() {
+    FB.init({appId: '154511015392915', cookie: true, xfbml: true, version: 'v3.0'});
 
     FB.AppEvents.logPageView();
 
@@ -45,7 +40,13 @@ function statusChangeCallback(response) {
 
                 $.post('assets/php/facebookRegister.php', data, function(a) {
                     if (a === 'Success') {
-                        location.href='menu.php';
+                        location.href = 'menu.php';
+                    } else if (a === 'New') {
+                        $.post('preference.php', {
+                            data: data
+                        }, function() {
+                            location.href = 'preference.php';
+                        })
                     } else {
                         $('.error').html('Please login to Facebook');
                     }

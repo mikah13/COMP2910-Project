@@ -1,9 +1,14 @@
 <?php
     require_once('assets/php/session.php');
     include('assets/php/getUserName.php');
- ?>
+// if (!isset($_POST['data'])) {
+//     header('Location: profile.php');
+
+// } ?>
+
 
     <html>
+
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="Cache-Control" content="max-age=600" />
@@ -14,38 +19,28 @@
         <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="shortcut icon" href="images/logo.png" />
-        <title>Menu</title>
+        <title>Preference</title>
         <style>
             img {
-                cursor:pointer
+                cursor: pointer
             }
-            img:hover{
+
+            img:hover {
                 opacity: .8;
             }
-            #navPanel{
+
+            #navPanel {
                 font-size: 1rem;
             }
-            nav{
+
+            nav {
                 font-weight: 400;
             }
 
             a:hover {
                 text-decoration: none;
-            }
-
-            .dropotron li a:hover {
-                background-color: #61c200;
-
-            }
-
-            @media screen and (max-width: 480px) {
-                h4 {
-                    font-size: 13pt;
-                    font-weight: bold;
-                }
             }
         </style>
     </head>
@@ -62,7 +57,11 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
-                        <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
+                        <li>
+                            <a href="profile.php" id="profile" class="button alt">
+                                <?php getName($conn); ?>
+                            </a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -71,63 +70,56 @@
             <!-- Main -->
             <section id="main" class="container">
                 <header>
-                    <h2 style="font-weight:400">Menu</h2>
+                    <h2 style="font-weight:400">Welcome <?php echo $_POST['data']['first'];?></h2>
+                    <p>
+                        To serve you better, we need to know some more about you ...
+                    </p>
                 </header>
+                <div class="box">
+                    <h3>1. Age</h3>
+                    <div class="row">
 
-                <div class="row">
-                    <div class="12u">
-
-                        <!-- Form -->
-                        <section class="box">
-                            <h2>Search</h2>
-                            <form class="search-form">
-                                <div class="row uniform 50%">
-                                    <div class="9u 12u(mobilep)">
-                                        <input type="text" name="query" id="query" value="" placeholder="Search..." />
-                                    </div>
-                                    <div class="3u 12u(mobilep)">
-                                        <input id="search" type="submit" value="Search" class="fit" />
-                                    </div>
-                                </div>
-
-                            </form>
-                        </section>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="12u" id="result">
-
-
-
-                    </div>
-                </div>
-            </section>
-            <div class="hidden-modal">
-                <div class="modal fade" id="myModal" style="margin-top:50px">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add New Recipe</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <h4 style="color:green">Recipe succesfully added.</h4>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <div class="4u 12u(mobilep)">
+                                <input type="text" name="name" id="name" value="" placeholder="Age">
                             </div>
 
                         </div>
+
+                        <h3>2. Gender</h3>
+
+                        <div class="row">
+
+                                <div class="4u 12u(mobilep)">
+                                    <input type="radio" id="male" name="gender" checked="">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender">
+                                    <label for="female">Female</label>
+                                </div>
+
+                            </div>
+
+
+
+
+                </div>
+
+                <div class="box">
+                    <h3>1. Location</h3>
+                    <div class="row">
+                        <div class="6u 12u(mobilep)">
+                            <input type="radio" id="canada" name="location" checked="">
+                            <label for="canada"><img src="images/canada.png" class="img-fluid" /></label>
+
+                        </div>
+                        <div class="6u 12u(mobilep)">
+                            <input type="radio" id="usa" name="location">
+                            <label for="usa"><img src="images/usa.png" class="img-fluid" /></label>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </section>
+
             <!-- Footer -->
             <footer id="footer">
                 <ul class="icons">
@@ -155,11 +147,8 @@
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
 
-        <script src="assets/js/menu.js"></script>
 
     </body>
 
     </html>
-<?php
-    db_disconnect($conn);
- ?>
+    <?php db_disconnect($conn); ?>

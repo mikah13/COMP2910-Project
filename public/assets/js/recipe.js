@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $.post()
     let ingredientArr;
     let price;
     function getIngredients() {
