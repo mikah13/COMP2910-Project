@@ -39,5 +39,4 @@ function renderButton() {
         'theme': 'dark',
         'onsuccess': onSignIn
     });
-
 }
