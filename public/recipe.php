@@ -5,7 +5,6 @@ include('assets/php/getUserName.php');
 
  ?>
 
-
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="Cache-Control" content="max-age=600" />

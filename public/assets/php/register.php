@@ -17,6 +17,8 @@ $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
 if (!emailChk($conn, $email)) {
     echo "Invalid Email";
+} elseif(!existedChk($conn, $email)){
+    echo "Email is existed";
 } elseif (!passChk($password)) {
     echo "Password must contain at least 8 characters, <br /> one Uppercase, one Lowercase and one Number";
 } elseif (!nameChk($first, $last)) {

@@ -18,6 +18,13 @@ function onSignIn(googleUser) {
         if (a === 'Success') {
             gapi.auth2.getAuthInstance().disconnect();
             location.href = 'menu.php';
+        } else if (a === 'New') {
+            gapi.auth2.getAuthInstance().disconnect();
+            $.post('preference.php', {
+                data: data
+            }, function() {
+                location.href = 'preference.php';
+            })
         } else {
             $('.error').html('Please login to Google');
         }
