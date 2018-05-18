@@ -66,7 +66,7 @@
             <!-- Main -->
             <section id="main" class="container">
                 <header>
-                    <h2 style="font-weight:400">Welcome <?php getName($conn); ?>></h2>
+                    <h2 style="font-weight:400">Welcome <?php getName($conn); ?></h2>
                     <p>
                         To serve you better, we need to know some more about you ...
                     </p>
