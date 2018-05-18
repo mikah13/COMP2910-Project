@@ -64,9 +64,8 @@ if ($stmt->execute() == true) {
     }
 }
 echo "Success";
-db_disconnect($conn);
 
-    header('Location: ../../menu.php');
+header('Location: ../../menu.php');
 }
 else{
   // main startup code
@@ -81,4 +80,5 @@ else{
 // REDIRECTING TO THE URL
     header('Location: ' . $url);
 }
+db_disconnect($conn);
 ?>

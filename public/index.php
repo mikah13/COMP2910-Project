@@ -41,7 +41,7 @@
 			<h2>JustPerfect</h2>
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
-                
+
 				<li><a href="register.php" class="button special">Sign Up</a></li>
 				<li><a href="contact.php" class="button">About Us</a></li>
 			</ul>
@@ -157,8 +157,8 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/easter_egg.js"></script>
-<script src="assets/js/index.js"></script>
-    
+	<script src="assets/js/index.js"></script>
+
 </body>
 
 </html>
