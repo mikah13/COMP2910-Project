@@ -18,7 +18,7 @@ if(isset($_SESSION['oauth_token'])){
   $connection = new TwitterOAuth($consumer_key, $consumer_secret,
   $access_token['oauth_token'],$access_token['oauth_token_secret']);
   $content = $connection->get("account/verify_credentials");
-
+echo $content;
 $content = json_decode($content);
 
 $name = $content->name;
@@ -29,6 +29,9 @@ $last = $name[1];
 $email = $content->id;
 $password =  $content->id;
 echo $first;
+echo $last;
+echo $email;
+echo $password;
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
