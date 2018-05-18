@@ -41,7 +41,6 @@
 			<h2>JustPerfect</h2>
 			<p>One Step Closer To Being Perfect</p>
 			<ul class="actions">
-
 				<li><a href="register.php" class="button special">Sign Up</a></li>
 				<li><a href="contact.php" class="button">About Us</a></li>
 			</ul>
@@ -146,17 +145,19 @@
 			</ul>
 			<i style="position:relative;color:#EE4914;width:40px" id="up" class="fa fa-arrow-up " aria-hidden="true"></i>
 		</footer>
+
+
 	</div>
 
 	<!-- Scripts -->
 	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/index.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/easter_egg.js"></script>
-	<script src="assets/js/index.js"></script>
 
 </body>
 
