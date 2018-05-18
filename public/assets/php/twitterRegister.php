@@ -28,7 +28,10 @@ $first =  $name[0];
 $last = $name[1];
 $email = $content->{'id'};
 $password =  $content->{'id'};
-
+echo $first;
+echo $last;
+echo $email;
+echo $password;
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
@@ -43,11 +46,7 @@ if ($stmt->execute() == true) {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
-        echo 'inserting';
-        echo $first;
-        echo $last;
-        echo $email;
-        echo $password;
+
         if ($stmt->execute()) {
             $stmt3 = $conn->prepare("SELECT id FROM user WHERE email = ?");
             $stmt3->bind_param("s", $email);
