@@ -101,13 +101,13 @@
                         <h3>3. Location</h3>
                         <div class="row">
                             <div class="6u ">
-                                <input type="radio" id="usa" name="location" value="usa">
+                                <input type="radio" id="usa" name="location" value="usa" checked>
                                 <label for="usa"><img src="images/usa.png"/></label>
 
 
                             </div>
                             <div class="6u ">
-                                <input type="radio" id="canada" name="location" checked="" value="canada">
+                                <input type="radio" id="canada" name="location" value="canada">
                                 <label for="canada"><img src="images/canada.png"/></label>
                             </div>
                         </div>
