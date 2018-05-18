@@ -58,8 +58,7 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
-            echo 'done';
-            // header('Location: ../../preference.php');
+            header('Location: ../../preference.php');
         }
     }
 }
