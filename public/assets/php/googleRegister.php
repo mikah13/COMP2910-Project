@@ -6,6 +6,11 @@ $first =  $_POST['first'];
 $last = $_POST['last'];
 $email = $_POST['email'];
 $password =  $_POST['password'];
+$options = [
+    'cost' => 12,
+];
+
+$password = password_hash($password, PASSWORD_BCRYPT, $options);
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
