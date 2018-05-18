@@ -36,7 +36,10 @@ if ($stmt->execute() == true) {
         $stmt->close();
         header('Location: ../../menu.php');
     } else {
-        echo 'insert';
+        echo $first;
+        echo $last;
+        echo $password;
+        echo $email;
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
