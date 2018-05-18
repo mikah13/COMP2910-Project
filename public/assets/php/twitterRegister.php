@@ -57,6 +57,7 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
+            echo 'insert';
             header('Location: ../../preference.php');
         }
     }
