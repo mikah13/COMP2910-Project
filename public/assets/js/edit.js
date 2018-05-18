@@ -49,7 +49,6 @@ $(document).ready(function() {
 
             //
             $.post('/assets/php/updateRecipe.php', data, function(d) {
-                console.log(d);
                 // console.log(d);
                 $('#myModal').modal('show');
                 setTimeout(function() {
