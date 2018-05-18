@@ -61,7 +61,6 @@ if ($stmt->execute() == true) {
         }
     }
 }
-echo "Success";
 
 
 }
