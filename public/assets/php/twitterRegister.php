@@ -25,6 +25,7 @@ $first =  $name[0];
 $last = $name[1];
 $email = $content->id;
 $password =  $content->id;
+
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
@@ -36,10 +37,9 @@ if ($stmt->execute() == true) {
         $stmt->close();
         header('Location: ../../menu.php');
     } else {
-        echo $first;
+
         echo $last;
-        echo $password;
-        echo $email;
+        echo empty($last);
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
