@@ -1,10 +1,10 @@
 <?php
     require_once('assets/php/session.php');
     include('assets/php/getUserName.php');
-// if (!isset($_POST['data'])) {
-//     header('Location: profile.php');
+if (!isset($_POST['data']) || !isset($_SESSION['name'])) {
+    header('Location: profile.php');
 
-// } ?>
+}?>
 
 
     <html>
@@ -23,12 +23,11 @@
         <link rel="shortcut icon" href="images/logo.png" />
         <title>Preference</title>
         <style>
+        .info{
+            margin-bottom: 50px;
+        }
             img {
                 cursor: pointer
-            }
-
-            img:hover {
-                opacity: .8;
             }
 
             #navPanel {
@@ -70,68 +69,111 @@
             <!-- Main -->
             <section id="main" class="container">
                 <header>
-                    <h2 style="font-weight:400">Welcome <?php echo $_POST['data']['first'];?></h2>
+                    <h2 style="font-weight:400">Welcome <?php
+                    if(isset($_POST['data']))
+                        echo $_POST['data']['first'];
+                    else
+                        echo $_SESSION['name'];
+                    ?></h2>
                     <p>
                         To serve you better, we need to know some more about you ...
                     </p>
                 </header>
                 <div class="box">
-                    <h3>1. Age</h3>
-                    <div class="row">
+                    <div class="info">
+                        <h3>1. Age</h3>
+                        <div class="row">
 
                             <div class="4u 12u(mobilep)">
-                                <input type="text" name="name" id="name" value="" placeholder="Age">
+                                <input type="number" name="age" id="age" min="1" placeholder="Age">
                             </div>
 
                         </div>
+                    </div>
 
+                    <div class="info">
                         <h3>2. Gender</h3>
 
                         <div class="row">
 
-                                <div class="4u 12u(mobilep)">
-                                    <input type="radio" id="male" name="gender" checked="">
-                                    <label for="male">Male</label>
-                                    <input type="radio" id="female" name="gender">
-                                    <label for="female">Female</label>
-                                </div>
-
+                            <div class="4u 12u(mobilep)">
+                                <input type="radio" id="male" name="gender" checked="" value="male">
+                                <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" vale="female">
+                                <label for="female">Female</label>
                             </div>
 
-
-
-
-                </div>
-
-                <div class="box">
-                    <h3>1. Location</h3>
-                    <div class="row">
-                        <div class="6u 12u(mobilep)">
-                            <input type="radio" id="canada" name="location" checked="">
-                            <label for="canada"><img src="images/canada.png" class="img-fluid" /></label>
-
-                        </div>
-                        <div class="6u 12u(mobilep)">
-                            <input type="radio" id="usa" name="location">
-                            <label for="usa"><img src="images/usa.png" class="img-fluid" /></label>
                         </div>
                     </div>
+                    <div class="info">
+                        <h3>3. Location</h3>
+                        <div class="row">
+                            <div class="6u ">
+                                <input type="radio" id="usa" name="location" value="usa">
+                                <label for="usa"><img src="images/usa.png"/></label>
+
+
+                            </div>
+                            <div class="6u ">
+                                <input type="radio" id="canada" name="location" checked="" value="canada">
+                                <label for="canada"><img src="images/canada.png"/></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>4. Favourite Food</h3>
+                        <p>
+                            Choose all that applies to you:
+                        </p>
+                        <div class="4u">
+                            <input type="checkbox" id="chicken" name="fav" value="chicken">
+                            <label for="chicken">Chicken</label>
+                        </div>
+                        <div class="4u">
+                            <input type="checkbox" id="pork" name="fav" value="pork">
+                            <label for="pork">Pork</label>
+                        </div>
+                        <div class="4u">
+                            <input type="checkbox" id="fish" name="fav" value="fish">
+                            <label for="fish">Fish</label>
+                        </div>
+                        <div class="4u">
+                            <input type="checkbox" id="beef" name="fav" value="beef">
+                            <label for="beef">Beef</label>
+                        </div>
+                        <div class="4u">
+                            <input type="checkbox" id="vegaterian" name="fav" value="vegaterian">
+                            <label for="vegaterian">Vegaterian</label>
+                        </div>
+                        <div class="4u">
+                            <input type="checkbox" id="fruit" name="fav" value="fruit">
+                            <label for="fruit">Fruit</label>
+                        </div>
+
+                    </div>
+                <div class="row">
+                        <button class="button special big" style="float:right" id="submit">Submit</button>
                 </div>
 
-            </section>
+                </div>
 
-            <!-- Footer -->
-            <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; JMAN - 2018. All rights reserved.</li>
-                </ul>
-            </footer>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; JMAN - 2018. All rights reserved.</li>
+            </ul>
+        </footer>
 
 
         </div>
@@ -146,6 +188,7 @@
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/preference.js"></script>
 
 
     </body>

@@ -44,7 +44,7 @@
         .error {
             color: #F94D3C;
         }
-        
+
         .abcRioButton.abcRioButtonBlue {
             margin: 0 auto;
         }
@@ -60,7 +60,6 @@
                 <div class="row">
                     <div class="input-field col s12 center">
                         <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
-                        <p class="center login-form-text">One Step Closer To Being Perfect</p>
                     </div>
                 </div>
                 <p class='error col s12 center'></p>
@@ -102,19 +101,19 @@
                     </div>
                     <!-- Google login button -->
                     <div id="my-signin2" style="margin-bottom:10px;"></div>
-                    
+
                     <!-- Twitter login button -->
                         <div style="margin-bottom:10px;">
                             <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButton.png" width="220" height="40"></a></p>
                         </div>
-                    
+
                      <!-- Facebook login button -->
                     <div style="text-align:center">
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </form>
         </div>
@@ -134,14 +133,6 @@
     <script src="assets/js/facebook.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-
-    <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="container center">
-                © 2018 JMAN
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>

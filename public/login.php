@@ -78,7 +78,6 @@
                     <div class="row">
                         <div class="input-field col s12 center">
                             <a href="index.php"><img src="images/full_logo.png" alt="logo" class="responsive-img valign profile-image-login"></a>
-                            <p class="center login-form-text">One Step Closer To Being Perfect</p>
                         </div>
                     </div>
                     <p class="msg">
@@ -151,13 +150,6 @@
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
-        <footer class="page-footer">
-            <div class="footer-copyright center">
-                <div class="container">
-                    © 2018 JMAN
-                </div>
-            </div>
-        </footer>
     </body>
 
     </html>

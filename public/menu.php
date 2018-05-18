@@ -4,6 +4,7 @@
  ?>
 
     <html>
+
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="Cache-Control" content="max-age=600" />
@@ -19,16 +20,33 @@
         <link rel="shortcut icon" href="images/logo.png" />
         <title>Menu</title>
         <style>
-            img {
-                cursor:pointer
+            #up {
+                margin: 0;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                max-width: 70px;
+                max-height: 70px;
+                width: 12vw;
+                height: 12vw;
+                z-index: 100;
+                font-size: 30px;
+                color: black;
             }
-            img:hover{
+
+            img {
+                cursor: pointer
+            }
+
+            img:hover {
                 opacity: .8;
             }
-            #navPanel{
+
+            #navPanel {
                 font-size: 1rem;
             }
-            nav{
+
+            nav {
                 font-weight: 400;
             }
 
@@ -62,7 +80,11 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
-                        <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
+                        <li>
+                            <a href="profile.php" id="profile" class="button alt">
+                                <?php getName($conn); ?>
+                            </a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -80,7 +102,7 @@
                         <!-- Form -->
                         <section class="box">
                             <h2>Search</h2>
-                            <form class="search-form">
+                            <form class="search-form" method="POST">
                                 <div class="row uniform 50%">
                                     <div class="9u 12u(mobilep)">
                                         <input type="text" name="query" id="query" value="" placeholder="Search..." />
@@ -129,12 +151,15 @@
                 </div>
             </div>
             <!-- Footer -->
+
+
             <footer id="footer">
                 <ul class="icons">
                     <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                     <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
                     <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+                        <i id="up" class="fa fa-arrow-up " aria-hidden="true"></i>
                 </ul>
                 <ul class="copyright">
                     <li>&copy; JMAN - 2018. All rights reserved.</li>
@@ -160,6 +185,6 @@
     </body>
 
     </html>
-<?php
+    <?php
     db_disconnect($conn);
  ?>

@@ -8,11 +8,13 @@ $(document).ready(function() {
             }
         });
     }
-
-    $("#search").click(function(e) {
+    $('#up').click(function(){
+        window.scrollTo(0,0);
+    })
+    $("#search").one('click',function(e) {
         e.preventDefault();
-        $('#result').empty();
-        $('#result').append('<section class="box"> <h2>Result</h2><div class="row alt result"></div></section>');
+        $('#result').html('<section class="box"> <h2>Result</h2><div class="row alt result"></div></section>');
+        $('.result').empty();
         let getRecipeListUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?limitLicense=false&number=60&offset=0&query=';
         $.ajax({
             url: getRecipeListUrl + $('#query').val(),
@@ -143,12 +145,12 @@ $(document).ready(function() {
                                 data: JSON.stringify(data).replace(/'/g, "''")
                             }
                             $.post('/assets/php/addRecipeData.php', params, function(d) {
-                                location.href = `recipe.php?id=${id}`;
+                                window.open(`recipe.php?id=${id}`);
                             })
 
                         })
                     } else {
-                        location.href = `recipe.php?id=${id}`;
+                        window.open(`recipe.php?id=${id}`);
                     }
                 })
             })
