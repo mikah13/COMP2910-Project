@@ -110,14 +110,18 @@
                         </div>
                         <!-- Google login button -->
                     <div id="my-signin2" style="margin-bottom:10px;" data-onsuccess="onSignIn"></div>
+                        
+                        <!-- Twitter login button -->
+                        <div style="margin-bottom:10px;">
+                            <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButton.png" width="220" height="40"></a></p>
+                        </div>
+                        
                         <!-- Facebook login button -->
                         <div style="text-align: center;">
                             <div class="fb-login-button col s12" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,public_profile" onlogin="checkLoginState();">
                             </div>
                         </div>
-                        <div>
-                            <p class="center">Twitter <a href="assets/php/twitterRegister.php">Log in</a></p>
-                        </div>
+                        
                     </div>
 
                     <!-- <div class="row">
