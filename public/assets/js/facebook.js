@@ -42,9 +42,7 @@ function statusChangeCallback(response) {
                     if (a === 'Success') {
                         location.href = 'menu.php';
                     } else if (a === 'New') {
-                        var form = $('<form action="preference.php" method="post">' + '<input type="text" name="data" value="' + data.first + '" />' + '</form>');
-                        $('body').append(form);
-                        form.submit();
+                        location.href="preference.php";
                     } else {
                         $('.error').html('Please login to Facebook');
                     }

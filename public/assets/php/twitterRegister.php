@@ -57,7 +57,6 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
-            $_SESSION['name'] = $first;
             header('Location: ../../preference.php');
         }
     }

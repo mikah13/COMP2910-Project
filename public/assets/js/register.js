@@ -10,11 +10,7 @@ $(document).ready(function() {
 
         $.post('assets/php/register.php', data, function(a) {
             if (a === 'Success') {
-                $.post('preference.php', {
-                    data: data
-                }, function() {
-                    location.href = 'preference.php';
-                })
+                location.href="preference.php";
             } else {
                 $('.error').html(a);
                 $('#password').val('')

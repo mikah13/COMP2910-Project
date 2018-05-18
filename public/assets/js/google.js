@@ -20,9 +20,7 @@ function onSignIn(googleUser) {
             location.href = 'menu.php';
         } else if (a === 'New') {
             gapi.auth2.getAuthInstance().disconnect();
-            var form = $('<form action="preference.php" method="post">' + '<input type="text" name="data" value="' + data.first + '" />' + '</form>');
-            $('body').append(form);
-            form.submit();
+            location.href="preference.php";
         } else {
             $('.error').html('Please login to Google');
         }

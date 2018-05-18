@@ -1,10 +1,7 @@
 <?php
     require_once('assets/php/session.php');
     include('assets/php/getUserName.php');
-if (!isset($_POST['data']) || !isset($_SESSION['name'])) {
-    header('Location: profile.php');
-
-}?>
+?>
 
 
     <html>
@@ -69,12 +66,7 @@ if (!isset($_POST['data']) || !isset($_SESSION['name'])) {
             <!-- Main -->
             <section id="main" class="container">
                 <header>
-                    <h2 style="font-weight:400">Welcome <?php
-                    if(isset($_POST['data']))
-                        echo $_POST['data']['first'];
-                    else
-                        echo $_SESSION['name'];
-                    ?></h2>
+                    <h2 style="font-weight:400">Welcome <?php getName($conn); ?>></h2>
                     <p>
                         To serve you better, we need to know some more about you ...
                     </p>
