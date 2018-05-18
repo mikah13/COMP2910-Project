@@ -36,6 +36,7 @@ if ($stmt->execute() == true) {
         $stmt->close();
         header('Location: ../../menu.php');
     } else {
+        echo 'insert';
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
@@ -57,7 +58,8 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
-            header('Location: ../../preference.php');
+            echo 'done';
+            // header('Location: ../../preference.php');
         }
     }
 }
