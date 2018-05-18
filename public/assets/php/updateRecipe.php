@@ -29,7 +29,7 @@ if($_POST['quantity']>0){
         }
         else {
             $quantity = mysqli_fetch_assoc($result)['quantity']  + $_POST['quantity'];
-            $stmt = "UPDATE user_recipe SET quantity = {$quantity} WHERE recipe_id = {$_POST['old_recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'"
+            $stmt = "UPDATE user_recipe SET quantity = {$quantity} WHERE recipe_id = {$_POST['old_recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
             mysqli_query($conn,$stmt);
         }
 
