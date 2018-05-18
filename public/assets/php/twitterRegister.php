@@ -31,11 +31,10 @@ if ($stmt->execute() == true) {
     $result = $stmt->get_result();
     $num_rows = $result->num_rows;
     if ($num_rows == 1) {
-
         $user = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $user['id'];
         $stmt->close();
-        header('Location: ../../preference.php');
+        header('Location: ../../menu.php');
     } else {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
@@ -58,7 +57,8 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
-            header('Location: ../../menu.php');
+            header('Location: ../../preference.php');
+
         }
     }
 }
