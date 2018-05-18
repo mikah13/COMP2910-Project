@@ -20,9 +20,8 @@ if(isset($_SESSION['oauth_token'])){
   $content = $connection->get("account/verify_credentials");
 
 $name = $content->name;
-$name = explode(" ",$name);
-$first =  $name[0];
-$last = $name[1];
+$first = $name;
+$last = '';
 $email = $content->id;
 $password =  $content->id;
 
@@ -38,8 +37,6 @@ if ($stmt->execute() == true) {
         header('Location: ../../menu.php');
     } else {
 
-        echo $last;
-        echo empty($last);
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
         // Execute
