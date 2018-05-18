@@ -44,6 +44,9 @@ if (isset($_SESSION['oauth_token'])) {
     $email = $content->{'id'};
     $password =  $content->{'id'};
     echo $first;
+    echo $last;
+    echo $email;
+    echo $password;
 
     // $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
     // $stmt->bind_param("s", strval($email));
