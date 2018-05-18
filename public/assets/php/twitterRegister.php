@@ -19,7 +19,7 @@ if (isset($_SESSION['oauth_token'])) {
     $connection = new TwitterOAuth(
       $consumer_key,
       $consumer_secret,
-  $access_token['oauth_token'],
+      $access_token['oauth_token'],
       $access_token['oauth_token_secret']
   );
     $content = $connection->get("account/verify_credentials");
