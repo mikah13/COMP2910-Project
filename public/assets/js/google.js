@@ -20,11 +20,9 @@ function onSignIn(googleUser) {
             location.href = 'menu.php';
         } else if (a === 'New') {
             gapi.auth2.getAuthInstance().disconnect();
-            $.post('preference.php', {
-                data: data
-            }, function() {
-                location.href = 'preference.php';
-            })
+            var form = $('<form action="preference.php" method="post">' + '<input type="text" name="data" value="' + data.first + '" />' + '</form>');
+            $('body').append(form);
+            form.submit();
         } else {
             $('.error').html('Please login to Google');
         }
