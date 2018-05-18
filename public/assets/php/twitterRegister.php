@@ -18,19 +18,13 @@ if(isset($_SESSION['oauth_token'])){
   $connection = new TwitterOAuth($consumer_key, $consumer_secret,
   $access_token['oauth_token'],$access_token['oauth_token_secret']);
   $content = $connection->get("account/verify_credentials");
-  
 
 $name = $content->name;
 $name = explode(" ",$name);
-
 $first =  $name[0];
 $last = $name[1];
 $email = $content->id;
 $password =  $content->id;
-echo $first;
-echo $last;
-echo $email;
-echo $password;
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
@@ -41,6 +35,7 @@ if ($stmt->execute() == true) {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $user['id'];
         $stmt->close();
+        header('Location: ../../preference.php');
     } else {
         $stmt = $conn->prepare("INSERT INTO user (first, last, email, password) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $first, $last, $email, $password);
@@ -63,13 +58,13 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
-            // header('Location: ../../../login.php');
+            header('Location: ../../menu.php');
         }
     }
 }
 echo "Success";
 
-// header('Location: ../../menu.php');
+
 }
 else{
   // main startup code
