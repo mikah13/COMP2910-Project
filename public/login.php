@@ -112,7 +112,7 @@
 
                         <!-- Twitter login button -->
                         <div style="margin-bottom:10px;">
-                            <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButton.png" width="220" height="40"></a></p>
+                            <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButtonSignIn.png" width="220" height="40"></a></p>
                         </div>
 
                         <!-- Facebook login button -->
