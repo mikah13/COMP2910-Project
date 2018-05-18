@@ -17,23 +17,14 @@ if(isset($_SESSION['oauth_token'])){
   $connection = new TwitterOAuth($consumer_key, $consumer_secret,
   $access_token['oauth_token'],$access_token['oauth_token_secret']);
   $content = $connection->get("account/verify_credentials");
-  print_r($content);
-}
-else{
-  // main startup code
-  $consumer_key = 'vIwxPLEnf6dBSnxzqzfHAyiiw';
-  $consumer_secret = 'KkinUi7ggftVhtPC2O4lWW0TtUOrf5nLF8mc5WW3sNTbfMS24q';
-  //this code will return your valid url which u can use in iframe src to popup or can directly view the page as its happening in this example
-
-  $connection = new TwitterOAuth($consumer_key, $consumer_secret);
-  $temporary_credentials = $connection->oauth('oauth/request_token', array("oauth_callback" =>'https://jperfect.azurewebsites.net/menu.php'));
-  $_SESSION['oauth_token']=$temporary_credentials['oauth_token'];       $_SESSION['oauth_token_secret']=$temporary_credentials['oauth_token_secret'];$url = $connection->url("oauth/authorize", array("oauth_token" => $temporary_credentials['oauth_token']));
-
-    $content = $connection->get("account/verify_credentials");
-    json_decode($content);
     
-$first =  $content->{'name'};
-$last = $content->{'name'};
+$content = json_decode($content);
+    
+$name = $content->{'name'};
+$name = explode(" ",$name);
+    
+$first =  $name[0];
+$last = $name[1];
 $email = $content->{'id'};
 $password =  $content->{'id'};
 
@@ -74,7 +65,19 @@ if ($stmt->execute() == true) {
 echo "Success";
 db_disconnect($conn);
     
+    header('Location: ../../menu.php');
+}
+else{
+  // main startup code
+  $consumer_key = 'vIwxPLEnf6dBSnxzqzfHAyiiw';
+  $consumer_secret = 'KkinUi7ggftVhtPC2O4lWW0TtUOrf5nLF8mc5WW3sNTbfMS24q';
+  //this code will return your valid url which u can use in iframe src to popup or can directly view the page as its happening in this example
+
+  $connection = new TwitterOAuth($consumer_key, $consumer_secret);
+  $temporary_credentials = $connection->oauth('oauth/request_token', array("oauth_callback" =>'https://jperfect.azurewebsites.net/assets/php/twitterRegister.php'));
+  $_SESSION['oauth_token']=$temporary_credentials['oauth_token'];       $_SESSION['oauth_token_secret']=$temporary_credentials['oauth_token_secret'];$url = $connection->url("oauth/authorize", array("oauth_token" => $temporary_credentials['oauth_token']));
+    
 // REDIRECTING TO THE URL
-  header('Location: ' . $url); 
+    header('Location: ' . $url);
 }
 ?>
