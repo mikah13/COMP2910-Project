@@ -86,5 +86,5 @@ if (isset($_SESSION['oauth_token'])) {
     db_disconnect($conn);
 
     // REDIRECTING TO THE URL
-    // header('Location: ' . $url);
+    header('Location: ' . $url);
 }
