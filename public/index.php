@@ -151,7 +151,6 @@
 	<!-- Scripts -->
 	<script src="assets/js/fontawesome.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/index.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollgress.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>

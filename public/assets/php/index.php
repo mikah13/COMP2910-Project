@@ -9,7 +9,7 @@ function getName($conn, $sessId)
     return $result['first'].' '.$result['last'];
 }
 
- session_start();
+session_start();
 if (!isset($_SESSION['id'])) {
     echo '<li style="white-space: nowrap;"><a href="login.php" class="button">Login</a></li>
         <li style="white-space: nowrap;"><a href="register.php" class="button">Sign Up</a></li>';

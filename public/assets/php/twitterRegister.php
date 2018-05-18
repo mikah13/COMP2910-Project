@@ -28,7 +28,7 @@ $first =  $name[0];
 $last = $name[1];
 $email = $content->{'id'};
 $password =  $content->{'id'};
-echo $content;
+
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
