@@ -22,7 +22,7 @@ mysqli_query($conn, $stmt);
 if($_POST['quantity']>0){
     // CHECK IF ITEMS IS ALREADY THERE, if yes then add up the quantity, if its not then do the following
     $stmt = "SELECT * FROM user_recipe WHERE recipe_id = {$_POST['old_recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'";
-    $result = mysqli_query($conn, $stmt){
+    $result = mysqli_query($conn, $stmt);
         if(mysqli_num_rows($result)==0){
             $stmt = "INSERT INTO user_recipe(id, recipe_id, recipe_title ,day, week, quantity) VALUES({$_SESSION['id']}, {$_POST['recipe_id']},'{$_POST['recipe_title']}','{$_POST['day']}', '{$_POST['week']}', {$_POST['quantity']})";
             mysqli_query($conn, $stmt);
@@ -32,7 +32,7 @@ if($_POST['quantity']>0){
             $stmt = "UPDATE user_recipe SET quantity = {$quantity} WHERE recipe_id = {$_POST['old_recipe_id']} AND day = '{$_POST['day']}' AND week = '{$_POST['week']}'"
             mysqli_query($conn,$stmt);
         }
-    }
+
 
 }
 db_disconnect($conn);
