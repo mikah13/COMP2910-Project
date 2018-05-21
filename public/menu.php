@@ -100,10 +100,13 @@
 
                 <!-- Main -->
                 <section id="main" class="container">
-                    <header>
-                        <h2 style="font-weight:400">Menu</h2>
-                    </header>
 
+                    <header>
+                        <h style="font-weight:400;font-size:3rem">Menu</h2>
+                    </header>
+                    <div class="blockquote" style="min-height:120px;margin-top:50px;">
+
+                    </div>
                     <div class="row">
                         <div class="12u">
 
@@ -126,13 +129,12 @@
                         </div>
                     </div>
                     <div class="row">
+
                         <div class="12u " id="result">
 
 
                         </div>
-                        <div class="12u" id="suggest" style="display:none">
-                            
-                        </div>
+
                     </div>
 
                 </section>
