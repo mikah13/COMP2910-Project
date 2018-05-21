@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#fullpage').fullpage();
     function fetchData(id) {
         return $.ajax({
             url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
@@ -8,10 +9,20 @@ $(document).ready(function() {
             }
         });
     }
-    $('#up').click(function(){
-        window.scrollTo(0,0);
+    function fetchSuggestion(str) {
+        return $.ajax({
+            url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=10&tags=${str}`,
+            headers: {
+                'X-Mashape-Key': 'yVNtwOy4YwmshW4SiqM6RgMT9S7ep1oWIcbjsnIe4j5rd3ZqiX',
+                'Accept': 'application/json'
+            }
+        });
+    }
+
+    $('#up').click(function() {
+        window.scrollTo(0, 0);
     })
-    $("#search").one('click',function(e) {
+    $("#search").one('click', function(e) {
         e.preventDefault();
         $('#result').html('<section class="box"> <h2>Result</h2><div class="row alt result"></div></section>');
         $('.result').empty();
@@ -27,57 +38,62 @@ $(document).ready(function() {
             if (d.results.length !== 0) {
                 d.results.forEach((a, b) => {
                     let div = `
-            <div class="4u 12u(mobilep) recipe">
-                    <header class="recipe-img" style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="max-width:80%; min-width:80%"/></header>
-               <h4 class="center"  style="margin-top:10px; text-align:center">${a.title}</h4>
-               <div class="row">
-                <p class="6u" style="text-align:center"><a class=" icon fa-cutlery"> ${a.servings} ${a.servings > 1
+            <div class="4u 12u(mobilep) recipe" >
+                <div class="collapse" id="collapseExample-${b}" style="margin-bottom:10px">
+                    <div class=" card card-body 12u 12u(mobilep) " style="color:black">
+                   <form class="" method="POST">
+                       <div class="row uniform 50%">
+                           <input id="recipe_id_${b}" name="recipe_id" value="${a.id}" type="hidden"/>
+                           <input id="recipe_title_${b}" name="recipe_title" value="${a.title}" type="hidden"/>
+                           <div class="12u">
+                               <label for="quantity">Quantity <span style="float:right"><i class="fa fa-close close" style="color:red;font-size:1rem;cursor:pointer" id="close${b}"></i></span></label>
+                               <input id="quantity_${b}" type="number" name="quantity" value="1" placeholder="" min="1" class="form-control"/>
+                           </div>
+                           <div class="12u">
+                               <label for="day">Select Day</label>
+                               <select name="day" class="form-control" id="day_${b}">
+                                   <option>Monday</option>
+                                   <option>Tuesday</option>
+                                   <option>Wednesday</option>
+                                   <option>Thursday</option>
+                                   <option>Friday</option>
+                                   <option>Saturday</option>
+                                   <option>Sunday</option>
+                               </select>
+                           </div>
+                           <div class="12u">
+                               <label for="week">Select Week</label>
+                               <select name="week" class="form-control" id="week_${b}">
+                                   <option>Week 1</option>
+                                   <option>Week 2</option>
+                                   <option>Week 3</option>
+                                   <option>Week 4</option>
+                               </select>
+                           </div>
+                           <div class="12u">
+                               <button name="add" id="add_recipe_${b}" class="button alt  add-recipe" style="text-align:center" value="Add">Submit</button>
+                           </div>
+                       </div>
+                   </form>
+
+               </div>
+            </div>
+                    <div id="recipe${b}">
+                        <header class="recipe-img" style="text-align:center"><img src="${imgUri}${a.imageUrls[a.imageUrls.length - 1]}" class="img-fluid" style="height:250px"/></header>
+                   <h4 class="center"  style="margin-top:10px; text-align:center; height:65px">${a.title}</h4>
+                   <div class="row">
+                    <p class="6u" style="text-align:center"><a class=" icon fa-cutlery"> ${a.servings} ${a.servings > 1
                         ? 'people'
                         : 'person'}</a></p>
-                <p class="6u" style="text-align:center"><a class=" icon  fa-clock-o"> ${a.readyInMinutes} mins</a></p>
-               </div>
+                    <p class="6u" style="text-align:center"><a class=" icon  fa-clock-o"> ${a.readyInMinutes} mins</a></p>
+                   </div>
 
-                 <button class="button special fit" type="button" data-toggle="collapse" data-target="#collapseExample-${b}" aria-expanded="false" aria-controls="collapseExample">
-                     Add
-                 </button><div class="collapse" id="collapseExample-${b}" style="margin-bottom:10px">
-                 <div class=" card card-body 12u 12u(mobilep) " style="color:black">
-                    <form class="" method="POST">
-                        <div class="row uniform 50%">
-                            <input id="recipe_id_${b}" name="recipe_id" value="${a.id}" type="hidden"/>
-                            <input id="recipe_title_${b}" name="recipe_title" value="${a.title}" type="hidden"/>
-                            <div class="12u">
-                                <label for="quantity">Quantity</label>
-                                <input id="quantity_${b}" type="number" name="quantity" value="1" placeholder="" min="1" class="form-control"/>
- 							</div>
- 							<div class="12u">
- 								<label for="day">Select Day</label>
-                                <select name="day" class="form-control" id="day_${b}">
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                    <option>Sunday</option>
-                                </select>
-                            </div>
-                            <div class="12u">
-                                <label for="week">Select Week</label>
-                                <select name="week" class="form-control" id="week_${b}">
-                                    <option>Week 1</option>
-                                    <option>Week 2</option>
-                                    <option>Week 3</option>
-                                    <option>Week 4</option>
-                                </select>
-                            </div>
-                            <div class="12u">
-                                <button name="add" id="add_recipe_${b}" class="button alt  add-recipe" style="text-align:center" value="Add">Submit</button>
-                            </div>
- 						</div>
-                    </form>
-                    <form>
-                </div>
-             </div>`;
+                     <button class="button special fit toggle" id="toggle${b}" type="button" data-toggle="collapse" data-target="#collapseExample-${b}" aria-expanded="false" aria-controls="collapseExample" >
+                         Add
+                     </button>
+                    </div>
+
+         </div>`;
                     $('.result').append(div);
                 })
             } else {
@@ -98,7 +114,6 @@ $(document).ready(function() {
 
                 if ($(`#quantity_${id}`).val() > 0) {
                     $.post('/assets/php/addRecipe.php', params, function(d) {
-                        console.log(d);
                         if (d === 'insert') {
                             fetchData($(`#recipe_id_${id}`).val()).done(function(e) {
                                 let strData = JSON.stringify(e[0]).replace(/'/g, "''");
@@ -113,7 +128,7 @@ $(document).ready(function() {
                                     setTimeout(function() {
                                         $('#myModal').modal('hide');
                                     }, 1000);
-
+                                    $(`#recipe${id}`).css('display', 'block');
                                 });
                             });
                         } else {
@@ -122,7 +137,7 @@ $(document).ready(function() {
                             setTimeout(function() {
                                 $('#myModal').modal('hide');
                             }, 1000);
-
+                            $(`#recipe${id}`).css('display', 'block');
                         }
 
                     });
@@ -130,7 +145,7 @@ $(document).ready(function() {
             })
 
             $('.recipe-img').click(function() {
-                let id = $(this).parent().find('input')[0].value;
+                let id = $(this).parent().parent().find('input')[0].value;
                 let strID = JSON.stringify([id]);
                 $.post('/assets/php/getRecipeData.php', {
                     data: strID
@@ -153,6 +168,15 @@ $(document).ready(function() {
                         window.open(`recipe.php?id=${id}`);
                     }
                 })
+            })
+            $('.toggle').click(function() {
+                let id = $(this).attr('id').split('toggle')[1];
+                $(`#recipe${id}`).css('display', 'none');
+            })
+            $('.close').click(function() {
+                let id = $(this).attr('id').split('close')[1];
+                $(`#recipe${id}`).css('display', 'block');
+                $(`#collapseExample-${id}`).collapse('toggle')
             })
 
         })
