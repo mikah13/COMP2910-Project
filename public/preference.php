@@ -1,9 +1,9 @@
 <?php
     require_once('assets/php/session.php');
     include('assets/php/getUserName.php');
-    // if(!isset($_SESSION['register'])){
-    //     header('Location:menu.php');
-    // }
+    if(!isset($_SESSION['register'])){
+        header('Location:menu.php');
+    }
 ?>
 
 
