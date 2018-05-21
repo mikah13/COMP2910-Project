@@ -42,6 +42,7 @@ if ($stmt->execute() == true) {
             //Close
             $stmt->close();
             $_SESSION['id'] = $id;
+            $_SESSION['register'] = 0;
             // header('Location: ../../../login.php');
         }
         echo 'New';

@@ -41,3 +41,11 @@ CREATE TABLE recipe (
 
 ALTER TABLE recipe
 ADD summary TEXT;
+
+ALTER TABLE user
+ADD age INT(3),
+ADD gender VARCHAR(6),
+ADD country VARCHAR(6) DEFAULT 'Canada',
+ADD picture VARCHAR(255),
+ADD favourite VARCHAR(255)
+;
