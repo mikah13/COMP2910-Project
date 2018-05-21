@@ -21,6 +21,10 @@
         <title>JustPerfect</title>
     </head>
     <style>
+        #navPanel{
+        font-weight: 400;
+        font-size: 1rem;
+        }
         .dropotron li a:hover {
             background-color: #61c200;
 

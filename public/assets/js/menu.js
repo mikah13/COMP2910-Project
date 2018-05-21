@@ -1,17 +1,51 @@
 $(document).ready(function() {
-    $('#fullpage').fullpage();
+    let quote = [
+        {
+            quote: "All you need is love. But a little chocolate now and then doesn't hurt.",
+            author: "Charles M. Schulz"
+        }, {
+            quote: "If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.",
+            author: "J.R.R. Tolkien"
+        }, {
+            quote: "I love you like a fat kid loves cake!",
+            author: "Scott Adams"
+        }, {
+            quote: "Ask not what you can do for your country. Ask what’s for lunch.",
+            author: "Orson Welles"
+        }, {
+            quote: "One cannot think well, love well, sleep well, if one has not dined well.",
+            author: "Virginia Woolf, A Room of One's Own"
+        }, {
+            quote: "There are people in the world so hungry, that God cannot appear to them except in the form of bread.",
+            author: "Mahatma Gandhi"
+        }
+    ]
+    let i = Math.floor(Math.random() * quote.length);
+    $('.blockquote').html(`<blockquote>
+        ${quote[i].quote}
+        <footer>—
+            <a href="https://www.goodreads.com/quotes/tag/food">
+                ${quote[i].author}
+            </a>
+        </footer>
+    </blockquote>`)
+    setInterval(function() {
+        $('.blockquote').fadeOut(800, function() {
+            let i = Math.floor(Math.random() * quote.length);
+            $('.blockquote').html(`<blockquote>
+                ${quote[i].quote}
+                <footer>—
+                    <a href="https://www.goodreads.com/quotes/tag/food">
+                        ${quote[i].author}
+                    </a>
+                </footer>
+            </blockquote>`)
+            $('.blockquote').fadeIn();
+        });
+    }, 7000)
     function fetchData(id) {
         return $.ajax({
             url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
-            headers: {
-                'X-Mashape-Key': 'yVNtwOy4YwmshW4SiqM6RgMT9S7ep1oWIcbjsnIe4j5rd3ZqiX',
-                'Accept': 'application/json'
-            }
-        });
-    }
-    function fetchSuggestion(str) {
-        return $.ajax({
-            url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=10&tags=${str}`,
             headers: {
                 'X-Mashape-Key': 'yVNtwOy4YwmshW4SiqM6RgMT9S7ep1oWIcbjsnIe4j5rd3ZqiX',
                 'Accept': 'application/json'
@@ -88,7 +122,7 @@ $(document).ready(function() {
                     <p class="6u" style="text-align:center"><a class=" icon  fa-clock-o"> ${a.readyInMinutes} mins</a></p>
                    </div>
 
-                     <button class="button special fit toggle" id="toggle${b}" type="button" data-toggle="collapse" data-target="#collapseExample-${b}" aria-expanded="false" aria-controls="collapseExample" >
+                     <button class="button special fit toggleBtn" id="toggle${b}" type="button" data-toggle="collapse" data-target="#collapseExample-${b}" aria-expanded="false" aria-controls="collapseExample" >
                          Add
                      </button>
                     </div>
@@ -169,7 +203,7 @@ $(document).ready(function() {
                     }
                 })
             })
-            $('.toggle').click(function() {
+            $('.toggleBtn').click(function() {
                 let id = $(this).attr('id').split('toggle')[1];
                 $(`#recipe${id}`).css('display', 'none');
             })
