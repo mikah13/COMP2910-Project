@@ -1,4 +1,11 @@
 jQuery(document).ready(function($) {
+    let rate;
+    $.post('/assets/php/getLocation.php', function(d) {
+        d = JSON.parse(d).country;
+        rate = d === 'Canada'
+            ? 1.28
+            : 1;
+    })
     function clearEvent(days) {
         days.forEach(day => {
             $(`#${day}`).html('')
@@ -31,7 +38,7 @@ jQuery(document).ready(function($) {
                                 let recipe_id = recipe.recipe_id;
                                 let quantity = recipe.quantity;
                                 let data = fetchData(idList, recipe_id)[0];
-                                let recipeCost = round(data.pricePerServing * quantity / 100);
+                                let recipeCost = round(rate * data.pricePerServing * quantity / 100);
                                 let recipeCal = data.nutrition.nutrients[0].amount * quantity;
                                 dayCost += recipeCost;
                                 dayCal += recipeCal;
@@ -125,7 +132,7 @@ jQuery(document).ready(function($) {
                             let recipe_id = recipe.recipe_id;
                             let quantity = recipe.quantity;
                             let data = fetchData(idList, recipe_id)[0];
-                            let recipeCost = round(data.pricePerServing * quantity / 100);
+                            let recipeCost = round(rate * data.pricePerServing * quantity / 100);
                             let recipeCal = round(data.nutrition.nutrients[0].amount * quantity);
                             dayCost += recipeCost;
                             dayCal += recipeCal;

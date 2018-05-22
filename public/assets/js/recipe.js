@@ -1,5 +1,11 @@
 $(document).ready(function() {
-    $.post()
+    let rate;
+    $.post('/assets/php/getLocation.php', function(d) {
+        d = JSON.parse(d).country;
+        rate = d === 'Canada'
+            ? 1.28
+            : 1;
+    })
     let ingredientArr;
     let price;
     function getIngredients() {
@@ -45,6 +51,15 @@ $(document).ready(function() {
         </tr>`);
         })
     }
+    function ingrCost(str, rate) {
+        if (str.indexOf('$') !== -1) {
+            return '$' + (
+            parseInt(str.split('$')[1]) * rate)
+        } else if (str.indexOf(' cents') !== -1) {
+            return (parseInt(str.split(' cents')[0]) * rate) + ' cents'
+        }
+        return str;
+    }
     function displayCost(serving, costperServing) {
         $('#cost-calculation').empty();
         $('#total').empty();
@@ -67,14 +82,14 @@ $(document).ready(function() {
             <tr>
                 <td class="cost-name">${camelCase(d.indexLabel)}</td>
                 <td class="cost-amt">${d.amount}</td>
-                <td class="cost-total">${d.price}</td>
+                <td class="cost-total">${ingrCost(d.price, rate)}</td>
             </tr>`);
             })
             $('#total-desc').html(
                 "Total (For " + serving + ` ${serving > 1
                 ? "people"
                 : "person"}` + "):");
-            $('#total').html("$" + round(costperServing * serving));
+            $('#total').html("$" + round(rate * costperServing * serving));
         })
     }
 
@@ -91,8 +106,8 @@ $(document).ready(function() {
         ingredientArr = data.nutrition.ingredients;
         $('#recipe_title').html(title);
         $('#recipe_img').attr('src', img);
-        $('#summary').html(summary.replace(/spoonacular/gi,''));
-        $('#cost').html(`$${price}/serving`);
+        $('#summary').html(summary.replace(/spoonacular/gi, ''));
+        $('#cost').html(`$${round(rate * price)}/serving`);
         $('#calorie').html(`${calorie} cal/serving`);
         $('#duration').html(`${duration} minutes`);
         $('#serving').html(

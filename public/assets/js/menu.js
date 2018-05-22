@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     let quote = [
         {
             quote: "All you need is love. But a little chocolate now and then doesn't hurt.",
@@ -43,6 +44,9 @@ $(document).ready(function() {
             $('.blockquote').fadeIn();
         });
     }, 7000)
+
+
+
     function fetchData(id) {
         return $.ajax({
             url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids=${id}&includeNutrition=true`,
