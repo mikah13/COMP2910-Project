@@ -9,7 +9,7 @@ $(document).ready(function() {
         data = JSON.parse(data);
         data.forEach(e => {
 
-            e.data = JSON.parse(e.data.replace(/'/g," ")).nutrition.ingredients;
+            e.data = JSON.parse(e.data.split("'").join(' '))).nutrition.ingredients;
         })
         let arr = [];
 

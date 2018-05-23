@@ -121,8 +121,7 @@ jQuery(document).ready(function($) {
             $.post('/assets/php/getRecipeData.php', {
                 data: list
             }, function(e) {
-
-                let idList = JSON.parse(e.replace(/'/g," "));
+                let idList = JSON.parse(e.split("'").join(' '));
                 days.forEach(day => {
                     let dayData = [];
                     let dayCost = 0;
