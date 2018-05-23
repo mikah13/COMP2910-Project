@@ -28,7 +28,6 @@ $options = [
     'cost' => 12,
 ];
 $password = password_hash($password, PASSWORD_BCRYPT, $options);
-$email = password_hash($email, PASSWORD_BCRYPT, $options);
 $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
 $stmt->bind_param("s", strval($email));
 if ($stmt->execute() == true) {
