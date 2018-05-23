@@ -116,6 +116,7 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
+                        <li><a href="list.php">List</a></li>
                         <li>
                             <a href="profile.php" id="profile" class="button alt">
                                 <?php getName($conn); ?>
@@ -193,7 +194,7 @@
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
-        <script src="assets/js/shoplist.js"></script>
+        <script src="assets/js/list.js"></script>
 
     </body>
 

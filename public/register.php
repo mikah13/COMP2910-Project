@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/social.css" />
     <style type="text/css">
         .blue {
             background-color: #61c200 !important;
@@ -103,11 +104,12 @@
                     <div id="my-signin2" style="margin-bottom:10px;"></div>
 
                     <!-- Twitter login button -->
-                        <div style="margin-bottom:10px;">
-                            <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButtonSignIn.png" width="220" height="40"></a></p>
-                        </div>
+                    <div style="text-align:center; margin-bottom : 10px;">
+                        <a style="padding-right:13px;font-size:0.9rem" href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
+                                <i style="margin-right:13px" class="fa fa-twitter"></i>Sign Up with Twitter</a>
+                    </div>
 
-                     <!-- Facebook login button -->
+                    <!-- Facebook login button -->
                     <div style="text-align:center">
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();">
                         </div>
@@ -120,13 +122,7 @@
     </div>
 
 
-    <!-- ================================================
-    Scripts
-    ================================================ -->
-
-    <!-- jQuery Library -->
     <script src="assets/js/jquery.min.js"></script>
-    <!--materialize js-->
     <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/register.js"></script>
     <script src="assets/js/google.js"></script>

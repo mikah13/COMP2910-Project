@@ -24,9 +24,9 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/social.css" />
+
 
 
         <style type="text/css">
@@ -61,9 +61,10 @@
             .success {
                 color: #61c200;
             }
+
             .abcRioButton.abcRioButtonBlue {
-            margin: 0 auto;
-        }
+                margin: 0 auto;
+            }
         </style>
         <link rel="shortcut icon" href="images/logo.png" />
 
@@ -108,11 +109,12 @@
                             <p class="center">Haven't created an account? <a href="register.php">Register Now!</a></p>
                         </div>
                         <!-- Google login button -->
-                    <div id="my-signin2" style="margin-bottom:10px;" data-onsuccess="onSignIn"></div>
+                        <div id="my-signin2" style="margin-bottom:10px;" data-onsuccess="onSignIn"></div>
 
                         <!-- Twitter login button -->
-                        <div style="margin-bottom:10px;">
-                            <p class="center"><a href="assets/php/twitterRegister.php"><img src="images/twitterButtonSignIn.png" width="220" height="40"></a></p>
+                        <div style="text-align:center; margin-bottom : 10px;">
+                            <a style="padding-right:13px;font-size:0.9rem" href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
+                                    <i style="margin-right:13px" class="fa fa-twitter"></i>Sign Up with Twitter</a>
                         </div>
 
                         <!-- Facebook login button -->
@@ -122,27 +124,13 @@
                         </div>
 
                     </div>
-
-                    <!-- <div class="row">
-            <div class="input-field col s12">
-            <a href=""><img src="https://immense-brushlands-25104.herokuapp.com/assets/img/flogin.png" alt="facebook" class="responsive-img valign profile-image-login"/></a> -->
-                    <!-- <div class="fb-login-button" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>          </div> -->
-                    <!-- </div>
-        </div> -->
-
-
                 </form>
             </div>
         </div>
 
 
-        <!-- ================================================
-    Scripts
-    ================================================ -->
 
-        <!-- jQuery Library -->
         <script src="assets/js/jquery.min.js"></script>
-        <!--materialize js-->
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/login.js"></script>
         <script src="assets/js/facebook.js"></script>

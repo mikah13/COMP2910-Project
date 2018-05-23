@@ -88,6 +88,7 @@
                             <li><a href="menu.php">Menu</a></li>
                             <li><a href="schedule.php">Schedule</a></li>
                             <li><a href="summary.php">Summary</a></li>
+                            <li><a href="list.php">List</a></li>
                             <li>
                                 <a href="profile.php" id="profile" class="button alt">
                                     <?php getName($conn); ?>
@@ -102,7 +103,7 @@
                 <section id="main" class="container">
 
                     <header>
-                        <h style="font-weight:400;font-size:3rem">Menu</h2>
+                        <h2 style="font-weight:400;font-size:3rem">Menu</h2>
                     </header>
                     <div class="blockquote" style="min-height:120px;margin-top:50px;">
 
@@ -113,7 +114,7 @@
                             <!-- Form -->
                             <section class="box">
                                 <h2>Search</h2>
-                                <form class="search-form" method="POST">
+                                <form class="search-form">
                                     <div class="row uniform 50%">
                                         <div class="9u 12u(mobilep)">
                                             <input type="text" name="query" id="query" value="" placeholder="Search..." />

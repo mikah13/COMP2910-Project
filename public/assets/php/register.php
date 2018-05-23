@@ -43,6 +43,7 @@ if (!emailChk($conn, $email)) {
         //Close
         $stmt->close();
         $_SESSION['id'] = $id;
+        $_SESSION['register'] = 0;
         echo "Success";
         // header('Location: ../../../login.php');
     }
