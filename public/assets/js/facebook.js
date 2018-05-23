@@ -12,6 +12,7 @@ window.fbAsyncInit = function() {
         return;
     js = d.createElement(s);
     js.id = id;
+    js.async = true;
     js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=154511015392915';
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
@@ -42,7 +43,7 @@ function statusChangeCallback(response) {
                     if (a === 'Success') {
                         location.href = 'menu.php';
                     } else if (a === 'New') {
-                        location.href="preference.php";
+                        location.href = "preference.php";
                     } else {
                         $('.error').html('Please login to Facebook');
                     }

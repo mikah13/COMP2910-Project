@@ -14,8 +14,8 @@
         <meta name="description" content="Food Tracking Application">
         <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="shortcut icon" href="images/logo.png" />
@@ -88,6 +88,7 @@
                             <li><a href="menu.php">Menu</a></li>
                             <li><a href="schedule.php">Schedule</a></li>
                             <li><a href="summary.php">Summary</a></li>
+                            <li><a href="list.php">List</a></li>
                             <li>
                                 <a href="profile.php" id="profile" class="button alt">
                                     <?php getName($conn); ?>
@@ -102,7 +103,7 @@
                 <section id="main" class="container">
 
                     <header>
-                        <h style="font-weight:400;font-size:3rem">Menu</h2>
+                        <h2 style="font-weight:400;font-size:3rem">Menu</h2>
                     </header>
                     <div class="blockquote" style="min-height:120px;margin-top:50px;">
 
@@ -113,7 +114,7 @@
                             <!-- Form -->
                             <section class="box">
                                 <h2>Search</h2>
-                                <form class="search-form" method="POST">
+                                <form class="search-form">
                                     <div class="row uniform 50%">
                                         <div class="9u 12u(mobilep)">
                                             <input type="text" name="query" id="query" value="" placeholder="Search..." />

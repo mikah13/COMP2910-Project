@@ -30,9 +30,10 @@
 
         <!-- Resource style -->
         <style>
-            nav{
+            nav {
                 font-weight: 400;
             }
+
             #navButton {
                 width: 80%;
             }
@@ -63,7 +64,6 @@
             .qty {
                 font-size: 1.3rem;
             }
-
         </style>
     </head>
 
@@ -77,21 +77,24 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
-                        <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
+                        <li><a href="list.php">List</a></li>
+                        <li>
+                            <a href="profile.php" id="profile" class="button alt">
+                                <?php getName($conn); ?>
+                            </a>
+                        </li>
                 </nav>
             </header>
             <div style="width:225px; margin: auto;z-index:5">
                 <a class="button special small" id="previous" style="float:left; margin-top:45px;margin-right:10px; width:100px; z-index:5">❮ Previous</a>
                 <a class="button special small next" id="next" style="margin-top:45px;margin-left:10px; width:100px;z-index:5">Next ❯</a>
             </div>
+
             <div class="cd-schedule loading">
                 <header>
-
                     <h1 class="display-4 mb-4 text-center" style="font-size: 5rem; font-weight: 400;" id="weekNo"></h1>
                 </header>
 
-                <!-- <div class="left-arrow"></div>
-                    <div class="right-arrow"></div> -->
                 <div class="timeline">
                     <ul style="display:none">
                         <li>

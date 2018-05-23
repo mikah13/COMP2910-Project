@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
     $.post('/assets/php/recentWeek.php', e => {
         let days = [
             'Monday',
@@ -309,35 +310,6 @@ jQuery(document).ready(function($) {
                     //
                     this.reset();
                 });
-                //
-                // $.ajax({url: '/assets/php/getRecipe.php'}).done(monday => {
-                //
-                //     $('#Monday').empty(e);
-                //     $('#Monday').append(e);
-                //
-                //     this.singleEvents = this.eventsGroup.find('.single-event');
-                //
-                //     this.initSchedule();
-                //     this.placeEvents();
-                //
-                // });
-                // $.ajax({url:'reset.php'}).done(e=>{
-                // 	$('.cd-schedule').empty();
-                // 	$('.cd-schedule').append(e);
-                // 	var schedules = $('.cd-schedule');
-                // 	var objSchedulesPlan = [],
-                // 		windowResize = false;
-                //
-                // 	if (schedules.length > 0) {
-                // 		schedules.each(function() {
-                // 		 create SchedulePlan objects
-                //
-                // 			objSchedulesPlan.push((plan = new SchedulePlan($(this))));
-                //
-                // 		});
-                // 	}
-                //
-                // })
 
             }
             SchedulePlan.prototype.reset = function() {
@@ -486,7 +458,6 @@ jQuery(document).ready(function($) {
                 }, function() {
                     $.post('/assets/php/getRecipe.php', function(d) {
                         d = JSON.parse(d);
-
                         days.forEach(day => {
                             $(`#${day}`).html(d[day]);
                         })
@@ -497,6 +468,7 @@ jQuery(document).ready(function($) {
                 });
 
             })
+            
             $('#previous').click(function() {
                 let week = parseInt($('#weekNo').html().split('Week ')[1]);
                 week = week === 1

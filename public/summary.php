@@ -91,6 +91,7 @@
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
+                        <li><a href="list.php">List</a></li>
                         <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
 
                     </ul>

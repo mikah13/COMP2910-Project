@@ -8,7 +8,7 @@ if (isset($_POST['data'])) {
 <style>
 @media only screen and (min-width:820px) {
     .detail{
-        width:80%;
+        width:85%;
     }
 
 }
