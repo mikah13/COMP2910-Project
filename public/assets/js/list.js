@@ -8,7 +8,8 @@ $(document).ready(function() {
     function display(data, week) {
         data = JSON.parse(data);
         data.forEach(e => {
-            e.data = JSON.parse(e.data).nutrition.ingredients;
+
+            e.data = JSON.parse(e.data.replace(/'/g," ")).nutrition.ingredients;
         })
         let arr = [];
 
