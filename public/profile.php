@@ -55,7 +55,6 @@
             <!-- Header -->
             <header id="header">
                 <h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
-
                 <nav id="nav">
 
                     <ul>
@@ -77,27 +76,27 @@
               <div>
                 <div class='info'>
                   <h2>Name</h2>
-                  <p>Name: //database name</p>
+                  <p><?php getName($conn); ?></p>
                 </div>
 
                 <div class='info'>
                   <h2>Age</h2>
-                  <p>Age: //database age</p>
+                  <p id = "age"></p>
                 </div>
 
                 <div class='info'>
                   <h2>Gender</h2>
-                  <p>Gender: //Male</p>
+                  <p id = "gender"></p>
                 </div>
 
                 <div class='info'>
                   <h2>Location</h2>
-                  <p>Location: //Canada</p>
+                  <p id = "location"></p>
                 </div>
 
                 <div class='info'>
                   <h2>Food Preferences</h2>
-                  <p>Preferences: //p1, p2, p3</p>
+                  <p id = "prefer"></p>
                 </div>
 
               </div>
