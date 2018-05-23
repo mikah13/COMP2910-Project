@@ -146,7 +146,7 @@ include('assets/php/getUserName.php');
 
                             <h3>Instructions</h3>
                         </header>
-                        <div>
+                        <div class="12u">
                             <ol id="instruction">
 
                             </ol>

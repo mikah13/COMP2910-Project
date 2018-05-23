@@ -37,6 +37,7 @@ $(document).ready(function() {
         instr.forEach(step => {
             $('#instruction').append(`<li>${step.step}</li>`)
         })
+            $('#instruction').append(`<li>Enjoy!</li>`)
     }
     function displayIngredients(arr, qty) {
         $('#people').val(qty);
@@ -74,7 +75,7 @@ $(document).ready(function() {
             e = e.toString();
             let b = e.match(/<script[\s\S]*?>[\s\S]*?<\/script>/gi);
             let data = b[0].split(',]}]});chart')[0].split('dataPoints: [{ ')[1];
-            let data1 = data.replace(/:/g, '":').replace(/, /g, ', "').replace(/image/g, '"image')
+            let data1 = data.replace(/:/g, '":').replace(/, /g, ', "').replace(/image/g, '"image').split('https"').join('https')
             data1 = '[{' + data1 + ']';
             data1 = JSON.parse(data1);
             data1.forEach(d => {
