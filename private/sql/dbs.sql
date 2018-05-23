@@ -40,13 +40,6 @@ CREATE TABLE recipe (
 ) ENGINE=INNODB;
 
 
-ALTER TABLE user
-ADD age INT(3),
-ADD gender VARCHAR(6),
-ADD country VARCHAR(6),
-ADD favorites VARCHAR(255),
-ADD picture VARCHAR(255)
-;
 
 
 ALTER TABLE recipe
