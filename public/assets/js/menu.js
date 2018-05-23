@@ -95,7 +95,7 @@ $(document).ready(function() {
             $.post('/assets/php/getRecipeData.php', {
                 data: strID
             }, function(d) {
-                d = JSON.parse(d);
+                d = JSON.parse(d.replace(/'/g," "));
                 if (d.length === 0) {
                     fetchData(id).done(data => {
                         data = data[0];
