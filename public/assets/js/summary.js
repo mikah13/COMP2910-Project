@@ -70,7 +70,6 @@ jQuery(document).ready(function($) {
         let arr = [];
         for (let val in data) {
             let list = JSON.parse(data[val]);
-
             list.forEach(a => {
                 if (arr.indexOf(a.recipe_id) === -1) {
                     arr.push(a.recipe_id);
@@ -121,7 +120,7 @@ jQuery(document).ready(function($) {
             $.post('/assets/php/getRecipeData.php', {
                 data: list
             }, function(e) {
-                let idList = JSON.parse(e.split("'").join(' '));
+                let idList = JSON.parse(e.split("'").join("\'"));
                 days.forEach(day => {
                     let dayData = [];
                     let dayCost = 0;
