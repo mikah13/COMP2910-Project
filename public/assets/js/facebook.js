@@ -55,3 +55,8 @@ function statusChangeCallback(response) {
         $('.error').html('Please login to Facebook');
     }
 }
+
+document.getElementById('facebook').addEventListener('click', function() {
+    //do the login
+    FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
+}, false);
