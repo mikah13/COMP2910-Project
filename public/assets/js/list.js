@@ -38,19 +38,10 @@ $(document).ready(function() {
 
         $('.table').empty();
         list.forEach((a, i) => {
-            $('.table').append(`<div id="row${i}" class="row">
-                    <div class="6u"> <input type="checkbox" id="item${i}"> <label id="label${i}" for="item${i}">${a.name}</label></div>
+            $('.table').append(`<div id="row${i}" class="row" style="">
+                    <div class="6u"> <p id="label${i}" for="item${i}">${a.name}</p></div>
                     <div class="6u">${a.amount} ${a.unit}</div>
                 </div>`)
-        })
-        $('input').click(function() {
-            let id = $(this).attr('id').split('item')[1];
-            if (!$(`#label${id}`).hasClass('lineThru')) {
-                $(`#label${id}`).addClass('lineThru')
-            } else {
-                $(`#label${id}`).removeClass('lineThru')
-            }
-            // console.log($('.table').html());
         })
     }
 

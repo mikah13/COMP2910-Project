@@ -113,12 +113,12 @@
 
                         <!-- Twitter login button -->
                         <div style="text-align:center; margin-bottom : 10px;">
-                            <a style="padding-right:13px;font-size:0.9rem" href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
-                                    <i style="margin-right:13px" class="fa fa-twitter"></i>Sign In with Twitter</a>
+                            <a  href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
+                            <i class="fa fa-twitter"></i>Sign In with Twitter</a>
                         </div>
 
                         <!-- Facebook login button -->
-                        <div style="margin-bottom:10px;">
+                        <div>
                             <p class="center"><a id="facebook" class="waves-effect waves-light btn social facebook">
                             <i class="fa fa-facebook"></i> Sign in with facebook</a></p>
                         </div>

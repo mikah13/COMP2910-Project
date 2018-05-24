@@ -120,11 +120,7 @@ jQuery(document).ready(function($) {
             $.post('/assets/php/getRecipeData.php', {
                 data: list
             }, function(e) {
-<<<<<<< HEAD
                 let idList = JSON.parse(e.split("'").join("\'"));
-=======
-                let idList = JSON.parse(e);
->>>>>>> 56d4bfe55ded6f998be14b7ad5abfab7709cf6f1
                 days.forEach(day => {
                     let dayData = [];
                     let dayCost = 0;
@@ -139,7 +135,6 @@ jQuery(document).ready(function($) {
                             let recipeCal = round(data.nutrition.nutrients[0].amount * quantity);
                             dayCost += recipeCost;
                             dayCal += recipeCal;
-
                             dayData.push({title: data.title, price: recipeCost, calorie: recipeCal, recipe_id: recipe_id})
                         })
                         dataObj[day] = {

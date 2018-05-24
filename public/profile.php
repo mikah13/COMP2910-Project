@@ -21,8 +21,8 @@
     </head>
     <style>
         #navPanel{
-        font-weight: 400;
-        font-size: 1rem;
+            font-weight: 400;
+            font-size: 1rem;
         }
         .dropotron li a:hover {
             background-color: #61c200;
@@ -32,19 +32,17 @@
             font-weight: 400;
         }
 
-        h1 {
-          font-size: 4em;
-        }
+
 
         #heading{
           text-align: center;
         }
 
         p {
-          background-color: white;
+          /* background-color: white;
           border-radius: 5px;
           font-size: 20px;
-          margin-bottom: 0.5em;
+          margin-bottom: 0.5em; */
         }
 
     </style>
@@ -56,12 +54,12 @@
             <header id="header">
                 <h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
                 <nav id="nav">
-
                     <ul>
                         <li><a href="index.php">Home</a></li>
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
+                        <li><a href="list.php">List</a></li>
                         <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
                     </ul>
                 </nav>
