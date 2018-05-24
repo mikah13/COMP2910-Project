@@ -48,23 +48,6 @@
         <div id="page-wrapper">
 
             <!-- Header -->
-            <header id="header">
-                <h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
-                <nav id="nav">
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="menu.php">Menu</a></li>
-                        <li><a href="schedule.php">Schedule</a></li>
-                        <li><a href="summary.php">Summary</a></li>
-                        <li>
-                            <a href="profile.php" id="profile" class="button alt">
-                                <?php getName($conn); ?>
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </header>
 
             <!-- Main -->
             <section id="main" class="container">
@@ -92,9 +75,9 @@
                         <div class="row">
 
                             <div class="4u 12u(mobilep)">
-                                <input type="radio" id="male" name="gender" checked="" value="male">
+                                <input type="radio" id="male" name="gender" checked="" value="Male">
                                 <label for="male">Male</label>
-                                <input type="radio" id="female" name="gender" vale="female">
+                                <input type="radio" id="female" name="gender" vale="Female">
                                 <label for="female">Female</label>
                             </div>
 
@@ -104,13 +87,13 @@
                         <h3>3. Location</h3>
                         <div class="row">
                             <div class="6u ">
-                                <input type="radio" id="usa" name="location" value="usa" checked>
+                                <input type="radio" id="usa" name="location" value="Usa" checked>
                                 <label for="usa"><img src="images/usa.png"/></label>
 
 
                             </div>
                             <div class="6u ">
-                                <input type="radio" id="canada" name="location" value="canada">
+                                <input type="radio" id="canada" name="location" value="Canada">
                                 <label for="canada"><img src="images/canada.png"/></label>
                             </div>
                         </div>
@@ -138,7 +121,7 @@
                         </div>
                         <div class="4u">
                             <input type="checkbox" id="vegaterian" name="fav" value="vegaterian">
-                            <label for="vegaterian">Vegaterian</label>
+                            <label for="vegaterian">Vegetables</label>
                         </div>
                         <div class="4u">
                             <input type="checkbox" id="fruit" name="fav" value="fruit">

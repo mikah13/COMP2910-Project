@@ -33,6 +33,7 @@
                 z-index: 100;
                 font-size: 30px;
                 color: black;
+                cursor:pointer;
             }
 
             .noselect {

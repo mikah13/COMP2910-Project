@@ -1,11 +1,21 @@
-$(document).ready(function(){
-    $.post('/assets/php/getUserData.php',function(data){
+$(document).ready(function() {
+    $.post('/assets/php/getUserData.php', function(data) {
         data = JSON.parse(data);
         console.log(data);
         $("#gender").html(data.gender);
-        $("#name").html(data.first +" "+ data.last);
-        $("#location").html(data.location);
+        $("#country").html(data.country);
         $("#age").html(data.age);
-        $("#prefer").html(data.favourite);
+        if(data.favourite){
+
+            let list = data.favourite.split(',');
+            list.forEach(a=>{
+                $("#prefer").append(`<li>${a}</li>`)
+            })
+        }
+        else{
+            $("#prefer").html('');
+        }
+
+
     })
 })

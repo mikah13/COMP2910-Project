@@ -14,37 +14,48 @@
         <meta name="description" content="Food Tracking Application">
         <meta name="copyright" content="2018 JMAN, Inc. All rights reserved.">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="shortcut icon" href="images/logo.png" />
-        <title>JustPerfect</title>
+        <title>    <?php getName($conn); ?></title>
     </head>
     <style>
-        #navPanel{
+        #navPanel {
             font-weight: 400;
             font-size: 1rem;
         }
+
         .dropotron li a:hover {
             background-color: #61c200;
-
         }
-        nav{
+
+        nav {
             font-weight: 400;
         }
 
-
-
-        #heading{
-          text-align: center;
+        #heading {
+            text-align: center;
         }
 
         p {
-          /* background-color: white;
+            /* background-color: white;
           border-radius: 5px;
           font-size: 20px;
           margin-bottom: 0.5em; */
         }
+        #name, #age, #country, #gender, #prefer {
+            color:#61c200;
 
+        }
+        #prefer li{
+            font-size: 1.5rem;
+        }
+        a:hover{
+
+            text-decoration: none;
+        }
     </style>
 
     <body>
@@ -60,58 +71,71 @@
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
                         <li><a href="list.php">List</a></li>
-                        <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
+                        <li>
+                            <a href="profile.php" id="profile" class="button alt">
+                                <?php getName($conn); ?>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
             </header>
             <!-- Main -->
             <section id="main" class="container">
-    					<div id='heading'>
-                <h1>Profile Page</h1>
-                <h2>My Settings<h2>
+                <header id='heading'>
+                    <h2 style="font-weight:400;font-size:3rem">Profile Page</h2>
+              </header>
+              <div class="row">
+                  <div class="12u">
+                      <section class="box">
+
+                             <div class='info'>
+                               <h3>Name: <span id="name"> <?php getName($conn); ?></span></h3>
+                             </div>
+
+                             <div class='info'>
+                                 <h3>Age: <span id="age"></span></h3>
+
+                             </div>
+
+                             <div class='info'>
+                                 <h3>Gender: <span id="gender"></span></h3>
+
+                             </div>
+
+                             <div class='info'>
+                                 <h3>Country: <span id="country"></span></h3>
+
+                             </div>
+
+                             <div class='info'>
+                                 <h3>Food Preferences: </h3>
+                                 <ol id="prefer">
+
+                                 </ol>
+                             </div>
+                             <div class='info'>
+                                 <a class="button alt" href="logout.php">Sign Out</a>
+                             </div>
+
+                      </section>
+                  </div>
               </div>
-              <div>
-                <div class='info'>
-                  <h2>Name</h2>
-                  <p><?php getName($conn); ?></p>
-                </div>
 
-                <div class='info'>
-                  <h2>Age</h2>
-                  <p id = "age"></p>
-                </div>
+        </section>
 
-                <div class='info'>
-                  <h2>Gender</h2>
-                  <p id = "gender"></p>
-                </div>
-
-                <div class='info'>
-                  <h2>Location</h2>
-                  <p id = "location"></p>
-                </div>
-
-                <div class='info'>
-                  <h2>Food Preferences</h2>
-                  <p id = "prefer"></p>
-                </div>
-
-              </div>
-    				</section>
-
-            <!-- Footer -->
-            <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; JMAN - 2018. All rights reserved.</li>
-                </ul>
-            </footer>
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; JMAN - 2018. All rights reserved.</li>
+            </ul>
+        </footer>
 
 
         </div>
@@ -131,6 +155,6 @@
     </body>
 
     </html>
-<?php
+    <?php
     db_disconnect($conn);
  ?>

@@ -21,6 +21,9 @@
         <link rel="shortcut icon" href="images/logo.png" />
         <title>Menu</title>
         <style>
+            h4, p {
+                cursor:pointer;
+            }
             #up {
                 margin: 0;
                 position: fixed;
@@ -33,6 +36,7 @@
                 z-index: 100;
                 font-size: 30px;
                 color: black;
+                cursor:pointer;
             }
 
             img {
