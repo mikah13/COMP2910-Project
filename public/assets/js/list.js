@@ -40,7 +40,7 @@ $(document).ready(function() {
         list.forEach((a, i) => {
             $('.table').append(`<div id="row${i}" class="row" style="">
                     <div class="6u"> <p id="label${i}" for="item${i}">${a.name}</p></div>
-                    <div class="6u">${a.amount} ${a.unit}</div>
+                    <div class="6u">${round(a.amount)} ${a.unit}</div>
                 </div>`)
         })
     }

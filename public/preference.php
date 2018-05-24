@@ -104,27 +104,27 @@
                             Choose all that applies to you:
                         </p>
                         <div class="4u">
-                            <input type="checkbox" id="chicken" name="fav" value="chicken">
+                            <input type="checkbox" id="chicken" name="fav" value="Chicken">
                             <label for="chicken">Chicken</label>
                         </div>
                         <div class="4u">
-                            <input type="checkbox" id="pork" name="fav" value="pork">
+                            <input type="checkbox" id="pork" name="fav" value="Pork">
                             <label for="pork">Pork</label>
                         </div>
                         <div class="4u">
-                            <input type="checkbox" id="fish" name="fav" value="fish">
+                            <input type="checkbox" id="fish" name="fav" value="Fish">
                             <label for="fish">Fish</label>
                         </div>
                         <div class="4u">
-                            <input type="checkbox" id="beef" name="fav" value="beef">
+                            <input type="checkbox" id="beef" name="fav" value="Beef">
                             <label for="beef">Beef</label>
                         </div>
                         <div class="4u">
-                            <input type="checkbox" id="vegaterian" name="fav" value="vegaterian">
+                            <input type="checkbox" id="vegaterian" name="fav" value="Vegetables">
                             <label for="vegaterian">Vegetables</label>
                         </div>
                         <div class="4u">
-                            <input type="checkbox" id="fruit" name="fav" value="fruit">
+                            <input type="checkbox" id="fruit" name="fav" value="Fruit">
                             <label for="fruit">Fruit</label>
                         </div>
 
