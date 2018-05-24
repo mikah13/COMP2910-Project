@@ -4,7 +4,7 @@ $(document).ready(function(){
         console.log(data);
         $("#gender").html(data.gender);
         $("#name").html(data.first +" "+ data.last);
-        $("#location").html(data.location);
+        $("#location").html(data.country);
         $("#age").html(data.age);
         $("#prefer").html(data.favourite);
     })

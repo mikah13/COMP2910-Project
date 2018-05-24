@@ -46,7 +46,10 @@
           font-size: 20px;
           margin-bottom: 0.5em;
         }
-
+        
+        .centre{
+            text-align: center;
+        }
     </style>
 
     <body>
@@ -101,6 +104,10 @@
 
               </div>
     				</section>
+                            
+                <div class="centre">
+                     <h3><a href="logout.php">Sign out</a></h3>
+                </div>
 
             <!-- Footer -->
             <footer id="footer">
