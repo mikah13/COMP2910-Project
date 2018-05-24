@@ -1,6 +1,7 @@
 <?php
     require_once('assets/php/session.php');
     include('assets/php/getUserName.php');
+
  ?>
 
     <html>
@@ -32,21 +33,6 @@
             font-weight: 400;
         }
 
-        h1 {
-          font-size: 4em;
-        }
-
-        #heading{
-          text-align: center;
-        }
-
-        p {
-          background-color: white;
-          border-radius: 5px;
-          font-size: 20px;
-          margin-bottom: 0.5em;
-        }
-
     </style>
 
     <body>
@@ -55,6 +41,7 @@
             <!-- Header -->
             <header id="header">
                 <h1><a href="index.php" id="jperfect">JustPerfect</a></h1>
+
                 <nav id="nav">
 
                     <ul>
@@ -67,40 +54,45 @@
                 </nav>
 
             </header>
+
             <!-- Main -->
             <section id="main" class="container">
-    					<div id='heading'>
-                <h1>Profile Page</h1>
-                <h2>My Settings<h2>
-              </div>
-              <div>
-                <div class='info'>
-                  <h2>Name</h2>
-                  <p><?php getName($conn); ?></p>
-                </div>
+    					<header>
+    						<h2>Links & Resources</h2>
+    						<p>Links to help you save food and reduce waste.</p>
+    					</header>
 
-                <div class='info'>
-                  <h2>Age</h2>
-                  <p id = "age"></p>
-                </div>
+    					<div class="box">
+    						<h3>Featured:</h3>
+    						<thead>
+    							<p>From savvy saving tips, to community events, here are a list of some of the most useful resources to help you to reduce food waste and save money!</p>
+    						</thead>
 
-                <div class='info'>
-                  <h2>Gender</h2>
-                  <p id = "gender"></p>
-                </div>
+    						<hr>
 
-                <div class='info'>
-                  <h2>Location</h2>
-                  <p id = "location"></p>
-                </div>
+    						<div class="row" style="background-color:rgba(237, 214, 26, 0.5)">
+    							<div class="6u 12u(mobilep) right">
+    								<a href="https://www.metrovancouver.org"><img src="images/MetroVancouver.png" alt="MetroVancouver Logo" class="lrnMore"/></a>
+    							</div>
+    							<div class="6u 12u(mobilep) left textbox">
+    								<h2>Metro Vancouver</h2>
+    								<p>Metro Vancouver is the website that promotes some good food and water saving initiatives. They have many ideas that are being implemented in the Metro-Vancouver area.</p>
+    							</div>
+    						</div>
 
-                <div class='info'>
-                  <h2>Food Preferences</h2>
-                  <p id = "prefer"></p>
-                </div>
+    						<hr>
 
-              </div>
-    				</section>
+    						<div class="row" style="background-color:rgba(56, 163, 203, 0.5)">
+    							<div class="6u 12u(mobilep) left">
+    								<a href="http://www.lovefoodhatewaste.ca/"><img src="images/lovefood.png" alt="Love Food Hate Waste Logo" class="lrnMore" style="background-color: white"/></a>
+    							</div>
+    							<div class="6u 12u(mobilep) right textbox">
+    								<h2>Love Food - Hate Waste</h2>
+    								<p>Love Food - Hate Waste is a campaign that has had great success in reducing food waste in the UK and is being brought to Cananda to share those same tips and tricks to help Canadians reduce their food waste.</p>
+    							</div>
+    						</div>
+    					</div>
+            </section>
 
             <!-- Footer -->
             <footer id="footer">
@@ -128,7 +120,6 @@
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
-        <script src="assets/js/profile.js"></script>
 
     </body>
 

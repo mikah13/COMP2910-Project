@@ -17,7 +17,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 
-$userdata = "SELECT age, gender, country, favorites, picture FROM user WHERE id = {$_SESSION["id"]}";
+$userdata = "SELECT age, gender, country, favourite, picture FROM user WHERE id = {$_SESSION["id"]}";
 $results = mysqli_query($conn, $userdata);
 echo json_encode(mysqli_fetch_assoc($results));
 db_disconnect($conn);

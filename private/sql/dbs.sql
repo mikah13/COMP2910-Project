@@ -39,9 +39,6 @@ CREATE TABLE recipe (
     PRIMARY KEY(recipe_id)
 ) ENGINE=INNODB;
 
-
-
-
 ALTER TABLE recipe
 ADD summary TEXT;
 
