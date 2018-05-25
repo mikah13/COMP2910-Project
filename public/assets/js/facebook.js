@@ -18,15 +18,13 @@ window.fbAsyncInit = function() {
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
+            console.log(response);
         statusChangeCallback(response);
     });
 }
 
 function statusChangeCallback(response) {
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
+
     if (response.status === 'connected') {
         FB.api('/me?fields=name,email,birthday,location', function(res) {
             if (res && !res.error) {
