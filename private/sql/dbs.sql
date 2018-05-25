@@ -44,11 +44,18 @@ ADD summary TEXT;
 
 ALTER TABLE user
 ADD age INT(3),
-ADD gender VARCHAR(6),
+ADD gender VARCHAR(6) DEFAULT 'Male',
 ADD country VARCHAR(6) DEFAULT 'Canada',
-ADD picture VARCHAR(255),
-ADD favourite VARCHAR(255)
+-- ADD picture VARCHAR(255),
+ADD favourite VARCHAR(255) DEFAULT ''
 ;
 
 ALTER TABLE user_activity
 ADD boughtItem VARCHAR(10000) DEFAULT '';
+
+ALTER TABLE user
+DROP COLUMN age,
+DROP COLUMN gender,
+DROP COLUMN country,
+DROP COLUMN favourite
+;
