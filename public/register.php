@@ -108,6 +108,7 @@
                         <a href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
                                 <i class="fa fa-twitter"></i>Sign Up with Twitter</a>
                     </div>
+                    <a class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onclick="checkLoginState();">Faceook</a>
 
                     <!-- Facebook login button -->
                     <div style="text-align:center">
