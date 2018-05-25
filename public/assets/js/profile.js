@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $.post('/assets/php/getUserData.php', function(data) {
         data = JSON.parse(data);
-        console.log(data);
         $("#gender").html(data.gender);
         $("#country").html(data.country);
         $("#age").html(data.age);
