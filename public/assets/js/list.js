@@ -37,11 +37,46 @@ $(document).ready(function() {
         }, [])
 
         $('.table').empty();
-        list.forEach((a, i) => {
-            $('.table').append(`<div id="row${i}" class="row" style="">
-                    <div class="6u"> <p id="label${i}" for="item${i}">${a.name}</p></div>
-                    <div class="6u">${round(a.amount)} ${a.unit}</div>
-                </div>`)
+        $.post('/assets/php/getItemBought.php', function(bought) {
+
+            let boughtArr = JSON.parse(bought).split(", ");
+            console.log(boughtArr);
+            list.forEach((a, i) => {
+                let input = `<input id="item${i}" type="checkbox" value="${a.name}" ${boughtArr.indexOf(a.name) === -1
+                    ? ""
+                    : "checked"}>`;
+                let label = boughtArr
+                    ? `<label id="label${i}" for="item${i}" class="${boughtArr.indexOf(a.name) === -1
+                        ? ""
+                        : 'lineThru'}">${a.name}</label>`
+                    : ` <label id="label${i}" for="item${i}">${a.name}</label>`;
+
+                $('.table').append(`<div id="row${i}" class="row" style="">
+                            <div class="6u"> ${input}${label}</input></div>
+                            <div class="6u">${round(a.amount)} ${a.unit}</div>
+                        </div>`)
+            })
+
+            $('input').on('click', function() {
+                let id = $(this).attr('id').split('item')[1];
+                if ($(`#label${id}`).hasClass('lineThru')) {
+                    $.post('/assets/php/removeItemBought.php', {
+                        item: $(this).val()
+                    }, function(d) {
+                        console.log(d);
+                        $(`#label${id}`).removeClass('lineThru');
+                    })
+
+                } else {
+                    $.post('/assets/php/addItemBought.php', {
+                        item: $(this).val()
+                    }, function(d) {
+                        console.log(d);
+                        $(`#label${id}`).addClass('lineThru');
+                    })
+
+                }
+            })
         })
     }
 

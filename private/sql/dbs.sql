@@ -49,3 +49,6 @@ ADD country VARCHAR(6) DEFAULT 'Canada',
 ADD picture VARCHAR(255),
 ADD favourite VARCHAR(255)
 ;
+
+ALTER TABLE user_activity
+ADD boughtItem VARCHAR(10000) DEFAULT '';
