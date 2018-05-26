@@ -10,11 +10,11 @@ problem is that shoppers do not know how much to buy when grocery shopping. Our 
 This document will walk you through the process of setting up and creating the application of Team 7.
 
 ### Members
-* [J]eevan Bains
-* [M]ike Hoang
-* [A]ndrew Yang
-* [A]ntonio Cao Shen (C)
-* [N]irajan Manandhar
+* <a href="https://github.com/HarjeevanBains">[J]eevan Bains</a>
+* <a href="https://github.com/mikah13">[M]ike Hoang</a>
+* <a href="https://github.com/crastwam">[A]ndrew Yang</a>
+* <a href="https://github.com/Antoniocao">[A]ntonio Cao Shen (C)</a>
+* <a href="https://github.com/nirajan-manandhar">[N]irajan Manandhar</a>
 
 
 # Table of Contents
