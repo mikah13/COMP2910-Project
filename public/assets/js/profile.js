@@ -5,7 +5,6 @@ $(document).ready(function() {
         $("#country").html(data.country);
         $("#age").html(data.age);
         if(data.favourite){
-
             let list = data.favourite.split(',');
             list.forEach(a=>{
                 $("#prefer").append(`<li>${a}</li>`)
@@ -14,7 +13,5 @@ $(document).ready(function() {
         else{
             $("#prefer").html('');
         }
-
-
     })
 })

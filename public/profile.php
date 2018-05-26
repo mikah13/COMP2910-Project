@@ -19,7 +19,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="shortcut icon" href="images/logo.png" />
-        <title>    <?php getName($conn); ?></title>
+        <title>
+            <?php getName($conn); ?>
+        </title>
     </head>
     <style>
         #navPanel {
@@ -45,14 +47,21 @@
           font-size: 20px;
           margin-bottom: 0.5em; */
         }
-        #name, #age, #country, #gender, #prefer {
-            color:#61c200;
+
+        #name,
+        #age,
+        #country,
+        #gender,
+        #prefer {
+            color: #61c200;
 
         }
-        #prefer li{
+
+        #prefer li {
             font-size: 1.5rem;
         }
-        a:hover{
+
+        a:hover {
 
             text-decoration: none;
         }
@@ -84,58 +93,58 @@
             <section id="main" class="container">
                 <header id='heading'>
                     <h2 style="font-weight:400;font-size:3rem">Profile Page</h2>
-              </header>
-              <div class="row">
-                  <div class="12u">
-                      <section class="box">
+                </header>
+                <div class="row">
+                    <div class="12u">
+                        <section class="box">
 
-                             <div class='info'>
-                               <h3>Name: <span id="name"> <?php getName($conn); ?></span></h3>
-                             </div>
+                            <div class='info'>
+                                <h3>Name: <span id="name"> <?php getName($conn); ?></span></h3>
+                            </div>
 
-                             <div class='info'>
-                                 <h3>Age: <span id="age"></span></h3>
+                            <div class='info'>
+                                <h3>Age: <span id="age"></span></h3>
 
-                             </div>
+                            </div>
 
-                             <div class='info'>
-                                 <h3>Gender: <span id="gender"></span></h3>
+                            <div class='info'>
+                                <h3>Gender: <span id="gender"></span></h3>
 
-                             </div>
+                            </div>
 
-                             <div class='info'>
-                                 <h3>Country: <span id="country"></span></h3>
+                            <div class='info'>
+                                <h3>Country: <span id="country"></span></h3>
 
-                             </div>
+                            </div>
 
-                             <div class='info'>
-                                 <h3>Food Preferences: </h3>
-                                 <ol id="prefer">
+                            <div class='info'>
+                                <h3>Food Preferences: </h3>
+                                <ol id="prefer">
 
-                                 </ol>
-                             </div>
-                             <div class='info'>
-                                 <a class="button alt" href="logout.php">Sign Out</a>
-                             </div>
+                                </ol>
+                            </div>
+                            <div class='info'>
+                                <a class="button alt" href="logout.php">Sign Out</a>
+                            </div>
 
-                      </section>
-                  </div>
-              </div>
+                        </section>
+                    </div>
+                </div>
 
-        </section>
+            </section>
 
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; JMAN - 2018. All rights reserved.</li>
-            </ul>
-        </footer>
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://twitter.com/JMAN_ORIGINAL" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://www.facebook.com/JMAN-1982479225414716/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://www.instagram.com/jman_original/?hl=en" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/mikah13/COMP2910-Project" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; JMAN - 2018. All rights reserved.</li>
+                </ul>
+            </footer>
 
 
         </div>

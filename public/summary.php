@@ -28,16 +28,19 @@
         <title>Summary</title>
         <!-- Resource style -->
         <style>
-        .dropotron li a{
+            .dropotron li a {
                 color: #fff
-        }
-        .dropotron li a:hover {
-            background-color: #61c200;
+            }
 
-        }
-            nav{
+            .dropotron li a:hover {
+                background-color: #61c200;
+
+            }
+
+            nav {
                 font-weight: 400;
             }
+
             #navButton {
                 width: 80%;
             }
@@ -92,7 +95,11 @@
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="summary.php">Summary</a></li>
                         <li><a href="list.php">List</a></li>
-                        <li><a href="profile.php" id="profile" class="button alt"><?php getName($conn); ?></a></li>
+                        <li>
+                            <a href="profile.php" id="profile" class="button alt">
+                                <?php getName($conn); ?>
+                            </a>
+                        </li>
 
                     </ul>
                 </nav>

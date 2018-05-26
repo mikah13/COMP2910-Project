@@ -7,7 +7,6 @@ $(document).ready(function() {
             email: $('#email').val(),
             password: $('#password').val()
         }
-
         $.post('assets/php/register.php', data, function(a) {
             if (a === 'Success') {
                 location.href="preference.php";

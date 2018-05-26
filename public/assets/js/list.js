@@ -11,13 +11,9 @@ $(document).ready(function() {
             e.data = JSON.parse(e.data).nutrition.ingredients;
         })
         let arr = [];
-
         data.forEach((e, i) => {
-
             if (e.week === week) {
-
                 let qty = e.quantity;
-
                 e.data.forEach(a => {
                     delete a.nutrients;
                     a.amount = round(a.amount * qty);
@@ -25,7 +21,6 @@ $(document).ready(function() {
                 })
             }
         })
-
         let list = arr.reduce((a, b) => {
             let index = a.findIndex(i => i.name === b.name);
             if (index === -1) {
@@ -35,10 +30,8 @@ $(document).ready(function() {
             }
             return a;
         }, [])
-
         $('.table').empty();
         $.post('/assets/php/getItemBought.php', function(bought) {
-
             let boughtArr = JSON.parse(bought).split(", ");
             console.log(boughtArr);
             list.forEach((a, i) => {
@@ -56,7 +49,6 @@ $(document).ready(function() {
                             <div class="6u">${round(a.amount)} ${a.unit}</div>
                         </div>`)
             })
-
             $('input').on('click', function() {
                 let id = $(this).attr('id').split('item')[1];
                 if ($(`#label${id}`).hasClass('lineThru')) {
@@ -66,7 +58,6 @@ $(document).ready(function() {
                         console.log(d);
                         $(`#label${id}`).removeClass('lineThru');
                     })
-
                 } else {
                     $.post('/assets/php/addItemBought.php', {
                         item: $(this).val()
@@ -74,7 +65,6 @@ $(document).ready(function() {
                         console.log(d);
                         $(`#label${id}`).addClass('lineThru');
                     })
-
                 }
             })
         })
@@ -82,7 +72,6 @@ $(document).ready(function() {
 
     $.post('assets/php/shoplist.php', function(data) {
         display(data, 'Week 1');
-
         $(".wk").click(function() {
             let week = $(this).text().trim();
             for (let i = 0; i < $('.wk').length; i++) {

@@ -23,9 +23,10 @@
         <link rel="shortcut icon" href="images/logo.png" />
         <title>Preference</title>
         <style>
-        .info{
-            margin-bottom: 50px;
-        }
+            .info {
+                margin-bottom: 50px;
+            }
+
             img {
                 cursor: pointer
             }
@@ -129,14 +130,14 @@
                         </div>
 
                     </div>
-                <div class="row">
+                    <div class="row">
                         <button class="button special big" style="float:right" id="submit">Submit</button>
-                </div>
+                    </div>
 
                 </div>
 
 
-            </div>
+        </div>
 
         </section>
 

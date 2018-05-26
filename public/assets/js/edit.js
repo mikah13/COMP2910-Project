@@ -9,7 +9,7 @@ $(document).ready(function() {
             old_day: old_day,
             old_week: old_week
         }
-        $.post('/assets/php/removeRecipe.php',data,function(d){
+        $.post('/assets/php/removeRecipe.php', data, function(d) {
             $('#msg').html('Recipe succesfully removed!');
             $('#myModal').modal('show');
             setTimeout(function() {
@@ -18,14 +18,14 @@ $(document).ready(function() {
         })
 
     })
-    $('.detail').click(function(){
-        window.open('recipe.php?id='+$('#recipe_id').val(),'_blank');
+    $('.detail').click(function() {
+        window.open('recipe.php?id=' + $('#recipe_id').val(), '_blank');
     })
-    $('.detail').mouseover(function(){
-        $(this).css('color','#55CD48')
+    $('.detail').mouseover(function() {
+        $(this).css('color', '#55CD48')
     })
-    $('.detail').mouseout(function(){
-        $(this).css('color','black')
+    $('.detail').mouseout(function() {
+        $(this).css('color', 'black')
     })
     $(".add-recipe").click(function(e) {
         e.preventDefault();
@@ -35,7 +35,7 @@ $(document).ready(function() {
         let day = $('#day').val();
         let week = $('#week').val();
 
-        if(quantity>=0){
+        if (quantity >= 0) {
             data = {
                 recipe_id: recipe_id,
                 recipe_title: recipe_title,
@@ -60,6 +60,5 @@ $(document).ready(function() {
 
             });
         }
-
     });
 })

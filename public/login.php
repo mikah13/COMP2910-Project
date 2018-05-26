@@ -113,7 +113,7 @@
 
                         <!-- Twitter login button -->
                         <div style="text-align:center; margin-bottom : 10px;">
-                            <a  href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
+                            <a href="assets/php/twitterRegister.php" class="waves-effect waves-light btn social twitter">
                             <i class="fa fa-twitter"></i>Sign In with Twitter</a>
                         </div>
 
@@ -125,8 +125,8 @@
 
                     </div>
                 </form>
-                </div>
             </div>
+        </div>
 
 
 

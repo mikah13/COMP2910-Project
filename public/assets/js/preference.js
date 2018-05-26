@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#navButton').css('display', 'none');
     $('#submit').on('click', function() {
         let age = $('#age').val() | 1;
@@ -20,6 +19,5 @@ $(document).ready(function() {
         $.post('/assets/php/preference.php', data, function(a) {
             location.href = "menu.php";
         })
-
     })
 })

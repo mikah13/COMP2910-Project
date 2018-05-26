@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     let data = JSON.parse($('#data').text());
     let totalCost = data.totalCost;
     let totalCal = data.totalCal;
@@ -15,10 +14,10 @@ $(document).ready(function() {
         window.open(`recipe.php?id=${id}`, '_blank')
     })
     $('.title').mouseover(function() {
-        $(this).css('color', '#55CD48')
+        $(this).css('color', '#55CD48');
     })
     $('.title').mouseout(function() {
-        $(this).css('color', 'black')
+        $(this).css('color', 'black');
     })
 
 })
