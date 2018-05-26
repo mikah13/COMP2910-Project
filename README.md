@@ -2,7 +2,6 @@
 <p align="center" ><a href="https://jperfect.azurewebsites.net" target="_blank"><img style="display: block; margin: auto;" src="https://github.com/mikah13/COMP2910-Project/blob/master/public/images/full_logo.png" /></a></p>
 <h1 align="center"> JUST PERFECT </h1>
 <h4 align="center">One Step Closer To Being Perfect</h4>
-<h4 align="center">Andrew was here</h4>
 
 ### Overview
 Canadians throw away an average of $854 per person each year of unused food. A key factor to this
@@ -23,10 +22,20 @@ This document will walk you through the process of setting up and creating the a
 * [Install MySQL](#install-mysql)
 * [Connect MySQL and PHP](#connect-mysql-and-php)
 * [Deploy on Azure](#deploy-on-azure)
+* [Fetch Recipe API](#fetch-recipe-api)
+* [Social Login APIs](#social-login-apis)
 * [Credit](#credit)
+
 
 ## Install MySQL
 
 ## Connect MySQL and PHP
 
 ## Deploy on Azure
+
+## Fetch Recipe API
+
+## Social Login APIs
+
+## Credit
+Special thanks to <a href="https://html5up.net/"> HTML5 UP</a>, <a href="https://codyhouse.co/">Code House</a> for the templates and <a href="https://spoonacular.com/">Spoonacular</a> for the Recipe APIs.
