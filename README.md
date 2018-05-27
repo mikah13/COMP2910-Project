@@ -31,6 +31,7 @@ This document will walk you through the process of setting up and creating the a
 ## Connect MySQL and PHP
 
 ## Deploy on Azure
+<a href="https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/#mysqlconnect"> HERE </a>
 
 ## Fetch Recipe API
 
